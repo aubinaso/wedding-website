@@ -31,7 +31,7 @@ npm run preview
 ## Customize
 
 - Update names, dates, venues, schedule, and RSVP link in `src/App.jsx`.
-- Replace `RSVP_FORM_URL` with your real Microsoft Forms, Google Forms, Typeform, or custom RSVP URL.
+- Replace `wedding.rsvpFormLink` in `src/App.jsx` with your real Microsoft Forms, Google Forms, Typeform, or custom RSVP URL.
 - Replace the Unsplash image URLs in `src/App.jsx` with your own engagement or wedding photos.
 - Adjust colors and typography in `tailwind.config.js`.
 

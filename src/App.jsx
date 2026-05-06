@@ -14,7 +14,16 @@ import {
   Utensils,
 } from 'lucide-react';
 
-const RSVP_FORM_URL = 'https://forms.office.com/';
+const wedding = {
+  groom: 'Axel',
+  bride: 'Aivi',
+  couple: 'Axel & Aivi',
+  date: '15 Août 2026',
+  dateLong: 'Samedi 15 Août 2026',
+  location: 'Lieu à préciser',
+  rsvpLink: '#rsvp',
+  rsvpFormLink: 'https://forms.office.com/',
+};
 
 const heroImage =
   'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1800&q=85';
@@ -34,7 +43,7 @@ const galleryImages = [
   },
   {
     src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=80',
-    alt: 'Bride and groom holding hands',
+    alt: 'Couple holding hands',
   },
   {
     src: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=900&q=80',
@@ -87,7 +96,7 @@ const practicalInfo = [
   {
     icon: Hotel,
     title: 'Accommodation',
-    text: 'A room block is reserved nearby under the names Axel & Camille until one month before the wedding.',
+    text: `A room block is reserved nearby under the names ${wedding.couple} until one month before the wedding.`,
   },
   {
     icon: Camera,
@@ -121,17 +130,17 @@ function App() {
             Together with their families
           </p>
           <h1 className="mt-8 animate-floatIn font-serif text-6xl font-semibold leading-none sm:text-8xl lg:text-9xl">
-            Axel <span className="block text-champagne">&</span> Camille
+            {wedding.groom} <span className="block text-champagne">&</span> {wedding.bride}
           </h1>
           <div className="mx-auto mt-8 flex max-w-xl animate-floatIn flex-col items-center justify-center gap-4 border-y border-cream/35 py-6 text-sm font-semibold uppercase tracking-[0.25em] sm:flex-row sm:gap-8">
-            <span>Saturday</span>
+            <span>Samedi</span>
             <span className="font-serif text-3xl normal-case tracking-normal text-champagne">
-              20 June 2026
+              {wedding.date}
             </span>
-            <span>Provence</span>
+            <span>{wedding.location}</span>
           </div>
           <a
-            href="#rsvp"
+            href={wedding.rsvpLink}
             className="mt-10 inline-flex animate-floatIn items-center justify-center rounded-full bg-cream px-8 py-4 text-sm font-bold uppercase tracking-[0.22em] text-wine transition hover:-translate-y-1 hover:bg-champagne focus:outline-none focus:ring-4 focus:ring-cream/40"
           >
             RSVP
@@ -262,10 +271,10 @@ function App() {
             Say You Will Be There
           </h2>
           <p className="mx-auto mt-5 max-w-2xl leading-8 text-ink/75">
-            Please confirm your presence by 20 May 2026 so we can prepare your seat, your glass, and your place on the dance floor.
+            Please confirm your presence for {wedding.dateLong} so we can prepare your seat, your glass, and your place on the dance floor.
           </p>
           <a
-            href={RSVP_FORM_URL}
+            href={wedding.rsvpFormLink}
             target="_blank"
             rel="noreferrer"
             className="mt-8 inline-flex items-center justify-center rounded-full bg-wine px-8 py-4 text-sm font-bold uppercase tracking-[0.22em] text-cream transition hover:-translate-y-1 hover:bg-rosewood focus:outline-none focus:ring-4 focus:ring-wine/20"
@@ -304,8 +313,8 @@ function App() {
       </section>
 
       <footer className="border-t border-wine/10 bg-cream px-5 py-10 text-center">
-        <p className="font-serif text-3xl font-semibold text-wine">Axel & Camille</p>
-        <p className="mt-3 text-sm uppercase tracking-[0.25em] text-rosewood">20 June 2026</p>
+        <p className="font-serif text-3xl font-semibold text-wine">{wedding.couple}</p>
+        <p className="mt-3 text-sm uppercase tracking-[0.25em] text-rosewood">{wedding.date}</p>
       </footer>
     </main>
   );
