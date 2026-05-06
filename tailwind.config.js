@@ -4,20 +4,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        cream: '#fff8ed',
-        porcelain: '#fffdf8',
-        wine: '#7f1d1d',
-        rosewood: '#9f3434',
-        blush: '#f4d7cf',
-        champagne: '#ead7b7',
-        ink: '#3d2923',
+        navy: '#0B1F3A',
+        royal: '#123C69',
+        ivory: '#FFF8EF',
+        gold: '#D4AF37',
+        warm: '#FAF7F0',
       },
       fontFamily: {
         serif: ['Cormorant Garamond', 'Georgia', 'serif'],
         sans: ['Montserrat', 'Inter', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
-        soft: '0 24px 80px rgba(127, 29, 29, 0.14)',
+        luxe: '0 24px 80px rgba(11, 31, 58, 0.16)',
       },
       keyframes: {
         floatIn: {

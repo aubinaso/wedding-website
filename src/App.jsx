@@ -9,6 +9,7 @@ import {
   Hotel,
   MapPin,
   Music,
+  Send,
   Shirt,
   Sparkles,
   Utensils,
@@ -20,9 +21,13 @@ const wedding = {
   couple: 'Axel & Aivi',
   date: '15 Août 2026',
   dateLong: 'Samedi 15 Août 2026',
+  dateISO: '2026-08-15T00:00:00',
   location: 'Lieu à préciser',
   rsvpLink: '#rsvp',
   rsvpFormLink: 'https://forms.office.com/',
+  headline: 'Deux cœurs, une promesse, une vie à bâtir ensemble.',
+  invitation:
+    'Avec joie et reconnaissance, nous vous invitons à célébrer notre union et à partager avec nous ce jour unique.',
 };
 
 const heroImage =
@@ -31,210 +36,274 @@ const heroImage =
 const galleryImages = [
   {
     src: 'https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=900&q=80',
-    alt: 'Wedding rings on cream fabric',
+    alt: 'Alliances de mariage sur un tissu ivoire',
   },
   {
     src: 'https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=900&q=80',
-    alt: 'Elegant wedding table with flowers',
+    alt: 'Table de réception élégante avec fleurs',
   },
   {
     src: 'https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=900&q=80',
-    alt: 'Wedding guests celebrating outdoors',
+    alt: 'Invités célébrant un mariage',
   },
   {
     src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=80',
-    alt: 'Couple holding hands',
+    alt: 'Couple se tenant la main',
   },
   {
     src: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=900&q=80',
-    alt: 'Romantic floral wedding bouquet',
+    alt: 'Bouquet floral romantique',
   },
   {
     src: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=80',
-    alt: 'Wedding reception with warm lights',
+    alt: 'Réception de mariage aux lumières chaleureuses',
   },
 ];
 
 const timeline = [
   {
     year: '2018',
-    title: 'First hello',
-    text: 'A rainy evening, one shared umbrella, and a conversation that lasted longer than either expected.',
+    title: 'La première rencontre',
+    text: 'Un moment simple, quelques mots échangés, et cette impression douce que quelque chose venait de commencer.',
   },
   {
     year: '2020',
-    title: 'A home in the making',
-    text: 'Coffee rituals, Sunday markets, and the small ordinary moments that quietly became everything.',
+    title: 'Les habitudes à deux',
+    text: 'Des cafés partagés, des promenades improvisées et la beauté discrète d’un quotidien devenu précieux.',
   },
   {
     year: '2024',
-    title: 'The proposal',
-    text: 'At sunset, surrounded by red roses and candlelight, one question made the future beautifully clear.',
+    title: 'La demande',
+    text: 'Une soirée intime, une promesse sincère, et un oui qui a illuminé tout ce qui restait à écrire.',
   },
   {
     year: '2026',
-    title: 'We say yes',
-    text: 'Together with our favorite people, we begin the next chapter as husband and wife.',
+    title: 'Le grand oui',
+    text: `Entourés de ceux que nous aimons, nous célébrerons notre union le ${wedding.date}.`,
   },
 ];
 
 const schedule = [
-  { time: '14:30', title: 'Guest arrival', icon: Heart },
-  { time: '15:00', title: 'Ceremony', icon: Church },
-  { time: '16:15', title: 'Champagne toast', icon: Sparkles },
-  { time: '18:00', title: 'Dinner', icon: Utensils },
-  { time: '21:00', title: 'First dance', icon: Music },
-  { time: '00:30', title: 'Late night bites', icon: Clock3 },
+  { time: '14:30', title: 'Accueil des invités', icon: Heart },
+  { time: '15:00', title: 'Cérémonie', icon: Church },
+  { time: '16:15', title: 'Cocktail', icon: Sparkles },
+  { time: '18:00', title: 'Dîner', icon: Utensils },
+  { time: '21:00', title: 'Première danse', icon: Music },
+  { time: '00:30', title: 'Douceurs de fin de soirée', icon: Clock3 },
 ];
 
 const practicalInfo = [
   {
     icon: Car,
-    title: 'Parking',
-    text: 'Free parking is available at the venue entrance. Please follow the burgundy signs on arrival.',
+    title: 'Stationnement',
+    text: 'Un espace de stationnement sera indiqué à proximité du lieu de réception.',
   },
   {
     icon: Hotel,
-    title: 'Accommodation',
-    text: `A room block is reserved nearby under the names ${wedding.couple} until one month before the wedding.`,
+    title: 'Hébergement',
+    text: `Des recommandations d’hôtels seront partagées prochainement pour les invités de ${wedding.couple}.`,
   },
   {
     icon: Camera,
     title: 'Photos',
-    text: 'During the ceremony, we kindly ask for an unplugged moment. Afterward, take all the photos you like.',
+    text: 'Pendant la cérémonie, nous souhaitons profiter d’un moment sans téléphones. Ensuite, immortalisez tout ce que vous aimez.',
   },
 ];
 
-function SectionHeader({ eyebrow, title, children, centered = false }) {
+const dressColors = ['Bleu nuit', 'Ivoire', 'Doré', 'Champagne', 'Bleu royal'];
+
+function getCountdownItems() {
+  const diff = Math.max(new Date(wedding.dateISO).getTime() - Date.now(), 0);
+  const days = Math.floor(diff / 86400000);
+  const hours = Math.floor((diff / 3600000) % 24);
+  const minutes = Math.floor((diff / 60000) % 60);
+
+  return [
+    { label: 'Jours', value: days },
+    { label: 'Heures', value: hours },
+    { label: 'Minutes', value: minutes },
+  ];
+}
+
+function GoldDivider() {
+  return (
+    <div className="gold-divider" aria-hidden="true">
+      <span />
+      <Sparkles className="h-4 w-4" />
+      <span />
+    </div>
+  );
+}
+
+function SectionHeader({ eyebrow, title, children, centered = false, light = false }) {
   return (
     <div className={centered ? 'mx-auto max-w-3xl text-center' : 'max-w-3xl'}>
-      <p className="eyebrow">{eyebrow}</p>
-      <h2 className="section-title">{title}</h2>
-      {children ? <p className="section-copy mx-auto">{children}</p> : null}
+      <p className={light ? 'eyebrow text-gold' : 'eyebrow'}>{eyebrow}</p>
+      <h2 className={light ? 'section-title text-warm' : 'section-title'}>{title}</h2>
+      {children ? (
+        <p className={light ? 'section-copy mx-auto text-warm/75' : 'section-copy mx-auto'}>
+          {children}
+        </p>
+      ) : null}
     </div>
   );
 }
 
 function App() {
+  const countdownItems = getCountdownItems();
+
   return (
-    <main className="overflow-hidden font-sans text-ink">
-      <section className="relative flex min-h-screen items-center justify-center bg-wine text-cream">
+    <main className="ornamental-bg overflow-hidden font-sans text-navy">
+      <section className="relative flex min-h-screen items-center justify-center bg-navy text-warm">
         <div
-          className="absolute inset-0 animate-slowZoom bg-cover bg-center opacity-55"
+          className="absolute inset-0 animate-slowZoom bg-cover bg-center opacity-45"
           style={{ backgroundImage: `url(${heroImage})` }}
           aria-hidden="true"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-wine/65 via-wine/45 to-wine/80" />
-        <div className="relative z-10 mx-auto w-full max-w-5xl px-5 py-20 text-center sm:px-8">
-          <p className="animate-floatIn text-xs font-bold uppercase tracking-[0.42em] text-champagne">
-            Together with their families
+        <div className="absolute inset-0 bg-gradient-to-b from-navy/85 via-navy/70 to-navy" />
+        <div className="absolute inset-x-6 top-6 bottom-6 border border-gold/25 sm:inset-x-10 sm:top-10 sm:bottom-10" />
+        <div className="relative z-10 mx-auto w-full max-w-5xl px-5 py-24 text-center sm:px-8">
+          <p className="animate-floatIn text-xs font-bold uppercase tracking-[0.42em] text-gold">
+            Ensemble avec leurs familles
           </p>
           <h1 className="mt-8 animate-floatIn font-serif text-6xl font-semibold leading-none sm:text-8xl lg:text-9xl">
-            {wedding.groom} <span className="block text-champagne">&</span> {wedding.bride}
+            {wedding.groom} <span className="block text-gold">&</span> {wedding.bride}
           </h1>
-          <div className="mx-auto mt-8 flex max-w-xl animate-floatIn flex-col items-center justify-center gap-4 border-y border-cream/35 py-6 text-sm font-semibold uppercase tracking-[0.25em] sm:flex-row sm:gap-8">
-            <span>Samedi</span>
-            <span className="font-serif text-3xl normal-case tracking-normal text-champagne">
-              {wedding.date}
-            </span>
+          <p className="mx-auto mt-8 max-w-2xl animate-floatIn font-serif text-3xl leading-tight text-ivory sm:text-4xl">
+            {wedding.headline}
+          </p>
+          <div className="mx-auto mt-8 flex max-w-2xl animate-floatIn flex-col items-center justify-center gap-4 border-y border-gold/45 py-6 text-sm font-semibold uppercase tracking-[0.24em] sm:flex-row sm:gap-8">
+            <span>{wedding.dateLong}</span>
+            <span className="hidden h-1.5 w-1.5 rounded-full bg-gold sm:block" />
             <span>{wedding.location}</span>
           </div>
-          <a
-            href={wedding.rsvpLink}
-            className="mt-10 inline-flex animate-floatIn items-center justify-center rounded-full bg-cream px-8 py-4 text-sm font-bold uppercase tracking-[0.22em] text-wine transition hover:-translate-y-1 hover:bg-champagne focus:outline-none focus:ring-4 focus:ring-cream/40"
-          >
-            RSVP
+          <a href={wedding.rsvpLink} className="premium-button mt-10 animate-floatIn">
+            Confirmer ma présence
           </a>
         </div>
       </section>
 
       <section className="section-shell">
         <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="soft-card rounded-[8px] p-8 sm:p-10">
+          <div className="lux-card p-8 sm:p-10">
             <p className="eyebrow">Invitation</p>
-            <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight text-wine sm:text-5xl">
-              With full hearts, we invite you to celebrate our wedding day.
+            <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight text-navy sm:text-5xl">
+              {wedding.invitation}
             </h2>
           </div>
-          <div className="text-base leading-8 text-ink/75">
+          <div className="text-base leading-8 text-navy/75">
             <p>
-              Please join us for an afternoon of vows, dinner, music, and candlelit celebration as we promise forever to one another.
+              Nous serions honorés de vous compter parmi nous pour une journée placée sous le signe de l’amour, de la famille et de la fête.
             </p>
             <p className="mt-5">
-              Your presence is the gift we will remember most. We cannot wait to gather everyone we love in one beautiful place.
+              Votre présence rendra ce moment encore plus précieux, du premier regard à la dernière danse.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="bg-porcelain">
-        <div className="section-shell">
-          <SectionHeader eyebrow="Our Story" title="A Love Written Slowly">
-            From a first meeting to a lifetime promise, these are the small chapters that brought us here.
-          </SectionHeader>
-          <div className="mt-12 grid gap-5 md:grid-cols-4">
-            {timeline.map((item) => (
-              <article key={item.year} className="soft-card rounded-[8px] p-6 transition hover:-translate-y-1">
-                <p className="font-serif text-4xl font-semibold text-rosewood">{item.year}</p>
-                <h3 className="mt-5 text-lg font-bold text-wine">{item.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-ink/70">{item.text}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      <GoldDivider />
 
-      <section className="section-shell">
-        <SectionHeader eyebrow="The Day" title="Ceremony & Reception" centered>
-          One place for vows, dinner, dancing, and every toast in between.
-        </SectionHeader>
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
-          <article className="soft-card rounded-[8px] p-8">
-            <Church className="h-9 w-9 text-rosewood" />
-            <h3 className="mt-5 font-serif text-3xl font-semibold text-wine">Ceremony</h3>
-            <p className="mt-4 text-sm uppercase tracking-[0.2em] text-rosewood">15:00</p>
-            <p className="mt-4 leading-7 text-ink/75">
-              Chapelle Sainte-Claire, 18 Chemin des Oliviers, 13100 Aix-en-Provence.
-            </p>
-          </article>
-          <article className="soft-card rounded-[8px] p-8">
-            <MapPin className="h-9 w-9 text-rosewood" />
-            <h3 className="mt-5 font-serif text-3xl font-semibold text-wine">Reception</h3>
-            <p className="mt-4 text-sm uppercase tracking-[0.2em] text-rosewood">17:00</p>
-            <p className="mt-4 leading-7 text-ink/75">
-              Domaine de la Roseraie, Route des Vignes, 13100 Aix-en-Provence.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section className="bg-wine text-cream">
-        <div className="section-shell">
-          <SectionHeader eyebrow="Schedule" title="Wedding Day Rhythm" centered>
-            A gentle flow for the celebration, from the first welcome to the final song.
+      <section className="bg-ivory/70">
+        <div className="section-shell text-center">
+          <SectionHeader eyebrow="Compte à rebours" title="Avant le grand jour" centered>
+            Chaque jour nous rapproche de cette promesse que nous avons hâte de partager avec vous.
           </SectionHeader>
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {schedule.map(({ time, title, icon: Icon }) => (
-              <div key={`${time}-${title}`} className="rounded-[8px] border border-cream/15 bg-cream/8 p-6">
-                <Icon className="h-7 w-7 text-champagne" />
-                <p className="mt-5 font-serif text-3xl font-semibold text-champagne">{time}</p>
-                <p className="mt-2 font-semibold">{title}</p>
+          <div className="mx-auto mt-10 grid max-w-3xl grid-cols-3 gap-3 sm:gap-5">
+            {countdownItems.map((item) => (
+              <div key={item.label} className="lux-card p-5 sm:p-7">
+                <p className="font-serif text-4xl font-semibold text-gold sm:text-6xl">{item.value}</p>
+                <p className="mt-2 text-xs font-bold uppercase tracking-[0.24em] text-royal">{item.label}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      <GoldDivider />
+
+      <section>
+        <div className="section-shell">
+          <SectionHeader eyebrow="Notre histoire" title="Une histoire écrite avec douceur">
+            De la première rencontre à cette promesse, voici quelques chapitres de notre chemin.
+          </SectionHeader>
+          <div className="mt-12 grid gap-5 md:grid-cols-4">
+            {timeline.map((item) => (
+              <article key={item.year} className="lux-card group p-6 transition duration-300 hover:-translate-y-1">
+                <p className="font-serif text-4xl font-semibold text-gold">{item.year}</p>
+                <h3 className="mt-5 text-lg font-bold text-navy">{item.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-navy/70">{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <GoldDivider />
+
+      <section className="section-shell">
+        <SectionHeader eyebrow="Le jour J" title="Cérémonie & réception" centered>
+          Un lieu, une promesse, puis une soirée pour célébrer entourés de nos proches.
+        </SectionHeader>
+        <div className="mt-12 grid gap-6 md:grid-cols-2">
+          <article className="lux-card p-8 transition duration-300 hover:-translate-y-1">
+            <Church className="h-9 w-9 text-gold" />
+            <h3 className="mt-5 font-serif text-3xl font-semibold text-navy">Cérémonie</h3>
+            <p className="mt-4 inline-flex items-center gap-2 text-sm uppercase tracking-[0.2em] text-royal">
+              <Clock3 className="h-4 w-4 text-gold" /> 15:00
+            </p>
+            <p className="mt-4 leading-7 text-navy/75">
+              {wedding.location}. Les informations détaillées seront communiquées prochainement.
+            </p>
+          </article>
+          <article className="lux-card p-8 transition duration-300 hover:-translate-y-1">
+            <MapPin className="h-9 w-9 text-gold" />
+            <h3 className="mt-5 font-serif text-3xl font-semibold text-navy">Réception</h3>
+            <p className="mt-4 inline-flex items-center gap-2 text-sm uppercase tracking-[0.2em] text-royal">
+              <Clock3 className="h-4 w-4 text-gold" /> 17:00
+            </p>
+            <p className="mt-4 leading-7 text-navy/75">
+              Cocktail, dîner et soirée dansante dans une atmosphère élégante et chaleureuse.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section className="bg-navy text-warm">
+        <div className="section-shell">
+          <SectionHeader eyebrow="Programme" title="Le rythme de la journée" centered light>
+            Une journée pensée avec douceur, de l’accueil des invités jusqu’aux dernières notes de musique.
+          </SectionHeader>
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {schedule.map(({ time, title, icon: Icon }) => (
+              <div
+                key={`${time}-${title}`}
+                className="rounded-[8px] border border-gold/25 bg-warm/5 p-6 transition duration-300 hover:-translate-y-1 hover:border-gold/70 hover:bg-warm/10"
+              >
+                <Icon className="h-7 w-7 text-gold" />
+                <p className="mt-5 font-serif text-3xl font-semibold text-gold">{time}</p>
+                <p className="mt-2 font-semibold text-warm">{title}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <GoldDivider />
+
       <section className="section-shell">
         <div className="grid items-center gap-10 lg:grid-cols-[1fr_0.85fr]">
-          <SectionHeader eyebrow="Dress Code" title="Elegant Garden Romance">
-            We would love to see our guests in warm neutrals, soft creams, burgundy, dusty rose, deep red, and classic black. Please avoid white.
+          <SectionHeader eyebrow="Dress code" title="Élégance bleu nuit & touches dorées">
+            Nous vous invitons à privilégier des tenues élégantes dans des tons bleu nuit, ivoire, champagne, doré ou bleu royal. Merci d’éviter le blanc total.
           </SectionHeader>
-          <div className="soft-card rounded-[8px] p-8">
-            <Shirt className="h-9 w-9 text-rosewood" />
+          <div className="lux-card p-8">
+            <Shirt className="h-9 w-9 text-gold" />
             <div className="mt-6 flex flex-wrap gap-3">
-              {['Cream', 'Burgundy', 'Dusty Rose', 'Champagne', 'Black'].map((tone) => (
-                <span key={tone} className="rounded-full border border-wine/15 px-4 py-2 text-sm font-semibold text-wine">
+              {dressColors.map((tone) => (
+                <span
+                  key={tone}
+                  className="rounded-full border border-gold/40 bg-ivory px-4 py-2 text-sm font-semibold text-navy transition hover:border-gold hover:bg-gold hover:text-navy"
+                >
                   {tone}
                 </span>
               ))}
@@ -243,10 +312,10 @@ function App() {
         </div>
       </section>
 
-      <section className="bg-porcelain">
+      <section className="bg-ivory/70">
         <div className="section-shell">
-          <SectionHeader eyebrow="Gallery" title="Moments We Love" centered>
-            A few glimpses of the mood we imagine for this celebration: soft light, red roses, and candlelit joy.
+          <SectionHeader eyebrow="Galerie" title="L’atmosphère de notre journée" centered>
+            Lumière douce, détails dorés, fleurs délicates et instants de joie à partager.
           </SectionHeader>
           <div className="mt-12 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-5">
             {galleryImages.map((image, index) => (
@@ -254,7 +323,7 @@ function App() {
                 key={image.src}
                 src={image.src}
                 alt={image.alt}
-                className={`h-48 w-full rounded-[8px] object-cover shadow-soft transition duration-500 hover:scale-[1.02] sm:h-64 ${
+                className={`h-48 w-full rounded-[8px] border border-gold/20 object-cover shadow-luxe transition duration-500 hover:-translate-y-1 hover:scale-[1.02] hover:border-gold sm:h-64 ${
                   index === 1 || index === 4 ? 'md:translate-y-8' : ''
                 }`}
                 loading="lazy"
@@ -264,35 +333,31 @@ function App() {
         </div>
       </section>
 
-      <section id="rsvp" className="section-shell">
-        <div className="soft-card rounded-[8px] p-8 text-center sm:p-12">
-          <p className="eyebrow">RSVP</p>
-          <h2 className="mt-4 font-serif text-4xl font-semibold text-wine sm:text-6xl">
-            Say You Will Be There
+      <section id="rsvp" className="section-shell scroll-mt-10">
+        <div className="lux-card bg-navy p-8 text-center text-warm sm:p-12">
+          <p className="eyebrow text-gold">RSVP</p>
+          <h2 className="mt-4 font-serif text-4xl font-semibold text-warm sm:text-6xl">
+            Votre réponse compte beaucoup
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl leading-8 text-ink/75">
-            Please confirm your presence for {wedding.dateLong} so we can prepare your seat, your glass, and your place on the dance floor.
+          <p className="mx-auto mt-5 max-w-2xl leading-8 text-warm/75">
+            Merci de confirmer votre présence pour {wedding.dateLong}, afin que nous puissions préparer chaque détail avec soin.
           </p>
-          <a
-            href={wedding.rsvpFormLink}
-            target="_blank"
-            rel="noreferrer"
-            className="mt-8 inline-flex items-center justify-center rounded-full bg-wine px-8 py-4 text-sm font-bold uppercase tracking-[0.22em] text-cream transition hover:-translate-y-1 hover:bg-rosewood focus:outline-none focus:ring-4 focus:ring-wine/20"
-          >
-            Open RSVP Form
+          <a href={wedding.rsvpFormLink} target="_blank" rel="noreferrer" className="premium-button mt-8">
+            <Send className="h-4 w-4" />
+            Ouvrir le formulaire RSVP
           </a>
         </div>
       </section>
 
-      <section className="bg-porcelain">
+      <section className="bg-ivory/70">
         <div className="section-shell">
-          <SectionHeader eyebrow="Information" title="Practical Notes" />
+          <SectionHeader eyebrow="Informations" title="Notes pratiques" />
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {practicalInfo.map(({ icon: Icon, title, text }) => (
-              <article key={title} className="soft-card rounded-[8px] p-6">
-                <Icon className="h-8 w-8 text-rosewood" />
-                <h3 className="mt-5 text-lg font-bold text-wine">{title}</h3>
-                <p className="mt-3 text-sm leading-7 text-ink/70">{text}</p>
+              <article key={title} className="lux-card p-6 transition duration-300 hover:-translate-y-1">
+                <Icon className="h-8 w-8 text-gold" />
+                <h3 className="mt-5 text-lg font-bold text-navy">{title}</h3>
+                <p className="mt-3 text-sm leading-7 text-navy/70">{text}</p>
               </article>
             ))}
           </div>
@@ -300,22 +365,32 @@ function App() {
       </section>
 
       <section className="section-shell">
-        <div className="grid items-center gap-8 rounded-[8px] bg-wine p-8 text-cream sm:p-12 lg:grid-cols-[0.7fr_1fr]">
-          <Gift className="h-16 w-16 text-champagne" />
+        <div className="grid items-center gap-8 rounded-[8px] border border-gold/30 bg-navy p-8 text-warm shadow-luxe sm:p-12 lg:grid-cols-[0.7fr_1fr]">
+          <Gift className="h-16 w-16 text-gold" />
           <div>
-            <p className="eyebrow text-champagne">Gift</p>
-            <h2 className="mt-3 font-serif text-4xl font-semibold sm:text-5xl">A Contribution to Our First Adventure</h2>
-            <p className="mt-5 leading-8 text-cream/80">
-              Your presence means everything. For those who wish, a wedding box will be available for contributions toward our honeymoon in Italy.
+            <p className="eyebrow text-gold">Cadeau</p>
+            <h2 className="mt-3 font-serif text-4xl font-semibold sm:text-5xl">Une contribution à notre première aventure</h2>
+            <p className="mt-5 leading-8 text-warm/80">
+              Votre présence est notre plus beau cadeau. Pour ceux qui le souhaitent, une urne sera disponible afin de contribuer à notre voyage de noces.
             </p>
           </div>
         </div>
       </section>
 
-      <footer className="border-t border-wine/10 bg-cream px-5 py-10 text-center">
-        <p className="font-serif text-3xl font-semibold text-wine">{wedding.couple}</p>
-        <p className="mt-3 text-sm uppercase tracking-[0.25em] text-rosewood">{wedding.date}</p>
+      <footer className="border-t border-gold/25 bg-navy px-5 py-12 text-center text-warm">
+        <p className="font-serif text-3xl font-semibold text-gold">{wedding.couple} — {wedding.date}</p>
+        <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-warm/75">
+          Merci de faire partie de notre histoire et de partager avec nous ce moment si précieux.
+        </p>
       </footer>
+
+      <a
+        href={wedding.rsvpLink}
+        className="fixed bottom-4 left-4 right-4 z-50 inline-flex items-center justify-center gap-2 rounded-full border border-gold/50 bg-gold px-6 py-4 text-sm font-bold uppercase tracking-[0.18em] text-navy shadow-luxe transition hover:-translate-y-1 sm:hidden"
+      >
+        <CalendarDays className="h-4 w-4" />
+        RSVP
+      </a>
     </main>
   );
 }
