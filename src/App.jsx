@@ -124,7 +124,9 @@ const wedding = {
     ivory: '#F5EDE0',
     champagne: '#D9D1C3',
     gold: '#D4AF37',
+    richGold: '#C9A227',
     teal: '#007C89',
+    darkTeal: '#005F6B',
     white: '#FFF9F0',
     text: '#1F2933',
   },
@@ -134,7 +136,9 @@ const themeVars = {
   '--color-ivory': wedding.theme.ivory,
   '--color-champagne': wedding.theme.champagne,
   '--color-gold': wedding.theme.gold,
+  '--color-rich-gold': wedding.theme.richGold,
   '--color-teal': wedding.theme.teal,
+  '--color-dark-teal': wedding.theme.darkTeal,
   '--color-white': wedding.theme.white,
   '--color-text': wedding.theme.text,
 };
@@ -594,7 +598,7 @@ function App() {
         <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-cream/80">
           Merci de faire partie de notre histoire.
         </p>
-        <a href={wedding.rsvpLink} className="footer-link mt-6 inline-flex">
+        <a href={wedding.rsvpFormLink} target="_blank" rel="noreferrer" className="footer-link mt-6 inline-flex">
           Confirmer ma présence
         </a>
       </footer>
