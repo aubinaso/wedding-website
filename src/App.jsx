@@ -227,6 +227,14 @@ const practicalInfo = [
   { title: 'Enfants / famille', text: 'Informations famille à préciser si nécessaire.', icon: Baby },
 ];
 
+const navItems = [
+  { label: 'Accueil', href: '#hero' },
+  { label: 'Histoire', href: '#story' },
+  { label: 'Détails', href: '#details' },
+  { label: 'Galerie', href: '#gallery' },
+  { label: 'RSVP', href: '#rsvp' },
+];
+
 function getCountdownItems() {
   const diff = Math.max(new Date(wedding.dateISO).getTime() - Date.now(), 0);
   const days = Math.floor(diff / 86400000);
@@ -315,21 +323,32 @@ function App() {
 
   return (
     <main className="site-bg overflow-hidden font-sans" style={themeVars}>
-      <section className="hero-section relative flex min-h-screen items-center px-5 py-16 sm:px-8">
+      <nav className="top-nav">
+        <a href="#hero" className="nav-brand">{wedding.couple}</a>
+        <div className="nav-links">
+          {navItems.map((item) => (
+            <a key={item.href} href={item.href}>{item.label}</a>
+          ))}
+        </div>
+        <a href={wedding.rsvpLink} className="nav-rsvp">RSVP</a>
+      </nav>
+
+      <section id="hero" className="hero-section relative flex min-h-screen items-center px-5 py-20 sm:px-8">
         <div className="floral-corner floral-corner-left" aria-hidden="true" />
         <div className="floral-corner floral-corner-right" aria-hidden="true" />
         <div className="mx-auto grid w-full max-w-6xl items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="hero-card relative px-6 py-12 text-center sm:px-10 lg:text-left">
-            <p className="script-label">Livre d’or</p>
+            <p className="script-label">Nous nous marions</p>
             <h1 className="mt-5 font-serif text-6xl font-semibold leading-none text-teal sm:text-8xl">
               {wedding.couple}
             </h1>
             <p className="mt-6 font-serif text-3xl leading-tight text-text/85 sm:text-4xl">
               {wedding.headline}
             </p>
-            <div className="mt-8 grid gap-3 border-y border-gold/45 py-5 text-sm font-semibold uppercase tracking-[0.2em] text-teal sm:grid-cols-2">
+            <div className="hero-details">
+              <span>{wedding.dateLong}</span>
               <span>{wedding.weddingPeriod}</span>
-              <span>{wedding.mainDate}</span>
+              <span>{wedding.location}</span>
             </div>
             <a href={wedding.rsvpLink} className="premium-button mt-8">
               Confirmer ma présence
@@ -348,6 +367,16 @@ function App() {
             <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight text-teal sm:text-5xl">
               {wedding.invitation}
             </h2>
+            <div className="mini-detail-grid mt-8">
+              <div>
+                <span>Date</span>
+                <strong>{wedding.mainDate}</strong>
+              </div>
+              <div>
+                <span>Lieu</span>
+                <strong>{wedding.location}</strong>
+              </div>
+            </div>
           </div>
           <div className="text-base leading-8 text-text/75">
             <p>
@@ -404,11 +433,15 @@ function App() {
 
       <GoldDivider />
 
-      <section>
+      <section id="story">
         <div className="section-shell">
           <SectionHeader eyebrow="Notre histoire" title="Une histoire écrite avec douceur">
-            Une ligne du temps simple, en attendant d’ajouter nos vrais souvenirs en images.
+            Une histoire née dans la confiance, nourrie par la foi et portée par la joie de bâtir ensemble.
           </SectionHeader>
+          <div className="story-quote mt-10">
+            <p>“Deux valent mieux qu’un.”</p>
+            <span>Ecclésiastes 4:9</span>
+          </div>
           <div className="mt-12 grid gap-5 md:grid-cols-4">
             {storyItems.map(({ title, text, icon: Icon, image }) => (
               <article key={title} className="story-card">
@@ -426,11 +459,18 @@ function App() {
         </div>
       </section>
 
-      <section className="section-shell">
+      <section id="details" className="section-shell">
         <SectionHeader eyebrow="Le jour J" title="Détails du mariage" centered>
           Les informations pratiques seront précisées ici au fur et à mesure.
         </SectionHeader>
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
+        <div className="details-callout mt-10">
+          <CalendarDays className="h-8 w-8 text-gold" />
+          <div>
+            <p>{wedding.dateLong}</p>
+            <span>{wedding.ceremony.time} · {wedding.ceremony.location}</span>
+          </div>
+        </div>
+        <div className="mt-8 grid gap-6 md:grid-cols-2">
           <article className="lux-card p-8 transition duration-300 hover:-translate-y-1">
             <Church className="h-9 w-9 text-gold" />
             <h3 className="mt-5 font-serif text-3xl font-semibold text-teal">{wedding.ceremony.title}</h3>
@@ -520,10 +560,10 @@ function App() {
         </div>
       </section>
 
-      <section className="soft-band">
+      <section id="gallery" className="soft-band">
         <div className="section-shell">
           <SectionHeader eyebrow="Galerie" title="Souvenirs à venir" centered>
-            Les vraies photos pourront être ajoutées plus tard. Pour l’instant, ces cadres gardent l’esprit du livre d’or.
+            Quelques images de notre chemin, choisies pour raconter la tendresse, la joie et la promesse.
           </SectionHeader>
           <Gallery />
         </div>
