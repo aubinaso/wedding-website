@@ -4,13 +4,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        ivory: '#FFF8EF',
-        champagne: '#EFE7D8',
+        champagne: '#D9D1C3',
+        ivory: '#F5EDE0',
         gold: '#D4AF37',
-        burgundy: '#8A1E2D',
-        teal: '#0F7C80',
+        teal: '#007C89',
+        white: '#FFF9F0',
         cream: '#FFF9F0',
-        text: '#2F2A26',
+        text: '#1F2933',
       },
       fontFamily: {
         serif: ['Cormorant Garamond', 'Georgia', 'serif'],

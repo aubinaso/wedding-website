@@ -5,8 +5,8 @@
 @tailwind utilities;
 
 :root {
-  color: #2f2a26;
-  background: #fff8ef;
+  color: #1f2933;
+  background: #d9d1c3;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -22,8 +22,8 @@ body {
   min-width: 320px;
   background:
     radial-gradient(circle at 12% 8%, rgba(212, 175, 55, 0.14), transparent 22rem),
-    radial-gradient(circle at 88% 18%, rgba(138, 30, 45, 0.1), transparent 22rem),
-    linear-gradient(180deg, #fff8ef 0%, #efe2d0 48%, #fff8ef 100%);
+    radial-gradient(circle at 88% 18%, rgba(0, 124, 137, 0.12), transparent 22rem),
+    linear-gradient(180deg, #F5EDE0 0%, #D9D1C3 48%, #F5EDE0 100%);
 }
 
 ::selection {
@@ -46,8 +46,8 @@ body {
   content: '';
   background-image:
     radial-gradient(circle at center, rgba(212, 175, 55, 0.16) 0 1px, transparent 1.5px),
-    linear-gradient(135deg, rgba(138, 30, 45, 0.035) 25%, transparent 25%),
-    linear-gradient(225deg, rgba(15, 124, 128, 0.035) 25%, transparent 25%);
+    linear-gradient(135deg, rgba(0, 124, 137, 0.04) 25%, transparent 25%),
+    linear-gradient(225deg, rgba(212, 175, 55, 0.035) 25%, transparent 25%);
   background-size: 44px 44px, 64px 64px, 64px 64px;
   opacity: 0.48;
 }
@@ -55,17 +55,17 @@ body {
 .hero-section {
   background:
     radial-gradient(circle at top left, rgba(212, 175, 55, 0.2), transparent 24rem),
-    radial-gradient(circle at bottom right, rgba(15, 124, 128, 0.12), transparent 26rem),
-    linear-gradient(135deg, rgba(255, 248, 239, 0.96), rgba(239, 226, 208, 0.92));
+    radial-gradient(circle at bottom right, rgba(0, 124, 137, 0.12), transparent 26rem),
+    linear-gradient(135deg, rgba(245, 237, 224, 0.96), rgba(217, 209, 195, 0.92));
 }
 
 .hero-card {
   border: 1px solid rgba(212, 175, 55, 0.72);
   border-radius: 18px;
   background:
-    linear-gradient(180deg, rgba(255, 249, 240, 0.94), rgba(255, 248, 239, 0.84)),
+    linear-gradient(180deg, rgba(255, 249, 240, 0.94), rgba(245, 237, 224, 0.84)),
     radial-gradient(circle at top, rgba(212, 175, 55, 0.12), transparent 32rem);
-  box-shadow: 0 28px 90px rgba(47, 42, 38, 0.15);
+  box-shadow: 0 28px 90px rgba(31, 41, 51, 0.15);
   animation: floatIn 900ms ease-out both;
 }
 
@@ -134,13 +134,13 @@ body {
     rgba(255, 249, 240, 0.46);
 }
 
-.burgundy-band,
+.teal-band,
 .rsvp-card,
 .faith-section,
 .footer-shell {
   background:
     radial-gradient(circle at top left, rgba(212, 175, 55, 0.18), transparent 22rem),
-    linear-gradient(135deg, var(--color-burgundy), #6f1825);
+    linear-gradient(135deg, var(--color-teal), var(--color-teal));
 }
 
 .script-label {
@@ -152,7 +152,7 @@ body {
 
 .section-title {
   @apply mt-3 font-serif text-4xl font-semibold leading-tight sm:text-5xl;
-  color: var(--color-burgundy);
+  color: var(--color-teal);
 }
 
 .section-title-light {
@@ -161,7 +161,7 @@ body {
 
 .section-copy {
   @apply mt-5 max-w-2xl text-base leading-8;
-  color: rgba(47, 42, 38, 0.76);
+  color: rgba(31, 41, 51, 0.76);
 }
 
 .section-copy-light {
@@ -174,7 +174,7 @@ body {
   border: 1px solid rgba(212, 175, 55, 0.34);
   border-radius: 18px;
   background: rgba(255, 249, 240, 0.82);
-  box-shadow: 0 22px 70px rgba(47, 42, 38, 0.12);
+  box-shadow: 0 22px 70px rgba(31, 41, 51, 0.12);
   backdrop-filter: blur(10px);
 }
 
@@ -189,7 +189,7 @@ body {
 .lux-card:hover {
   border-color: rgba(212, 175, 55, 0.66);
   transform: translateY(-4px);
-  box-shadow: 0 26px 78px rgba(47, 42, 38, 0.16);
+  box-shadow: 0 26px 78px rgba(31, 41, 51, 0.16);
 }
 
 .story-icon {
@@ -198,10 +198,10 @@ body {
   height: 3.25rem;
   align-items: center;
   justify-content: center;
-  color: var(--color-burgundy);
+  color: var(--color-teal);
   border: 1px solid rgba(212, 175, 55, 0.62);
   border-radius: 999px;
-  background: rgba(239, 226, 208, 0.54);
+  background: rgba(217, 209, 195, 0.54);
 }
 
 .premium-button,
@@ -211,15 +211,15 @@ body {
 }
 
 .premium-button {
-  color: var(--color-text);
-  border: 1px solid rgba(212, 175, 55, 0.9);
-  background: linear-gradient(135deg, #e7ca62, var(--color-gold));
-  box-shadow: 0 16px 38px rgba(212, 175, 55, 0.28);
+  color: #fff9f0;
+  border: 1px solid rgba(0, 124, 137, 0.9);
+  background: var(--color-teal);
+  box-shadow: 0 16px 38px rgba(0, 124, 137, 0.22);
 }
 
 .secondary-button,
 .footer-link {
-  color: var(--color-burgundy);
+  color: var(--color-teal);
   border: 1px solid rgba(212, 175, 55, 0.72);
   background: rgba(255, 249, 240, 0.82);
 }
@@ -227,8 +227,8 @@ body {
 .premium-button:hover,
 .secondary-button:hover,
 .footer-link:hover {
-  color: #fff9f0;
-  background: var(--color-burgundy);
+  color: var(--color-text);
+  background: var(--color-gold);
   transform: translateY(-4px);
 }
 
@@ -258,8 +258,8 @@ body {
   border: 1px solid rgba(212, 175, 55, 0.82);
   background:
     radial-gradient(circle at top, rgba(212, 175, 55, 0.18), transparent 45%),
-    linear-gradient(180deg, rgba(255, 249, 240, 0.95), rgba(239, 226, 208, 0.72));
-  box-shadow: 0 28px 80px rgba(47, 42, 38, 0.16);
+    linear-gradient(180deg, rgba(255, 249, 240, 0.95), rgba(217, 209, 195, 0.72));
+  box-shadow: 0 28px 80px rgba(31, 41, 51, 0.16);
 }
 
 .hero-oval {
@@ -282,7 +282,7 @@ body {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: clamp(3rem, 12vw, 6rem);
   font-weight: 600;
-  color: var(--color-burgundy);
+  color: var(--color-teal);
 }
 
 .hero-oval-placeholder small,
@@ -352,7 +352,7 @@ body {
 .gallery-placeholder:hover {
   border-color: var(--color-gold);
   transform: translateY(-6px);
-  box-shadow: 0 28px 74px rgba(138, 30, 45, 0.16);
+  box-shadow: 0 28px 74px rgba(0, 124, 137, 0.16);
 }
 
 .gallery-image {
@@ -361,18 +361,14 @@ body {
   border: 1px solid rgba(212, 175, 55, 0.36);
   border-radius: 140px 140px 18px 18px;
   object-fit: cover;
-  box-shadow: 0 22px 60px rgba(47, 42, 38, 0.13);
+  box-shadow: 0 22px 60px rgba(31, 41, 51, 0.13);
   transition: transform 420ms ease, border-color 420ms ease, box-shadow 420ms ease;
 }
 
 .gallery-image:hover {
   border-color: var(--color-gold);
   transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 26px 70px rgba(138, 30, 45, 0.16);
-}
-
-.text-burgundy {
-  color: var(--color-burgundy);
+  box-shadow: 0 26px 70px rgba(0, 124, 137, 0.16);
 }
 
 .text-teal {
@@ -401,14 +397,14 @@ body {
 
 .mobile-rsvp {
   @apply fixed bottom-4 left-4 right-4 z-50 inline-flex items-center justify-center gap-2 rounded-full px-6 py-4 text-sm font-bold uppercase tracking-[0.18em] shadow-lg transition sm:hidden;
-  color: var(--color-text);
-  border: 1px solid rgba(212, 175, 55, 0.72);
-  background: linear-gradient(135deg, #e7ca62, var(--color-gold));
+  color: #fff9f0;
+  border: 1px solid rgba(0, 124, 137, 0.72);
+  background: var(--color-teal);
 }
 
 .mobile-rsvp:hover {
-  color: #fff9f0;
-  background: var(--color-burgundy);
+  color: var(--color-text);
+  background: var(--color-gold);
   transform: translateY(-3px);
 }
 

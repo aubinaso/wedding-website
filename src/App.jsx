@@ -24,11 +24,14 @@ const wedding = {
   bride: 'Aivi',
   couple: 'Axel & Aivi',
   initials: 'A & A',
+  date: '15 Août 2026',
   mainDate: '15 Août 2026',
   dateLong: 'Samedi 15 Août 2026',
   weddingPeriod: '14 & 15 août 2026',
   dateISO: '2026-08-15T00:00:00',
-  rsvpLink: 'https://forms.gle/X6uTjDfS6XoWH4VQ9',
+  location: 'Lieu à préciser',
+  rsvpLink: '#rsvp',
+  rsvpFormLink: 'https://forms.gle/X6uTjDfS6XoWH4VQ9',
   headline: 'Deux cœurs, une promesse, une vie à bâtir ensemble.',
   invitation:
     'C’est un immense bonheur de partager ce jour unique avec vous. Votre présence à nos côtés rendra cette journée encore plus belle et inoubliable.',
@@ -67,12 +70,12 @@ const wedding = {
     gallery: [],
   },
   theme: {
-    ivory: '#FFF8EF',
-    champagne: '#EFE2D0',
+    ivory: '#F5EDE0',
+    champagne: '#D9D1C3',
     gold: '#D4AF37',
-    burgundy: '#8A1E2D',
-    teal: '#0F7C80',
-    text: '#2F2A26',
+    teal: '#007C89',
+    white: '#FFF9F0',
+    text: '#1F2933',
   },
 };
 
@@ -80,8 +83,8 @@ const themeVars = {
   '--color-ivory': wedding.theme.ivory,
   '--color-champagne': wedding.theme.champagne,
   '--color-gold': wedding.theme.gold,
-  '--color-burgundy': wedding.theme.burgundy,
   '--color-teal': wedding.theme.teal,
+  '--color-white': wedding.theme.white,
   '--color-text': wedding.theme.text,
 };
 
@@ -118,10 +121,9 @@ const programItems = [
 ];
 
 const dressColors = [
-  { name: 'Burgundy / wine red', value: wedding.theme.burgundy },
-  { name: 'Ivory / champagne', value: wedding.theme.champagne },
+  { name: 'Deep teal / peacock blue', value: wedding.theme.teal },
+  { name: 'Ivory / champagne', value: wedding.theme.ivory },
   { name: 'Gold', value: wedding.theme.gold },
-  { name: 'Teal / blue-green', value: wedding.theme.teal },
 ];
 
 const galleryPlaceholders = ['Souvenir 1', 'Souvenir 2', 'Demande', 'Moments à venir'];
@@ -256,7 +258,7 @@ function App() {
         <div className="mx-auto grid w-full max-w-6xl items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="hero-card relative px-6 py-12 text-center sm:px-10 lg:text-left">
             <p className="script-label">Livre d’or</p>
-            <h1 className="mt-5 font-serif text-6xl font-semibold leading-none text-burgundy sm:text-8xl">
+            <h1 className="mt-5 font-serif text-6xl font-semibold leading-none text-teal sm:text-8xl">
               {wedding.couple}
             </h1>
             <p className="mt-6 font-serif text-3xl leading-tight text-text/85 sm:text-4xl">
@@ -266,7 +268,7 @@ function App() {
               <span>{wedding.weddingPeriod}</span>
               <span>{wedding.mainDate}</span>
             </div>
-            <a href={wedding.rsvpLink} target="_blank" rel="noreferrer" className="premium-button mt-8">
+            <a href={wedding.rsvpLink} className="premium-button mt-8">
               Confirmer ma présence
             </a>
           </div>
@@ -280,7 +282,7 @@ function App() {
         <div className="grid items-center gap-10 lg:grid-cols-[0.95fr_1.05fr]">
           <div className="lux-card p-8 sm:p-10">
             <p className="script-label">Invitation</p>
-            <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight text-burgundy sm:text-5xl">
+            <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight text-teal sm:text-5xl">
               {wedding.invitation}
             </h2>
           </div>
@@ -306,7 +308,7 @@ function App() {
             {countdownItems.map((item) => (
               <div key={item.label} className="lux-card p-5 sm:p-7">
                 <p className="font-serif text-4xl font-semibold text-gold sm:text-6xl">{item.value}</p>
-                <p className="mt-2 text-xs font-bold uppercase tracking-[0.22em] text-burgundy">{item.label}</p>
+                <p className="mt-2 text-xs font-bold uppercase tracking-[0.22em] text-teal">{item.label}</p>
               </div>
             ))}
           </div>
@@ -340,7 +342,7 @@ function App() {
             {storyItems.map(({ title, text, icon: Icon }) => (
               <article key={title} className="story-card">
                 <div className="story-icon"><Icon className="h-6 w-6" /></div>
-                <h3 className="mt-6 font-serif text-3xl font-semibold text-burgundy">{title}</h3>
+                <h3 className="mt-6 font-serif text-3xl font-semibold text-teal">{title}</h3>
                 <p className="mt-3 text-sm leading-7 text-text/70">{text}</p>
               </article>
             ))}
@@ -355,7 +357,7 @@ function App() {
         <div className="mt-12 grid gap-6 md:grid-cols-2">
           <article className="lux-card p-8 transition duration-300 hover:-translate-y-1">
             <Church className="h-9 w-9 text-gold" />
-            <h3 className="mt-5 font-serif text-3xl font-semibold text-burgundy">{wedding.ceremony.title}</h3>
+            <h3 className="mt-5 font-serif text-3xl font-semibold text-teal">{wedding.ceremony.title}</h3>
             <dl className="mt-5 space-y-3 text-sm leading-7 text-text/75">
               <div><dt className="font-bold text-teal">Date</dt><dd>{wedding.ceremony.date}</dd></div>
               <div><dt className="font-bold text-teal">Heure</dt><dd>{wedding.ceremony.time}</dd></div>
@@ -368,7 +370,7 @@ function App() {
           </article>
           <article className="lux-card p-8 transition duration-300 hover:-translate-y-1">
             <CalendarDays className="h-9 w-9 text-gold" />
-            <h3 className="mt-5 font-serif text-3xl font-semibold text-burgundy">Période</h3>
+            <h3 className="mt-5 font-serif text-3xl font-semibold text-teal">Période</h3>
             <p className="mt-5 text-4xl font-serif text-teal">{wedding.weddingPeriod}</p>
             <p className="mt-4 leading-7 text-text/75">
               Une célébration pensée sur deux jours, avec le mariage principal le {wedding.mainDate}.
@@ -404,7 +406,7 @@ function App() {
         </div>
       </section>
 
-      <section className="burgundy-band text-cream">
+      <section className="teal-band text-cream">
         <div className="section-shell">
           <SectionHeader eyebrow="Déroulé" title="Le programme de la journée" centered light>
             Une trame simple, à affiner lorsque les horaires définitifs seront confirmés.
@@ -425,8 +427,8 @@ function App() {
 
       <section className="section-shell">
         <div className="grid items-center gap-10 lg:grid-cols-[1fr_0.95fr]">
-          <SectionHeader eyebrow="Dress code" title="Burgundy, ivoire, or & teal">
-            Une palette chaleureuse inspirée du livre d’or, pensée pour une ambiance élégante et harmonieuse.
+          <SectionHeader eyebrow="Dress code" title="Teal, ivoire & or">
+            Une palette élégante inspirée de la référence, pensée pour une ambiance douce et harmonieuse.
           </SectionHeader>
           <div className="lux-card p-8">
             <Shirt className="h-9 w-9 text-gold" />
@@ -460,7 +462,7 @@ function App() {
           <p className="mx-auto mt-5 max-w-2xl leading-8 text-cream/85">
             Merci de confirmer votre présence afin de nous aider à préparer ce jour avec soin.
           </p>
-          <a href={wedding.rsvpLink} target="_blank" rel="noreferrer" className="premium-button mt-8">
+          <a href={wedding.rsvpFormLink} target="_blank" rel="noreferrer" className="premium-button mt-8">
             <Send className="h-4 w-4" />
             Confirmer ma présence
           </a>
@@ -475,7 +477,7 @@ function App() {
           {supportCards.map(({ title, text, button, href, icon: Icon }) => (
             <article key={title} className="lux-card p-6 transition duration-300 hover:-translate-y-1">
               <Icon className="h-8 w-8 text-gold" />
-              <h3 className="mt-5 text-lg font-bold text-burgundy">{title}</h3>
+              <h3 className="mt-5 text-lg font-bold text-teal">{title}</h3>
               <p className="mt-3 text-sm leading-7 text-text/70">{text}</p>
               <a href={href} className="secondary-button mt-6">{button}</a>
             </article>
@@ -506,7 +508,7 @@ function App() {
             {practicalInfo.map(({ icon: Icon, title, text }) => (
               <article key={title} className="lux-card p-6 transition duration-300 hover:-translate-y-1">
                 <Icon className="h-8 w-8 text-gold" />
-                <h3 className="mt-5 text-lg font-bold text-burgundy">{title}</h3>
+                <h3 className="mt-5 text-lg font-bold text-teal">{title}</h3>
                 <p className="mt-3 text-sm leading-7 text-text/70">{text}</p>
               </article>
             ))}
@@ -515,17 +517,17 @@ function App() {
       </section>
 
       <footer className="footer-shell px-5 py-12 text-center">
-        <p className="font-serif text-3xl font-semibold text-gold">{wedding.couple}</p>
+        <p className="font-serif text-3xl font-semibold text-gold">{wedding.couple} — {wedding.date}</p>
         <p className="mt-3 text-sm uppercase tracking-[0.25em] text-cream/75">{wedding.weddingPeriod}</p>
         <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-cream/80">
           Merci de faire partie de notre histoire.
         </p>
-        <a href={wedding.rsvpLink} target="_blank" rel="noreferrer" className="footer-link mt-6 inline-flex">
+        <a href={wedding.rsvpLink} className="footer-link mt-6 inline-flex">
           Confirmer ma présence
         </a>
       </footer>
 
-      <a href={wedding.rsvpLink} target="_blank" rel="noreferrer" className="mobile-rsvp">
+      <a href={wedding.rsvpLink} className="mobile-rsvp">
         <CalendarDays className="h-4 w-4" />
         RSVP
       </a>

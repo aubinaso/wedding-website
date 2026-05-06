@@ -1,6 +1,6 @@
 # Axel & Aivi Wedding Website
 
-React + Vite + Tailwind CSS wedding website for Axel & Aivi. The visual identity is inspired by the guest book / livre d’or PDF: warm ivory, champagne beige, gold ornaments, burgundy accents, subtle teal details, oval frames, and faith-inspired details.
+React + Vite + Tailwind CSS wedding website for Axel & Aivi. The visual identity uses a refined teal, champagne, ivory, gold, soft white, and dark text palette with oval frames, botanical line art, and faith-inspired details.
 
 ## How to Update the Wedding Website
 
