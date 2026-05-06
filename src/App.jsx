@@ -1,22 +1,14 @@
 import {
-  Baby,
   CalendarDays,
-  Camera,
-  Car,
   Church,
-  Clock3,
   Gift,
   HandHeart,
   Heart,
-  Hotel,
   MapPin,
   Navigation,
-  Phone,
   Send,
   Shirt,
   Sparkles,
-  Train,
-  Utensils,
 } from 'lucide-react';
 
 const wedding = {
@@ -170,15 +162,6 @@ const storyItems = [
   },
 ];
 
-const programItems = [
-  { title: 'Cérémonie', time: wedding.ceremony.time, icon: Church },
-  { title: 'Photos', time: 'À préciser', icon: Camera },
-  { title: 'Vin d’honneur / cocktail', time: 'À préciser', icon: Sparkles },
-  { title: 'Réception', time: wedding.reception.time, icon: MapPin },
-  { title: 'Repas', time: 'À préciser', icon: Utensils },
-  { title: 'Soirée', time: 'À préciser', icon: Heart },
-];
-
 const dressColors = [
   { name: 'Deep teal / peacock blue', value: wedding.theme.teal },
   { name: 'Ivory / champagne', value: wedding.theme.ivory },
@@ -219,18 +202,11 @@ const bibleVerses = [
   { ref: 'Proverbes 18:22', text: 'Celui qui trouve une femme trouve le bonheur.' },
 ];
 
-const practicalInfo = [
-  { title: 'Hébergement', text: 'Recommandations à préciser prochainement.', icon: Hotel },
-  { title: 'Parking', text: 'Informations de stationnement à confirmer.', icon: Car },
-  { title: 'Transport', text: 'Accès et options de transport à ajouter.', icon: Train },
-  { title: 'Contacts', text: 'Contact de coordination à préciser.', icon: Phone },
-  { title: 'Enfants / famille', text: 'Informations famille à préciser si nécessaire.', icon: Baby },
-];
-
 const navItems = [
   { label: 'Accueil', href: '#hero' },
   { label: 'Histoire', href: '#story' },
   { label: 'Détails', href: '#details' },
+  { label: 'Dress code', href: '#dress-code' },
   { label: 'Galerie', href: '#gallery' },
   { label: 'RSVP', href: '#rsvp' },
 ];
@@ -279,15 +255,31 @@ function ImagePlaceholder({ label, className = '' }) {
 }
 
 function HeroVisual() {
-  if (wedding.images.hero) {
-    return <img className="hero-oval" src={wedding.images.hero} alt={`${wedding.couple}`} />;
-  }
-
   return (
-    <div className="hero-oval hero-oval-placeholder">
-      <div className="placeholder-flower" aria-hidden="true" />
-      <span>{wedding.initials}</span>
-      <small>{wedding.weddingPeriod}</small>
+    <div className="hero-photo-cluster" aria-label={`Photos de ${wedding.couple}`}>
+      {wedding.images.hero ? (
+        <img className="hero-oval hero-oval-main" src={wedding.images.hero} alt={`${wedding.couple} se regardant avec sourire`} />
+      ) : (
+        <div className="hero-oval hero-oval-placeholder">
+          <div className="placeholder-flower" aria-hidden="true" />
+          <span>{wedding.initials}</span>
+          <small>{wedding.weddingPeriod}</small>
+        </div>
+      )}
+      <img
+        className="hero-orbit-photo hero-orbit-one"
+        src="/images/couple/photo_a_2.jpeg"
+        alt="Portrait d’Axel et Aivi"
+      />
+      <img
+        className="hero-orbit-photo hero-orbit-two"
+        src="/images/couple/demande_fiancailles.jpeg"
+        alt="Axel et Aivi le jour des fiançailles"
+      />
+      <div className="hero-photo-signature">
+        <span>{wedding.couple}</span>
+        <small>{wedding.mainDate}</small>
+      </div>
     </div>
   );
 }
@@ -522,26 +514,7 @@ function App() {
         </div>
       </section>
 
-      <section className="teal-band text-cream">
-        <div className="section-shell">
-          <SectionHeader eyebrow="Déroulé" title="Le programme de la journée" centered light>
-            Une trame simple, à affiner lorsque les horaires définitifs seront confirmés.
-          </SectionHeader>
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {programItems.map(({ title, time, icon: Icon }) => (
-              <div key={title} className="program-card">
-                <Icon className="h-7 w-7 text-gold" />
-                <p className="mt-5 font-serif text-3xl font-semibold text-cream">{title}</p>
-                <p className="mt-2 text-sm uppercase tracking-[0.2em] text-cream/70">{time}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <GoldDivider />
-
-      <section className="section-shell">
+      <section id="dress-code" className="section-shell">
         <div className="grid items-center gap-10 lg:grid-cols-[1fr_0.95fr]">
           <SectionHeader eyebrow="Dress code" title="Teal, ivoire & or">
             Une palette élégante inspirée de la référence, pensée pour une ambiance douce et harmonieuse.
@@ -611,21 +584,6 @@ function App() {
               <article key={verse.ref} className="verse-card">
                 <p className="font-serif text-xl text-gold">{verse.ref}</p>
                 <p className="mt-3 text-sm leading-7 text-cream/80">{verse.text}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="soft-band">
-        <div className="section-shell">
-          <SectionHeader eyebrow="Informations" title="Informations pratiques" />
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
-            {practicalInfo.map(({ icon: Icon, title, text }) => (
-              <article key={title} className="lux-card p-6 transition duration-300 hover:-translate-y-1">
-                <Icon className="h-8 w-8 text-gold" />
-                <h3 className="mt-5 text-lg font-bold text-teal">{title}</h3>
-                <p className="mt-3 text-sm leading-7 text-text/70">{text}</p>
               </article>
             ))}
           </div>

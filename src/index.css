@@ -457,10 +457,10 @@ body {
 }
 
 .story-photo {
-  height: 13rem;
+  height: 13.5rem;
   width: 100%;
   border: 2px solid rgba(201, 162, 39, 0.9);
-  border-radius: 120px 120px 18px 18px;
+  border-radius: 999px 999px 34px 34px;
   object-fit: cover;
   object-position: center;
   box-shadow: 0 18px 42px rgba(31, 41, 51, 0.13);
@@ -574,6 +574,83 @@ body {
   object-position: center;
 }
 
+.hero-photo-cluster {
+  position: relative;
+  display: grid;
+  width: min(86vw, 31rem);
+  min-height: 36rem;
+  place-items: center;
+}
+
+.hero-oval-main {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-orbit-photo {
+  position: absolute;
+  z-index: 3;
+  width: clamp(6rem, 20vw, 9rem);
+  height: clamp(6rem, 20vw, 9rem);
+  border: 6px solid #fff9f0;
+  border-radius: 999px;
+  object-fit: cover;
+  object-position: center;
+  outline: 2px solid rgba(201, 162, 39, 0.88);
+  box-shadow:
+    0 18px 46px rgba(0, 95, 107, 0.22),
+    0 0 0 6px rgba(212, 175, 55, 0.12);
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+
+.hero-orbit-photo:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow:
+    0 24px 58px rgba(0, 95, 107, 0.28),
+    0 0 0 7px rgba(212, 175, 55, 0.18);
+}
+
+.hero-orbit-one {
+  top: 1.5rem;
+  right: 0;
+}
+
+.hero-orbit-two {
+  bottom: 3rem;
+  left: 0;
+}
+
+.hero-photo-signature {
+  position: absolute;
+  right: 1.2rem;
+  bottom: 0.5rem;
+  z-index: 4;
+  min-width: 12rem;
+  padding: 1rem 1.2rem;
+  border: 1px solid rgba(201, 162, 39, 0.86);
+  border-radius: 999px;
+  text-align: center;
+  background: rgba(255, 249, 240, 0.88);
+  box-shadow: 0 16px 38px rgba(0, 95, 107, 0.16);
+  backdrop-filter: blur(10px);
+}
+
+.hero-photo-signature span {
+  display: block;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--color-teal);
+}
+
+.hero-photo-signature small {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-rich-gold);
+}
+
 .hero-oval-placeholder {
   flex-direction: column;
   gap: 1rem;
@@ -660,7 +737,7 @@ body {
 }
 
 .gallery-grid {
-  @apply mt-12 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-5;
+  @apply mt-12 grid grid-cols-2 gap-5 md:grid-cols-4 md:gap-7;
 }
 
 .gallery-placeholder {
@@ -676,10 +753,10 @@ body {
 }
 
 .gallery-image {
-  height: 16rem;
+  height: 17rem;
   width: 100%;
   border: 3px solid #fff9f0;
-  border-radius: 140px 140px 18px 18px;
+  border-radius: 999px 999px 42px 42px;
   object-fit: cover;
   object-position: center;
   outline: 3px solid rgba(201, 162, 39, 0.72);
@@ -739,13 +816,32 @@ body {
 }
 
 @media (max-width: 640px) {
+  .hero-photo-cluster {
+    min-height: 32rem;
+  }
+
   .hero-oval {
     min-height: 25rem;
   }
 
+  .hero-orbit-one {
+    right: 0.2rem;
+  }
+
+  .hero-orbit-two {
+    bottom: 4.5rem;
+    left: 0.2rem;
+  }
+
+  .hero-photo-signature {
+    right: 50%;
+    bottom: 0.2rem;
+    transform: translateX(50%);
+  }
+
   .gallery-placeholder,
   .gallery-image {
-    height: 13rem;
+    height: 14rem;
   }
 }
 
