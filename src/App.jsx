@@ -322,6 +322,11 @@ function App() {
             <a key={item.href} href={item.href}>{item.label}</a>
           ))}
         </div>
+        <div className="nav-menu-dot" aria-hidden="true">
+          <span />
+          <span />
+          <span />
+        </div>
         <a href={wedding.rsvpLink} className="nav-rsvp">RSVP</a>
       </nav>
 
