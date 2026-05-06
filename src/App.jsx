@@ -336,7 +336,7 @@ function App() {
         <div className="mx-auto grid w-full max-w-6xl items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="hero-card relative px-6 py-12 text-center sm:px-10 lg:text-left">
             <p className="script-label">Nous nous marions</p>
-            <h1 className="mt-5 font-serif text-6xl font-semibold leading-none text-teal sm:text-8xl">
+            <h1 className="hero-names">
               {wedding.couple}
             </h1>
             <p className="mt-6 font-serif text-3xl leading-tight text-text/85 sm:text-4xl">

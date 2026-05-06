@@ -95,6 +95,37 @@ body {
   box-shadow: 0 0 18px rgba(212, 175, 55, 0.38);
 }
 
+.hero-names {
+  margin-top: 1.15rem;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(4.8rem, 11vw, 8.6rem);
+  font-weight: 700;
+  line-height: 0.86;
+  letter-spacing: 0.015em;
+  color: var(--color-teal);
+  text-wrap: balance;
+  text-shadow:
+    0 1px 0 rgba(255, 249, 240, 0.75),
+    0 12px 34px rgba(0, 95, 107, 0.16);
+}
+
+.hero-names::after {
+  display: block;
+  width: min(14rem, 70%);
+  height: 3px;
+  margin: 1.15rem auto 0;
+  content: '';
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, var(--color-rich-gold), var(--color-gold), var(--color-rich-gold), transparent);
+  box-shadow: 0 0 18px rgba(212, 175, 55, 0.3);
+}
+
+@media (min-width: 1024px) {
+  .hero-names::after {
+    margin-left: 0;
+  }
+}
+
 .floral-corner {
   position: absolute;
   width: 170px;
@@ -607,6 +638,10 @@ body {
 .hero-oval-main {
   position: relative;
   z-index: 2;
+  width: min(78vw, 25rem);
+  height: auto;
+  min-height: 33rem;
+  border-radius: 999px 999px 24px 24px;
 }
 
 .hero-orbit-photo {
@@ -876,6 +911,12 @@ body {
     font-size: clamp(4rem, 19vw, 5.6rem);
   }
 
+  .hero-names {
+    margin-top: 1rem;
+    font-size: clamp(4.4rem, 20vw, 5.9rem);
+    line-height: 0.9;
+  }
+
   .hero-card .font-serif.text-3xl {
     font-size: 1.75rem;
     line-height: 1.16;
@@ -903,6 +944,13 @@ body {
     width: min(68vw, 19rem);
     height: min(68vw, 19rem);
     outline-offset: 7px;
+  }
+
+  .hero-oval-main {
+    width: min(72vw, 20rem);
+    height: auto;
+    min-height: 25rem;
+    border-radius: 999px 999px 22px 22px;
   }
 
   .hero-orbit-photo {
