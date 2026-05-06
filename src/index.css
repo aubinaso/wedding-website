@@ -457,13 +457,15 @@ body {
 }
 
 .story-photo {
-  height: 13.5rem;
-  width: 100%;
+  width: min(100%, 14rem);
+  aspect-ratio: 1;
   border: 2px solid rgba(201, 162, 39, 0.9);
-  border-radius: 999px 999px 34px 34px;
+  border-radius: 999px;
   object-fit: cover;
   object-position: center;
   box-shadow: 0 18px 42px rgba(31, 41, 51, 0.13);
+  margin-inline: auto;
+  display: block;
 }
 
 .story-icon-floating {
@@ -476,10 +478,10 @@ body {
 }
 
 .invitation-photo {
-  height: 18rem;
-  width: min(100%, 28rem);
+  width: min(100%, 20rem);
+  aspect-ratio: 1;
   border: 8px solid #fff9f0;
-  border-radius: 999px 999px 18px 18px;
+  border-radius: 999px;
   object-fit: cover;
   object-position: center;
   outline: 2px solid rgba(201, 162, 39, 0.85);
@@ -565,8 +567,9 @@ body {
 }
 
 .hero-oval {
-  width: min(82vw, 25rem);
-  min-height: 33rem;
+  width: min(78vw, 26rem);
+  height: min(78vw, 26rem);
+  min-height: 0;
   border-radius: 999px;
   outline: 2px solid rgba(201, 162, 39, 0.9);
   outline-offset: 10px;
@@ -577,8 +580,8 @@ body {
 .hero-photo-cluster {
   position: relative;
   display: grid;
-  width: min(86vw, 31rem);
-  min-height: 36rem;
+  width: min(88vw, 32rem);
+  min-height: min(92vw, 34rem);
   place-items: center;
 }
 
@@ -741,8 +744,9 @@ body {
 }
 
 .gallery-placeholder {
-  height: 16rem;
-  border-radius: 140px 140px 18px 18px;
+  aspect-ratio: 1;
+  height: auto;
+  border-radius: 999px;
   transition: transform 360ms ease, box-shadow 360ms ease, border-color 360ms ease;
 }
 
@@ -753,10 +757,10 @@ body {
 }
 
 .gallery-image {
-  height: 17rem;
   width: 100%;
+  aspect-ratio: 1;
   border: 3px solid #fff9f0;
-  border-radius: 999px 999px 42px 42px;
+  border-radius: 999px;
   object-fit: cover;
   object-position: center;
   outline: 3px solid rgba(201, 162, 39, 0.72);
@@ -817,11 +821,12 @@ body {
 
 @media (max-width: 640px) {
   .hero-photo-cluster {
-    min-height: 32rem;
+    min-height: 30rem;
   }
 
   .hero-oval {
-    min-height: 25rem;
+    width: min(76vw, 22rem);
+    height: min(76vw, 22rem);
   }
 
   .hero-orbit-one {
@@ -841,7 +846,7 @@ body {
 
   .gallery-placeholder,
   .gallery-image {
-    height: 14rem;
+    aspect-ratio: 1;
   }
 }
 
