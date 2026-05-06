@@ -21,7 +21,7 @@ body {
   margin: 0;
   min-width: 320px;
   background:
-    radial-gradient(circle at 12% 8%, rgba(212, 175, 55, 0.24), transparent 22rem),
+    radial-gradient(circle at 12% 8%, rgba(224, 193, 90, 0.3), transparent 22rem),
     radial-gradient(circle at 88% 18%, rgba(0, 124, 137, 0.22), transparent 22rem),
     linear-gradient(180deg, #F5EDE0 0%, #D9D1C3 48%, #F5EDE0 100%);
 }
@@ -45,7 +45,7 @@ body {
   pointer-events: none;
   content: '';
   background-image:
-    radial-gradient(circle at center, rgba(212, 175, 55, 0.16) 0 1px, transparent 1.5px),
+    radial-gradient(circle at center, rgba(201, 162, 39, 0.24) 0 1px, transparent 1.5px),
     linear-gradient(135deg, rgba(0, 124, 137, 0.04) 25%, transparent 25%),
     linear-gradient(225deg, rgba(212, 175, 55, 0.035) 25%, transparent 25%);
   background-size: 44px 44px, 64px 64px, 64px 64px;
@@ -55,19 +55,23 @@ body {
 .hero-section {
   background:
     linear-gradient(90deg, rgba(0, 124, 137, 0.18), transparent 34%),
-    radial-gradient(circle at top left, rgba(212, 175, 55, 0.34), transparent 24rem),
+    radial-gradient(circle at top left, rgba(224, 193, 90, 0.44), transparent 24rem),
+    radial-gradient(circle at 50% 0%, rgba(201, 162, 39, 0.2), transparent 18rem),
     radial-gradient(circle at bottom right, rgba(0, 124, 137, 0.34), transparent 28rem),
     linear-gradient(135deg, rgba(245, 237, 224, 0.96), rgba(217, 209, 195, 0.88));
 }
 
 .hero-card {
-  border: 2px solid rgba(212, 175, 55, 0.92);
+  border: 2px solid rgba(201, 162, 39, 0.98);
   border-radius: 18px;
   background:
     linear-gradient(90deg, rgba(0, 124, 137, 0.12), transparent 48%),
     linear-gradient(180deg, rgba(255, 249, 240, 0.96), rgba(245, 237, 224, 0.84)),
-    radial-gradient(circle at top, rgba(212, 175, 55, 0.22), transparent 32rem);
-  box-shadow: 0 30px 96px rgba(0, 95, 107, 0.2);
+    radial-gradient(circle at top, rgba(224, 193, 90, 0.3), transparent 32rem);
+  box-shadow:
+    0 30px 96px rgba(0, 95, 107, 0.2),
+    0 0 0 7px rgba(212, 175, 55, 0.12),
+    inset 0 0 0 1px rgba(224, 193, 90, 0.45);
   animation: floatIn 900ms ease-out both;
 }
 
@@ -76,7 +80,7 @@ body {
   inset: 10px;
   pointer-events: none;
   content: '';
-  border: 1px solid rgba(212, 175, 55, 0.78);
+  border: 1px solid rgba(224, 193, 90, 0.9);
   border-radius: 12px;
 }
 
@@ -85,9 +89,10 @@ body {
   left: 2rem;
   right: 2rem;
   bottom: 1.35rem;
-  height: 2px;
+  height: 3px;
   content: '';
-  background: linear-gradient(90deg, transparent, var(--color-rich-gold), transparent);
+  background: linear-gradient(90deg, transparent, var(--color-rich-gold), var(--color-gold), var(--color-rich-gold), transparent);
+  box-shadow: 0 0 18px rgba(212, 175, 55, 0.38);
 }
 
 .floral-corner {
@@ -104,7 +109,7 @@ body {
 .placeholder-flower::after {
   position: absolute;
   content: '';
-  border-color: rgba(201, 162, 39, 0.92);
+  border-color: rgba(201, 162, 39, 0.98);
 }
 
 .floral-corner::before {
@@ -143,7 +148,7 @@ body {
 .soft-band {
   background:
     linear-gradient(90deg, rgba(0, 124, 137, 0.08), transparent 42%),
-    radial-gradient(circle at 10% 10%, rgba(212, 175, 55, 0.22), transparent 22rem),
+    radial-gradient(circle at 10% 10%, rgba(224, 193, 90, 0.26), transparent 22rem),
     rgba(255, 249, 240, 0.5);
 }
 
@@ -152,9 +157,32 @@ body {
 .faith-section,
 .footer-shell {
   background:
-    radial-gradient(circle at top left, rgba(212, 175, 55, 0.26), transparent 22rem),
-    radial-gradient(circle at bottom right, rgba(212, 175, 55, 0.16), transparent 20rem),
+    radial-gradient(circle at top left, rgba(224, 193, 90, 0.34), transparent 22rem),
+    radial-gradient(circle at bottom right, rgba(201, 162, 39, 0.22), transparent 20rem),
     linear-gradient(135deg, var(--color-teal), var(--color-dark-teal));
+}
+
+.rsvp-card,
+.footer-shell {
+  position: relative;
+  border-top: 3px solid rgba(224, 193, 90, 0.9);
+  border-bottom: 3px solid rgba(201, 162, 39, 0.72);
+  box-shadow:
+    0 28px 90px rgba(0, 95, 107, 0.22),
+    inset 0 0 0 1px rgba(224, 193, 90, 0.28);
+}
+
+.rsvp-card::before,
+.footer-shell::before {
+  position: absolute;
+  top: 1.25rem;
+  left: 50%;
+  width: min(18rem, 70%);
+  height: 2px;
+  content: '';
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, var(--color-rich-gold), var(--color-gold), var(--color-rich-gold), transparent);
+  box-shadow: 0 0 18px rgba(212, 175, 55, 0.36);
 }
 
 .script-label {
@@ -162,6 +190,7 @@ body {
   font-size: 1.65rem;
   line-height: 1;
   color: var(--color-rich-gold);
+  text-shadow: 0 1px 0 rgba(255, 249, 240, 0.45);
 }
 
 .section-title {
@@ -174,17 +203,19 @@ body {
 .section-title::after {
   display: block;
   width: min(9rem, 60%);
-  height: 2px;
+  height: 3px;
   margin-top: 0.75rem;
   content: '';
-  background: linear-gradient(90deg, var(--color-rich-gold), transparent);
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--color-rich-gold), var(--color-gold), transparent);
+  box-shadow: 0 0 16px rgba(212, 175, 55, 0.24);
 }
 
 .text-center .section-title::after,
 .mx-auto.text-center .section-title::after {
   margin-right: auto;
   margin-left: auto;
-  background: linear-gradient(90deg, transparent, var(--color-rich-gold), transparent);
+  background: linear-gradient(90deg, transparent, var(--color-rich-gold), var(--color-gold), var(--color-rich-gold), transparent);
 }
 
 .section-title-light {
@@ -203,13 +234,31 @@ body {
 .lux-card,
 .testimonial-card,
 .story-card {
-  border: 1px solid rgba(212, 175, 55, 0.34);
+  position: relative;
+  border: 1px solid rgba(201, 162, 39, 0.52);
   border-radius: 18px;
   background:
     linear-gradient(180deg, rgba(255, 249, 240, 0.9), rgba(245, 237, 224, 0.78)),
     linear-gradient(90deg, rgba(0, 124, 137, 0.05), transparent);
-  box-shadow: 0 22px 70px rgba(0, 95, 107, 0.12);
+  box-shadow:
+    0 22px 70px rgba(0, 95, 107, 0.12),
+    inset 0 0 0 1px rgba(224, 193, 90, 0.18);
   backdrop-filter: blur(10px);
+}
+
+.lux-card::before,
+.testimonial-card::before,
+.story-card::before {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 2.5rem;
+  height: 2.5rem;
+  pointer-events: none;
+  content: '';
+  border-top: 2px solid rgba(201, 162, 39, 0.7);
+  border-right: 2px solid rgba(201, 162, 39, 0.7);
+  border-radius: 0 10px 0 0;
 }
 
 .testimonial-card,
@@ -221,9 +270,11 @@ body {
 .testimonial-card:hover,
 .story-card:hover,
 .lux-card:hover {
-  border-color: rgba(212, 175, 55, 0.66);
+  border-color: rgba(201, 162, 39, 0.82);
   transform: translateY(-4px);
-  box-shadow: 0 26px 78px rgba(0, 95, 107, 0.18);
+  box-shadow:
+    0 26px 78px rgba(0, 95, 107, 0.18),
+    0 0 0 4px rgba(212, 175, 55, 0.12);
 }
 
 .story-icon {
@@ -233,7 +284,7 @@ body {
   align-items: center;
   justify-content: center;
   color: var(--color-teal);
-  border: 2px solid rgba(212, 175, 55, 0.78);
+  border: 2px solid rgba(201, 162, 39, 0.9);
   border-radius: 999px;
   background: rgba(217, 209, 195, 0.54);
 }
@@ -241,7 +292,7 @@ body {
 .story-photo {
   height: 13rem;
   width: 100%;
-  border: 2px solid rgba(212, 175, 55, 0.72);
+  border: 2px solid rgba(201, 162, 39, 0.9);
   border-radius: 120px 120px 18px 18px;
   object-fit: cover;
   object-position: center;
@@ -264,9 +315,11 @@ body {
   border-radius: 999px 999px 18px 18px;
   object-fit: cover;
   object-position: center;
-  outline: 2px solid rgba(201, 162, 39, 0.7);
+  outline: 2px solid rgba(201, 162, 39, 0.85);
   outline-offset: 5px;
-  box-shadow: 0 24px 64px rgba(31, 41, 51, 0.14);
+  box-shadow:
+    0 24px 64px rgba(31, 41, 51, 0.14),
+    0 0 0 5px rgba(212, 175, 55, 0.12);
 }
 
 .premium-button,
@@ -277,18 +330,20 @@ body {
 
 .premium-button {
   color: #fff9f0;
-  border: 2px solid rgba(212, 175, 55, 0.92);
+  border: 2px solid rgba(224, 193, 90, 0.98);
   background: linear-gradient(135deg, var(--color-teal), var(--color-dark-teal));
   box-shadow:
     0 16px 38px rgba(0, 95, 107, 0.3),
-    0 0 0 4px rgba(212, 175, 55, 0.12);
+    0 0 0 4px rgba(212, 175, 55, 0.16),
+    inset 0 1px 0 rgba(224, 193, 90, 0.45);
 }
 
 .secondary-button,
 .footer-link {
   color: var(--color-teal);
-  border: 2px solid rgba(212, 175, 55, 0.82);
+  border: 2px solid rgba(201, 162, 39, 0.88);
   background: rgba(255, 249, 240, 0.82);
+  box-shadow: inset 0 0 0 1px rgba(224, 193, 90, 0.18);
 }
 
 .premium-button:hover,
@@ -297,6 +352,9 @@ body {
   color: #fff9f0;
   border-color: var(--color-rich-gold);
   background: var(--color-dark-teal);
+  box-shadow:
+    0 16px 34px rgba(0, 95, 107, 0.28),
+    0 0 0 4px rgba(212, 175, 55, 0.16);
   transform: translateY(-4px);
 }
 
@@ -307,13 +365,19 @@ body {
 }
 
 .gold-divider {
-  @apply mx-auto flex w-full max-w-4xl items-center justify-center gap-4 px-5 py-5 text-gold;
+  @apply mx-auto flex w-full max-w-5xl items-center justify-center gap-5 px-5 py-7 text-gold;
 }
 
 .gold-divider span {
-  height: 2px;
+  height: 3px;
   flex: 1;
-  background: linear-gradient(90deg, transparent, var(--color-rich-gold), transparent);
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, var(--color-rich-gold), var(--color-gold), var(--color-rich-gold), transparent);
+  box-shadow: 0 0 18px rgba(212, 175, 55, 0.3);
+}
+
+.gold-divider svg {
+  filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.42));
 }
 
 .hero-oval,
@@ -323,18 +387,21 @@ body {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  border: 2px solid rgba(212, 175, 55, 0.95);
+  border: 3px solid rgba(255, 249, 240, 0.96);
   background:
     radial-gradient(circle at top, rgba(212, 175, 55, 0.18), transparent 45%),
     linear-gradient(180deg, rgba(255, 249, 240, 0.95), rgba(217, 209, 195, 0.72));
-  box-shadow: 0 30px 86px rgba(0, 95, 107, 0.22);
+  box-shadow:
+    0 30px 86px rgba(0, 95, 107, 0.22),
+    0 0 0 3px rgba(201, 162, 39, 0.82),
+    0 0 0 10px rgba(212, 175, 55, 0.12);
 }
 
 .hero-oval {
   width: min(82vw, 25rem);
   min-height: 33rem;
   border-radius: 999px;
-  outline: 2px solid rgba(201, 162, 39, 0.74);
+  outline: 2px solid rgba(201, 162, 39, 0.9);
   outline-offset: 10px;
   object-fit: cover;
   object-position: center;
@@ -395,16 +462,32 @@ body {
 
 .program-card,
 .verse-card {
-  border: 1px solid rgba(212, 175, 55, 0.46);
+  position: relative;
+  border: 1px solid rgba(224, 193, 90, 0.62);
   border-radius: 18px;
-  background: rgba(255, 249, 240, 0.1);
+  background:
+    linear-gradient(180deg, rgba(255, 249, 240, 0.12), rgba(255, 249, 240, 0.06)),
+    radial-gradient(circle at top right, rgba(212, 175, 55, 0.12), transparent 8rem);
   padding: 1.5rem;
   transition: transform 300ms ease, border-color 300ms ease, background 300ms ease;
 }
 
+.program-card::after,
+.verse-card::after {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  width: 2rem;
+  height: 2rem;
+  content: '';
+  border-right: 2px solid rgba(224, 193, 90, 0.62);
+  border-bottom: 2px solid rgba(224, 193, 90, 0.62);
+  border-radius: 0 0 10px 0;
+}
+
 .program-card:hover,
 .verse-card:hover {
-  border-color: rgba(212, 175, 55, 0.72);
+  border-color: rgba(224, 193, 90, 0.9);
   background: rgba(255, 249, 240, 0.18);
   transform: translateY(-4px);
 }
@@ -432,16 +515,20 @@ body {
   border-radius: 140px 140px 18px 18px;
   object-fit: cover;
   object-position: center;
-  outline: 2px solid rgba(201, 162, 39, 0.58);
+  outline: 3px solid rgba(201, 162, 39, 0.72);
   outline-offset: 3px;
-  box-shadow: 0 22px 60px rgba(0, 95, 107, 0.15);
+  box-shadow:
+    0 22px 60px rgba(0, 95, 107, 0.15),
+    0 0 0 7px rgba(212, 175, 55, 0.1);
   transition: transform 420ms ease, border-color 420ms ease, box-shadow 420ms ease;
 }
 
 .gallery-image:hover {
   border-color: var(--color-gold);
   transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 26px 70px rgba(0, 124, 137, 0.16);
+  box-shadow:
+    0 26px 70px rgba(0, 124, 137, 0.16),
+    0 0 0 7px rgba(212, 175, 55, 0.16);
 }
 
 .text-teal {
@@ -471,9 +558,11 @@ body {
 .mobile-rsvp {
   @apply fixed bottom-4 left-4 right-4 z-50 inline-flex items-center justify-center gap-2 rounded-full px-6 py-4 text-sm font-bold uppercase tracking-[0.18em] shadow-lg transition sm:hidden;
   color: #fff9f0;
-  border: 2px solid rgba(212, 175, 55, 0.92);
+  border: 2px solid rgba(224, 193, 90, 0.98);
   background: linear-gradient(135deg, var(--color-teal), var(--color-dark-teal));
-  box-shadow: 0 14px 34px rgba(0, 95, 107, 0.3);
+  box-shadow:
+    0 14px 34px rgba(0, 95, 107, 0.3),
+    0 0 0 4px rgba(212, 175, 55, 0.16);
 }
 
 .mobile-rsvp:hover {
