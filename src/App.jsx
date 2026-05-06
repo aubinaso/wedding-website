@@ -64,10 +64,61 @@ const wedding = {
     wife:
       'À travers notre histoire, j’ai découvert un amour patient, sincère et construit sur Dieu. Ce jour marque le début d’une alliance que je veux chérir avec foi, joie et engagement.',
   },
-  // Keep image paths empty until real files are added. Empty values render designed placeholders.
   images: {
-    hero: '',
-    gallery: [],
+    hero: '/images/couple/les_regards_un_sur_autre.jpeg',
+    invitation: '/images/couple/photo_a_2.jpeg',
+    story: [
+      {
+        src: '/images/couple/sous_les_parapluie.jpeg',
+        alt: 'Axel et Aivi sous les parapluies',
+      },
+      {
+        src: '/images/couple/sortie_a_2.jpeg',
+        alt: 'Axel et Aivi lors d’une sortie à deux',
+      },
+      {
+        src: '/images/couple/a_genoux_pour_demande_mariage.jpeg',
+        alt: 'Demande en mariage avec guitare',
+      },
+      {
+        src: '/images/couple/demande_fiancailles.jpeg',
+        alt: 'Axel et Aivi le jour des fiançailles',
+      },
+    ],
+    gallery: [
+      {
+        src: '/images/couple/photo_a_2.jpeg',
+        alt: 'Portrait de couple d’Axel et Aivi',
+      },
+      {
+        src: '/images/couple/les_regards_un_sur_autre.jpeg',
+        alt: 'Axel et Aivi se regardant avec sourire',
+      },
+      {
+        src: '/images/couple/demande_fiancailles.jpeg',
+        alt: 'Aivi avec son bouquet de fiançailles aux côtés d’Axel',
+      },
+      {
+        src: '/images/couple/a_genoux_pour_demande_mariage.jpeg',
+        alt: 'Axel à genoux pendant la demande en mariage',
+      },
+      {
+        src: '/images/couple/repas_chez_fiancaille_avec_guitare.jpeg',
+        alt: 'Repas de fiançailles avec guitare',
+      },
+      {
+        src: '/images/couple/restaurant.jpeg',
+        alt: 'Souvenir au restaurant',
+      },
+      {
+        src: '/images/couple/sortie_a_2_.jpeg',
+        alt: 'Sortie à deux d’Axel et Aivi',
+      },
+      {
+        src: '/images/couple/voyage_orlean_pour_bague.jpeg',
+        alt: 'Voyage à Orléans pour la bague',
+      },
+    ],
   },
   theme: {
     ivory: '#F5EDE0',
@@ -93,21 +144,25 @@ const storyItems = [
     title: 'Rencontre',
     text: 'Le début d’une histoire douce, construite pas à pas avec confiance.',
     icon: Heart,
+    image: wedding.images.story[0],
   },
   {
     title: 'Cheminement',
     text: 'Des saisons traversées ensemble, dans la foi, la patience et la joie.',
     icon: Sparkles,
+    image: wedding.images.story[1],
   },
   {
     title: 'Demande',
     text: 'Une promesse posée avec émotion, comme une évidence pour l’avenir.',
     icon: HandHeart,
+    image: wedding.images.story[2],
   },
   {
     title: 'Mariage',
     text: `Une alliance célébrée devant Dieu et nos proches le ${wedding.mainDate}.`,
     icon: Church,
+    image: wedding.images.story[3],
   },
 ];
 
@@ -212,7 +267,6 @@ function ImagePlaceholder({ label, className = '' }) {
 }
 
 function HeroVisual() {
-  // Add a real hero image later by setting wedding.images.hero to a public path, for example "/images/couple/couple-hero.jpg".
   if (wedding.images.hero) {
     return <img className="hero-oval" src={wedding.images.hero} alt={`${wedding.couple}`} />;
   }
@@ -227,12 +281,17 @@ function HeroVisual() {
 }
 
 function Gallery() {
-  // Replace placeholders by adding real image paths to wedding.images.gallery.
   if (wedding.images.gallery.length > 0) {
     return (
       <div className="gallery-grid">
-        {wedding.images.gallery.map((src, index) => (
-          <img key={src} src={src} alt={`${wedding.couple} souvenir ${index + 1}`} className="gallery-image" />
+        {wedding.images.gallery.map((image, index) => (
+          <img
+            key={image.src}
+            src={image.src}
+            alt={image.alt || `${wedding.couple} souvenir ${index + 1}`}
+            className="gallery-image"
+            loading="lazy"
+          />
         ))}
       </div>
     );
@@ -293,6 +352,14 @@ function App() {
             <p className="mt-5">
               Merci d’être présents dans cette saison si précieuse de notre histoire.
             </p>
+            {wedding.images.invitation ? (
+              <img
+                src={wedding.images.invitation}
+                alt={`Portrait de ${wedding.couple}`}
+                className="invitation-photo mt-8"
+                loading="lazy"
+              />
+            ) : null}
           </div>
         </div>
       </section>
@@ -339,9 +406,14 @@ function App() {
             Une ligne du temps simple, en attendant d’ajouter nos vrais souvenirs en images.
           </SectionHeader>
           <div className="mt-12 grid gap-5 md:grid-cols-4">
-            {storyItems.map(({ title, text, icon: Icon }) => (
+            {storyItems.map(({ title, text, icon: Icon, image }) => (
               <article key={title} className="story-card">
-                <div className="story-icon"><Icon className="h-6 w-6" /></div>
+                {image?.src ? (
+                  <img src={image.src} alt={image.alt} className="story-photo" loading="lazy" />
+                ) : (
+                  <div className="story-icon"><Icon className="h-6 w-6" /></div>
+                )}
+                <div className="story-icon story-icon-floating"><Icon className="h-5 w-5" /></div>
                 <h3 className="mt-6 font-serif text-3xl font-semibold text-teal">{title}</h3>
                 <p className="mt-3 text-sm leading-7 text-text/70">{text}</p>
               </article>

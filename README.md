@@ -66,44 +66,36 @@ support: {
 }
 ```
 
-### 7. Add real couple photos later
+### 7. Add or replace couple photos
 
-There are no separate couple photo files in the project right now. The website intentionally uses designed placeholders so there are no broken image links.
-
-When real photos are available, add them under a public folder such as:
+Couple photos are stored under:
 
 ```text
 public/images/couple/
 ```
 
-Suggested filenames:
+Files inside `public` are referenced from the site root, for example:
 
 ```text
-couple-hero.jpg
-couple-1.jpg
-couple-2.jpg
-proposal.jpg
-gallery-1.jpg
-gallery-2.jpg
+/images/couple/photo_a_2.jpeg
 ```
 
-### 8. Replace placeholder image areas with real images
+To replace a photo, add the new file in `public/images/couple/`, then update the relevant path in `src/App.jsx`.
+
+### 8. Update image areas
 
 In `src/App.jsx`, update:
 
 ```js
 images: {
-  hero: "/images/couple/couple-hero.jpg",
+  hero: "/images/couple/les_regards_un_sur_autre.jpeg",
   gallery: [
-    "/images/couple/couple-1.jpg",
-    "/images/couple/couple-2.jpg",
-    "/images/couple/proposal.jpg",
-    "/images/couple/gallery-1.jpg"
+    { src: "/images/couple/photo_a_2.jpeg", alt: "Portrait de couple d’Axel et Aivi" }
   ]
 }
 ```
 
-If `hero` is empty or `gallery` is empty, the site displays elegant placeholders instead.
+If `hero` is empty or `gallery` is empty, the site displays elegant placeholders instead of broken image links.
 
 ### 9. Update the husband and wife testimonials
 
