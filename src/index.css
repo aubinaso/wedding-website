@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #3d2923;
+  background: #fff8ed;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    radial-gradient(circle at top left, rgba(159, 52, 52, 0.12), transparent 32rem),
+    linear-gradient(180deg, #fff8ed 0%, #fffdf8 48%, #fff8ed 100%);
+}
+
+::selection {
+  color: #fff8ed;
+  background: #7f1d1d;
+}
+
+.section-shell {
+  @apply mx-auto w-full max-w-6xl px-5 py-16 sm:px-8 lg:px-10 lg:py-24;
+}
+
+.eyebrow {
+  @apply text-xs font-bold uppercase tracking-[0.32em] text-rosewood;
+}
+
+.section-title {
+  @apply mt-3 font-serif text-4xl font-semibold leading-tight text-wine sm:text-5xl;
+}
+
+.section-copy {
+  @apply mt-5 max-w-2xl text-base leading-8 text-ink/75;
+}
+
+.soft-card {
+  @apply border border-wine/10 bg-porcelain/85 shadow-soft backdrop-blur;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
