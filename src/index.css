@@ -641,7 +641,7 @@ body {
   width: min(78vw, 25rem);
   height: auto;
   min-height: 33rem;
-  border-radius: 999px 999px 38% 38% / 999px 999px 24% 24%;
+  border-radius: 50% / 50%;
 }
 
 .hero-orbit-photo {
@@ -950,7 +950,7 @@ body {
     width: min(72vw, 20rem);
     height: auto;
     min-height: 25rem;
-    border-radius: 999px 999px 38% 38% / 999px 999px 24% 24%;
+    border-radius: 50% / 50%;
   }
 
   .hero-orbit-photo {
