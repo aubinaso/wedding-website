@@ -204,11 +204,12 @@ const bibleVerses = [
 
 const navItems = [
   { label: 'Accueil', href: '#hero' },
-  { label: 'Histoire', href: '#story' },
+  { label: 'Notre histoire', href: '#story' },
   { label: 'Détails', href: '#details' },
   { label: 'Dress code', href: '#dress-code' },
   { label: 'Galerie', href: '#gallery' },
   { label: 'RSVP', href: '#rsvp' },
+  { label: 'Cadeaux', href: '#gifts' },
 ];
 
 function getCountdownItems() {
@@ -359,7 +360,7 @@ function App() {
         </div>
       </section>
 
-      <section className="section-shell">
+      <section className="section-shell floral-section floral-section-invitation">
         <div className="grid items-center gap-10 lg:grid-cols-[0.95fr_1.05fr]">
           <div className="lux-card floral-card p-8 sm:p-10">
             <p className="script-label">Invitation</p>
@@ -432,7 +433,7 @@ function App() {
 
       <GoldDivider />
 
-      <section id="story">
+      <section id="story" className="floral-section floral-section-story">
         <div className="section-shell">
           <SectionHeader eyebrow="Notre histoire" title="Une histoire écrite avec douceur">
             Une histoire née dans la confiance, nourrie par la foi et portée par la joie de bâtir ensemble.
@@ -521,7 +522,7 @@ function App() {
         </div>
       </section>
 
-      <section id="dress-code" className="section-shell">
+      <section id="dress-code" className="section-shell floral-section floral-section-dress">
         <div className="grid items-center gap-10 lg:grid-cols-[1fr_0.95fr]">
           <SectionHeader eyebrow="Dress code" title="Teal, ivoire & or">
             Une palette élégante inspirée de la référence, pensée pour une ambiance douce et harmonieuse.
@@ -540,7 +541,7 @@ function App() {
         </div>
       </section>
 
-      <section id="gallery" className="soft-band">
+      <section id="gallery" className="soft-band floral-section floral-section-gallery">
         <div className="section-shell">
           <SectionHeader eyebrow="Galerie" title="Souvenirs à venir" centered>
             Quelques images de notre chemin, choisies pour raconter la tendresse, la joie et la promesse.
@@ -549,7 +550,7 @@ function App() {
         </div>
       </section>
 
-      <section id="rsvp" className="section-shell scroll-mt-10">
+      <section id="rsvp" className="section-shell floral-section floral-section-rsvp scroll-mt-10">
         <div className="rsvp-card p-8 text-center sm:p-12">
           <div className="rsvp-floral rsvp-floral-left" aria-hidden="true" />
           <div className="rsvp-floral rsvp-floral-right" aria-hidden="true" />
@@ -567,7 +568,7 @@ function App() {
         </div>
       </section>
 
-      <section className="section-shell">
+      <section id="gifts" className="section-shell floral-section floral-section-gifts">
         <SectionHeader eyebrow="Soutien" title={`Soutenir ${wedding.couple}`} centered>
           Votre soutien, sous quelque forme que ce soit, est une bénédiction pour le début de notre vie à deux.
         </SectionHeader>
@@ -599,7 +600,7 @@ function App() {
         </div>
       </section>
 
-      <footer className="footer-shell px-5 py-12 text-center">
+      <footer className="footer-shell footer-floral px-5 py-12 text-center">
         <p className="font-serif text-3xl font-semibold text-gold">{wedding.couple} — {wedding.date}</p>
         <p className="mt-3 text-sm uppercase tracking-[0.25em] text-cream/75">{wedding.weddingPeriod}</p>
         <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-cream/80">
