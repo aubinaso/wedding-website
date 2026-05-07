@@ -113,13 +113,13 @@ const wedding = {
     ],
   },
   theme: {
-    ivory: '#F5EDE0',
-    champagne: '#D9D1C3',
+    ivory: '#FFFFFF',
+    champagne: '#FCFCFA',
     gold: '#D4AF37',
     richGold: '#C9A227',
     teal: '#007C89',
     darkTeal: '#005F6B',
-    white: '#FFF9F0',
+    white: '#FCFCFA',
     text: '#1F2933',
   },
 };
