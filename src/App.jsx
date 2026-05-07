@@ -212,19 +212,6 @@ const navItems = [
   { label: 'Cadeaux', href: '#gifts' },
 ];
 
-function getCountdownItems() {
-  const diff = Math.max(new Date(wedding.dateISO).getTime() - Date.now(), 0);
-  const days = Math.floor(diff / 86400000);
-  const hours = Math.floor((diff / 3600000) % 24);
-  const minutes = Math.floor((diff / 60000) % 60);
-
-  return [
-    { label: 'Jours', value: days },
-    { label: 'Heures', value: hours },
-    { label: 'Minutes', value: minutes },
-  ];
-}
-
 function GoldDivider() {
   return (
     <div className="gold-divider" aria-hidden="true">
@@ -314,8 +301,6 @@ function Gallery() {
 }
 
 function App() {
-  const countdownItems = getCountdownItems();
-
   return (
     <main className="site-bg overflow-hidden font-sans" style={themeVars}>
       <nav className="top-nav">
@@ -399,40 +384,6 @@ function App() {
 
       <GoldDivider />
 
-      <section className="soft-band">
-        <div className="section-shell text-center">
-          <SectionHeader eyebrow="Compte à rebours" title="Avant le grand jour" centered>
-            Chaque jour nous rapproche de cette promesse que nous avons hâte de partager avec vous.
-          </SectionHeader>
-          <div className="mx-auto mt-10 grid max-w-3xl grid-cols-3 gap-3 sm:gap-5">
-            {countdownItems.map((item) => (
-              <div key={item.label} className="lux-card p-5 sm:p-7">
-                <p className="font-serif text-4xl font-semibold text-gold sm:text-6xl">{item.value}</p>
-                <p className="mt-2 text-xs font-bold uppercase tracking-[0.22em] text-teal">{item.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section-shell">
-        <SectionHeader eyebrow="Témoignages" title="Ce que nos cœurs souhaitent partager" centered>
-          Deux mots personnels, à ajuster lorsque les textes définitifs seront prêts.
-        </SectionHeader>
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
-          <article className="testimonial-card">
-            <p className="script-label">Témoignage du mari</p>
-            <p className="mt-5 leading-8 text-text/75">{wedding.testimonials.husband}</p>
-          </article>
-          <article className="testimonial-card">
-            <p className="script-label">Témoignage de la femme</p>
-            <p className="mt-5 leading-8 text-text/75">{wedding.testimonials.wife}</p>
-          </article>
-        </div>
-      </section>
-
-      <GoldDivider />
-
       <section id="story" className="floral-section floral-section-story">
         <div className="section-shell">
           <SectionHeader eyebrow="Notre histoire" title="Une histoire écrite avec douceur">
@@ -461,7 +412,7 @@ function App() {
 
       <section id="details" className="section-shell">
         <SectionHeader eyebrow="Le jour J" title="Détails du mariage" centered>
-          Les informations pratiques seront précisées ici au fur et à mesure.
+          Les informations de la cérémonie et de la réception seront précisées ici au fur et à mesure.
         </SectionHeader>
         <div className="details-callout mt-10">
           <CalendarDays className="h-8 w-8 text-gold" />
@@ -506,7 +457,6 @@ function App() {
                 ['Lieu de réception', wedding.reception.location],
                 ['Heure de début', wedding.reception.time],
                 ['Adresse', wedding.reception.address],
-                ['Parking / accès', wedding.reception.access],
                 ['Contact', wedding.reception.contact],
               ].map(([label, value]) => (
                 <div key={label}>
@@ -555,10 +505,10 @@ function App() {
           <div className="rsvp-floral rsvp-floral-left" aria-hidden="true" />
           <div className="rsvp-floral rsvp-floral-right" aria-hidden="true" />
           <p className="script-label">Inscription</p>
-          <h2 className="mt-4 font-serif text-4xl font-semibold text-cream sm:text-6xl">
+          <h2 className="mt-4 font-serif text-4xl font-semibold text-teal sm:text-6xl">
             Confirmer votre présence
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl leading-8 text-cream/85">
+          <p className="mx-auto mt-5 max-w-2xl leading-8 text-text/75">
             Merci de confirmer votre présence afin de nous aider à préparer ce jour avec soin.
           </p>
           <a href={wedding.rsvpFormLink} target="_blank" rel="noreferrer" className="premium-button mt-8">
@@ -584,26 +534,10 @@ function App() {
         </div>
       </section>
 
-      <section className="faith-section">
-        <div className="section-shell">
-          <SectionHeader eyebrow="Bénédiction" title="Versets qui nous accompagnent" centered light>
-            Quelques paroles comme une prière douce sur notre alliance.
-          </SectionHeader>
-          <div className="mt-10 grid gap-4 md:grid-cols-5">
-            {bibleVerses.map((verse) => (
-              <article key={verse.ref} className="verse-card">
-                <p className="font-serif text-xl text-gold">{verse.ref}</p>
-                <p className="mt-3 text-sm leading-7 text-cream/80">{verse.text}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <footer className="footer-shell footer-floral px-5 py-12 text-center">
-        <p className="font-serif text-3xl font-semibold text-gold">{wedding.couple} — {wedding.date}</p>
-        <p className="mt-3 text-sm uppercase tracking-[0.25em] text-cream/75">{wedding.weddingPeriod}</p>
-        <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-cream/80">
+        <p className="font-serif text-3xl font-semibold text-teal">{wedding.couple} — {wedding.date}</p>
+        <p className="mt-3 text-sm uppercase tracking-[0.25em] text-gold">{wedding.weddingPeriod}</p>
+        <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-text/75">
           Merci de faire partie de notre histoire.
         </p>
         <a href={wedding.rsvpFormLink} target="_blank" rel="noreferrer" className="footer-link mt-6 inline-flex">
