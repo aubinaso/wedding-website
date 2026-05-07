@@ -227,9 +227,11 @@ function getCountdownItems() {
 function GoldDivider() {
   return (
     <div className="gold-divider" aria-hidden="true">
+      <i className="divider-flower divider-flower-left" />
       <span />
       <Sparkles className="h-4 w-4" />
       <span />
+      <i className="divider-flower divider-flower-right" />
     </div>
   );
 }
@@ -359,7 +361,7 @@ function App() {
 
       <section className="section-shell">
         <div className="grid items-center gap-10 lg:grid-cols-[0.95fr_1.05fr]">
-          <div className="lux-card p-8 sm:p-10">
+          <div className="lux-card floral-card p-8 sm:p-10">
             <p className="script-label">Invitation</p>
             <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight text-teal sm:text-5xl">
               {wedding.invitation}
@@ -549,6 +551,8 @@ function App() {
 
       <section id="rsvp" className="section-shell scroll-mt-10">
         <div className="rsvp-card p-8 text-center sm:p-12">
+          <div className="rsvp-floral rsvp-floral-left" aria-hidden="true" />
+          <div className="rsvp-floral rsvp-floral-right" aria-hidden="true" />
           <p className="script-label">Inscription</p>
           <h2 className="mt-4 font-serif text-4xl font-semibold text-cream sm:text-6xl">
             Confirmer votre présence

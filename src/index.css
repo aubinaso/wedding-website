@@ -130,23 +130,25 @@ body {
   position: absolute;
   width: 170px;
   height: 170px;
-  opacity: 0.46;
+  opacity: 0.58;
   pointer-events: none;
 }
 
 .floral-corner::before,
 .floral-corner::after,
 .placeholder-flower::before,
-.placeholder-flower::after {
+.placeholder-flower::after,
+.rsvp-floral::before,
+.rsvp-floral::after {
   position: absolute;
   content: '';
-  border-color: rgba(201, 162, 39, 0.98);
 }
 
 .floral-corner::before {
   inset: 26px;
   border-top: 1px solid;
   border-left: 1px solid;
+  border-color: rgba(201, 162, 39, 0.98);
   border-radius: 80% 0 0 0;
   transform: rotate(16deg);
 }
@@ -157,8 +159,16 @@ body {
   width: 46px;
   height: 74px;
   border: 1px solid;
+  border-color: rgba(0, 124, 137, 0.58);
   border-radius: 50% 50% 0 50%;
+  background: radial-gradient(circle at 35% 35%, rgba(0, 124, 137, 0.2), transparent 58%);
   transform: rotate(-24deg);
+}
+
+.floral-corner {
+  background:
+    radial-gradient(ellipse at 68% 40%, rgba(0, 124, 137, 0.16) 0 18%, transparent 19%),
+    radial-gradient(ellipse at 48% 68%, rgba(0, 124, 137, 0.13) 0 16%, transparent 17%);
 }
 
 .floral-corner-left {
@@ -584,7 +594,7 @@ body {
 }
 
 .gold-divider {
-  @apply mx-auto flex w-full max-w-5xl items-center justify-center gap-5 px-5 py-7 text-gold;
+  @apply relative mx-auto flex w-full max-w-5xl items-center justify-center gap-5 px-5 py-7 text-gold;
 }
 
 .gold-divider span {
@@ -597,6 +607,70 @@ body {
 
 .gold-divider svg {
   filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.42));
+}
+
+.divider-flower {
+  position: absolute;
+  width: 2.8rem;
+  height: 2.8rem;
+  opacity: 0.78;
+  pointer-events: none;
+}
+
+.divider-flower::before,
+.divider-flower::after {
+  position: absolute;
+  content: '';
+  border: 1px solid rgba(201, 162, 39, 0.86);
+}
+
+.divider-flower::before {
+  inset: 0.45rem;
+  border-right: 0;
+  border-bottom: 0;
+  border-radius: 80% 0 0 0;
+  transform: rotate(34deg);
+}
+
+.divider-flower::after {
+  right: 0.25rem;
+  bottom: 0.25rem;
+  width: 1.05rem;
+  height: 1.45rem;
+  border-color: rgba(0, 124, 137, 0.62);
+  border-radius: 50% 50% 0 50%;
+  background: rgba(0, 124, 137, 0.08);
+  transform: rotate(-28deg);
+}
+
+.divider-flower-left {
+  left: 1rem;
+}
+
+.divider-flower-right {
+  right: 1rem;
+  transform: rotate(180deg);
+}
+
+.floral-card {
+  overflow: hidden;
+}
+
+.floral-card::after {
+  position: absolute;
+  right: -1.4rem;
+  bottom: -1.1rem;
+  width: 8rem;
+  height: 8rem;
+  pointer-events: none;
+  content: '';
+  opacity: 0.5;
+  background:
+    radial-gradient(ellipse at 45% 30%, rgba(0, 124, 137, 0.16) 0 15%, transparent 16%),
+    radial-gradient(ellipse at 65% 48%, rgba(0, 124, 137, 0.12) 0 13%, transparent 14%),
+    radial-gradient(ellipse at 34% 62%, rgba(0, 124, 137, 0.1) 0 12%, transparent 13%);
+  border-left: 1px solid rgba(201, 162, 39, 0.46);
+  border-radius: 999px;
 }
 
 .hero-oval,
@@ -747,6 +821,7 @@ body {
   height: 58%;
   border-top: 1px solid;
   border-left: 1px solid;
+  border-color: rgba(201, 162, 39, 0.8);
   border-radius: 90% 0 0 0;
   transform: rotate(28deg);
 }
@@ -757,8 +832,47 @@ body {
   width: 24%;
   height: 38%;
   border: 1px solid;
+  border-color: rgba(0, 124, 137, 0.6);
   border-radius: 50% 50% 0 50%;
   transform: rotate(-22deg);
+}
+
+.rsvp-floral {
+  position: absolute;
+  width: 8.5rem;
+  height: 8.5rem;
+  opacity: 0.42;
+  pointer-events: none;
+}
+
+.rsvp-floral::before {
+  inset: 1.2rem;
+  border-top: 1px solid rgba(224, 193, 90, 0.88);
+  border-left: 1px solid rgba(224, 193, 90, 0.88);
+  border-radius: 80% 0 0 0;
+  transform: rotate(20deg);
+}
+
+.rsvp-floral::after {
+  right: 1.1rem;
+  bottom: 1rem;
+  width: 2.4rem;
+  height: 3.3rem;
+  border: 1px solid rgba(224, 193, 90, 0.72);
+  border-radius: 50% 50% 0 50%;
+  background: rgba(0, 124, 137, 0.2);
+  transform: rotate(-24deg);
+}
+
+.rsvp-floral-left {
+  top: 1rem;
+  left: 1rem;
+}
+
+.rsvp-floral-right {
+  right: 1rem;
+  bottom: 1rem;
+  transform: rotate(180deg);
 }
 
 .program-card,
@@ -874,6 +988,48 @@ body {
 }
 
 @media (max-width: 640px) {
+  .floral-corner {
+    width: 7rem;
+    height: 7rem;
+    opacity: 0.46;
+  }
+
+  .floral-corner-left {
+    top: 0.75rem;
+    left: -0.25rem;
+  }
+
+  .floral-corner-right {
+    right: -0.25rem;
+    bottom: 0.75rem;
+  }
+
+  .divider-flower {
+    width: 2.1rem;
+    height: 2.1rem;
+    opacity: 0.58;
+  }
+
+  .divider-flower-left {
+    left: 0.35rem;
+  }
+
+  .divider-flower-right {
+    right: 0.35rem;
+  }
+
+  .rsvp-floral {
+    width: 5.5rem;
+    height: 5.5rem;
+    opacity: 0.28;
+  }
+
+  .floral-card::after {
+    width: 5.8rem;
+    height: 5.8rem;
+    opacity: 0.38;
+  }
+
   .top-nav {
     padding: 0.65rem 0.9rem;
   }
