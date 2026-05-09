@@ -10,6 +10,7 @@ import {
   Shirt,
   Sparkles,
 } from 'lucide-react';
+import heroFrameReference from '../photofond.jpeg';
 
 const wedding = {
   groom: 'Axel',
@@ -250,15 +251,32 @@ function ImagePlaceholder({ label, className = '' }) {
 function HeroVisual() {
   return (
     <div className="hero-photo-cluster" aria-label={`Photos de ${wedding.couple}`}>
-      {wedding.images.hero ? (
-        <img className="hero-oval hero-oval-main" src={wedding.images.hero} alt={`${wedding.couple} se regardant avec sourire`} />
-      ) : (
-        <div className="hero-oval hero-oval-placeholder">
-          <div className="placeholder-flower" aria-hidden="true" />
-          <span>{wedding.initials}</span>
-          <small>{wedding.weddingPeriod}</small>
+      <div className="hero-reference-frame" data-frame-reference={heroFrameReference}>
+        <div className="hero-sparkle-flow" aria-hidden="true" />
+        <div className="hero-gold-dust hero-gold-dust-left" aria-hidden="true" />
+        <div className="hero-gold-dust hero-gold-dust-right" aria-hidden="true" />
+        <div className="hero-main-photo-wrap">
+          {wedding.images.hero ? (
+            <img className="hero-oval hero-oval-main" src={wedding.images.hero} alt={`${wedding.couple} se regardant avec sourire`} />
+          ) : (
+            <div className="hero-oval hero-oval-placeholder">
+              <div className="placeholder-flower" aria-hidden="true" />
+              <span>{wedding.initials}</span>
+              <small>{wedding.weddingPeriod}</small>
+            </div>
+          )}
         </div>
-      )}
+        <div className="hero-photo-plate">
+          <span>{wedding.couple}</span>
+          <small>{wedding.mainDate}</small>
+        </div>
+        <div className="hero-ornament" aria-hidden="true">
+          <i />
+          <span />
+          <i />
+        </div>
+        <p className="hero-married-script">Nous nous marions</p>
+      </div>
       <img
         className="hero-orbit-photo hero-orbit-one"
         src="/images/couple/photo_a_2.jpeg"
@@ -326,7 +344,7 @@ function App() {
         <div className="floral-corner floral-corner-right" aria-hidden="true" />
         <div className="mx-auto grid w-full max-w-6xl items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="hero-card relative px-6 py-12 text-center sm:px-10 lg:text-left">
-            <p className="script-label">Nous nous marions</p>
+            <p className="script-label">Avec joie</p>
             <h1 className="hero-names" aria-label={wedding.couple}>
               <span>Axel</span>
               <em>&</em>
