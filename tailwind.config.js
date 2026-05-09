@@ -4,14 +4,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        champagne: '#D9D1C3',
-        ivory: '#F5EDE0',
+        champagne: '#FCFCFA',
+        ivory: '#FFFFFF',
         gold: '#D4AF37',
-        richGold: '#C9A227',
+        richGold: '#B38728',
+        lightGold: '#FCF6BA',
+        deepGold: '#AA771C',
         teal: '#007C89',
         darkTeal: '#005F6B',
-        white: '#FFF9F0',
-        cream: '#FFF9F0',
+        white: '#FFFFFF',
+        cream: '#FCFCFA',
         text: '#1F2933',
       },
       fontFamily: {

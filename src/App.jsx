@@ -40,7 +40,6 @@ const wedding = {
     time: 'Heure à préciser',
     location: 'Lieu de réception à préciser',
     address: 'Adresse à préciser',
-    access: 'Parking et accès à préciser',
     contact: 'Contact à préciser',
     mapLink: '#reception-map-link-to-update',
   },
@@ -116,7 +115,9 @@ const wedding = {
     ivory: '#FFFFFF',
     champagne: '#FCFCFA',
     gold: '#D4AF37',
-    richGold: '#C9A227',
+    richGold: '#B38728',
+    lightGold: '#FCF6BA',
+    deepGold: '#AA771C',
     teal: '#007C89',
     darkTeal: '#005F6B',
     white: '#FCFCFA',
@@ -129,6 +130,8 @@ const themeVars = {
   '--color-champagne': wedding.theme.champagne,
   '--color-gold': wedding.theme.gold,
   '--color-rich-gold': wedding.theme.richGold,
+  '--color-light-gold': wedding.theme.lightGold,
+  '--color-deep-gold': wedding.theme.deepGold,
   '--color-teal': wedding.theme.teal,
   '--color-dark-teal': wedding.theme.darkTeal,
   '--color-white': wedding.theme.white,
@@ -324,10 +327,16 @@ function App() {
         <div className="mx-auto grid w-full max-w-6xl items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="hero-card relative px-6 py-12 text-center sm:px-10 lg:text-left">
             <p className="script-label">Nous nous marions</p>
-            <h1 className="hero-names">
-              {wedding.couple}
+            <h1 className="hero-names" aria-label={wedding.couple}>
+              <span>Axel</span>
+              <em>&</em>
+              <span>Aivi</span>
             </h1>
-            <p className="mt-6 font-serif text-3xl leading-tight text-text/85 sm:text-4xl">
+            <p className="hero-main-date">{wedding.mainDate}</p>
+            <div className="hero-gold-emblem" aria-hidden="true">
+              <span />
+            </div>
+            <p className="mt-5 font-serif text-3xl leading-tight text-text/85 sm:text-4xl">
               {wedding.headline}
             </p>
             <div className="hero-details">
