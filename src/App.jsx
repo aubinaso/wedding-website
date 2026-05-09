@@ -287,10 +287,6 @@ function HeroVisual() {
         src="/images/couple/demande_fiancailles.jpeg"
         alt="Axel et Aivi le jour des fiançailles"
       />
-      <div className="hero-photo-signature">
-        <span>{wedding.couple}</span>
-        <small>{wedding.mainDate}</small>
-      </div>
     </div>
   );
 }
