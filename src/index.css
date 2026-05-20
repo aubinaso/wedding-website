@@ -1083,6 +1083,9 @@ body {
 
 .hero-oval-main {
   box-shadow: inset 0 0 0 1px rgba(179, 135, 40, 0.44);
+  object-position: 44% center;
+  transform: scale(1.26) translateX(4%);
+  transform-origin: center;
 }
 
 .hero-sparkle-flow {
