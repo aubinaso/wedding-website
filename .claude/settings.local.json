@@ -19,7 +19,22 @@
       "Bash(npm i *)",
       "Bash(node .shot.mjs)",
       "Bash(rm -f .tmp_hero.png .tmp_hero2.png .tmp_hero3.png .tmp_full.png .tmp_rsvp.png .tmp_gifts.png .shot_fullpage.png .shot_gallery.png .shot_verses.png .shot_rsvp.png .shot_gifts.png .shot_footer.png .shot.mjs)",
-      "Bash(npm rm *)"
+      "Bash(npm rm *)",
+      "PowerShell(try { $r = Invoke-WebRequest -Uri \"https://example.com\" -UseBasicParsing -TimeoutSec 8; \"NET OK status=$\\($r.StatusCode\\)\" } catch { \"NET FAIL: $\\($_.Exception.Message\\)\" })",
+      "Bash(curl -s \"https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrnamespace=6&gsrsearch=pink%20rose%20flower%20transparent&gsrlimit=20&prop=imageinfo&iiprop=url%7Cmime%7Csize%7Cextmetadata&iiurlwidth=500\" -H \"User-Agent: claude-wedding-site/1.0 \\(contact: aubintayo@gmail.com\\)\")",
+      "Bash(python -c 'import sys,json; d=json.load\\(sys.stdin\\); pages=d.get\\('\\\\''query'\\\\'',{}\\).get\\('\\\\''pages'\\\\'',{}\\); *)",
+      "Bash(curl -s \"https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrnamespace=6&gsrsearch=rose%20flower%20cutout%20transparent&gsrlimit=15&prop=imageinfo&iiprop=url%7Cmime%7Csize%7Cextmetadata&iiurlwidth=500\" -H \"User-Agent: claude-wedding-site/1.0 \\(aubintayo@gmail.com\\)\" -o .tmp_commons.json -w \"http=%{http_code} size=%{size_download}\\\\n\")",
+      "Bash(node -e \"const d=require\\('./.tmp_commons.json'\\); const pages=\\(d.query&&d.query.pages\\)||{}; for\\(const p of Object.values\\(pages\\)\\){const ii=\\(p.imageinfo&&p.imageinfo[0]\\)||{}; if\\(!String\\(ii.mime||''\\).includes\\('png'\\)\\)continue; const lic=\\(ii.extmetadata&&ii.extmetadata.LicenseShortName&&ii.extmetadata.LicenseShortName.value\\)||'?'; console.log\\(p.title,'|',ii.mime,ii.width+'x'+ii.height,'|',lic\\); console.log\\('  ',ii.url\\);}\")",
+      "Bash(node -e \"const d=require\\('./.tmp_commons.json'\\); const pages=\\(d.query&&d.query.pages\\)||{}; const arr=Object.values\\(pages\\); console.log\\('results:',arr.length\\); for\\(const p of arr\\){const ii=\\(p.imageinfo&&p.imageinfo[0]\\)||{}; console.log\\(ii.mime, '|', p.title\\);}\")",
+      "Bash(curl -s \"https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrnamespace=6&gsrsearch=rose%20flower%20filemime:image/png&gsrlimit=25&prop=imageinfo&iiprop=url%7Cmime%7Csize%7Cextmetadata&iiurlwidth=400\" -H \"User-Agent: claude-wedding-site/1.0 \\(aubintayo@gmail.com\\)\" -o .tmp_commons.json -w \"http=%{http_code} size=%{size_download}\\\\n\")",
+      "Bash(node -e \"const d=require\\('./.tmp_commons.json'\\); const pages=\\(d.query&&d.query.pages\\)||{}; const arr=Object.values\\(pages\\); console.log\\('results:',arr.length\\); for\\(const p of arr\\){const ii=\\(p.imageinfo&&p.imageinfo[0]\\)||{}; if\\(!String\\(ii.mime||''\\).includes\\('png'\\)\\)continue; const lic=\\(ii.extmetadata&&ii.extmetadata.LicenseShortName&&ii.extmetadata.LicenseShortName.value\\)||'?'; console.log\\(ii.width+'x'+ii.height,'|',lic,'|',p.title.replace\\('File:',''\\)\\); console.log\\('   ',ii.thumburl||ii.url\\);}\")",
+      "WebSearch",
+      "WebFetch(domain:pixabay.com)",
+      "PowerShell($chrome=\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\"; & $chrome --headless --disable-gpu --no-sandbox --hide-scrollbars --force-device-scale-factor=2 --virtual-time-budget=6000 --screenshot=\"$PWD\\\\.tmp_hero.png\" --window-size=1300,860 \"http://localhost:5173/\"; Start-Sleep -Milliseconds 1200; if \\(Test-Path \".tmp_hero.png\"\\) { \"OK\" } else { \"NO SHOT\" })",
+      "PowerShell($chrome=\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\"; & $chrome --headless --disable-gpu --no-sandbox --hide-scrollbars --force-device-scale-factor=2 --virtual-time-budget=7000 --screenshot=\"$PWD\\\\.tmp_hero.png\" --window-size=1300,860 \"http://localhost:5173/\"; Start-Sleep -Milliseconds 1800; if \\(Test-Path \".tmp_hero.png\"\\) { \"OK $\\(\\(Get-Item .tmp_hero.png\\).Length\\)\" } else { \"NO SHOT\" })",
+      "PowerShell($chrome=\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\"; & $chrome --headless --disable-gpu --no-sandbox --hide-scrollbars --force-device-scale-factor=2 --virtual-time-budget=7000 --screenshot=\"$PWD\\\\.tmp_hero.png\" --window-size=1300,860 \"http://localhost:5173/\"; Start-Sleep -Milliseconds 1800; if \\(Test-Path \".tmp_hero.png\"\\) { \"OK\" } else { \"NO SHOT\" })",
+      "Bash(ls dist/images/*.png)",
+      "Bash(ls dist/images/*.svg)"
     ]
   }
 }
