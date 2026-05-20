@@ -82,13 +82,7 @@ body {
   right: -3rem;
   width: min(52vw, 21rem);
   aspect-ratio: 1;
-  background:
-    radial-gradient(ellipse at 50% 18%, rgba(0, 124, 137, 0.34) 0 12%, transparent 13%),
-    radial-gradient(ellipse at 26% 48%, rgba(0, 95, 107, 0.24) 0 13%, transparent 14%),
-    radial-gradient(ellipse at 74% 48%, rgba(0, 124, 137, 0.27) 0 13%, transparent 14%),
-    radial-gradient(ellipse at 50% 75%, rgba(252, 252, 250, 0.88) 0 11%, transparent 12%),
-    radial-gradient(circle at 50% 48%, rgba(0, 95, 107, 0.12) 0 7%, transparent 8%),
-    conic-gradient(from 215deg, transparent 0 66%, rgba(212, 175, 55, 0.62) 67% 70%, transparent 71%);
+  background: url('/images/rose-spray-gold.svg') center / contain no-repeat;
   filter: drop-shadow(0 20px 36px rgba(0, 95, 107, 0.16));
   transform: rotate(18deg);
 }
@@ -98,15 +92,8 @@ body {
   bottom: 7rem;
   width: min(44vw, 17rem);
   aspect-ratio: 1;
-  border: 1px solid rgba(201, 162, 39, 0.5);
-  border-radius: 58% 42% 56% 44%;
-  background:
-    radial-gradient(ellipse at 48% 25%, rgba(0, 124, 137, 0.25) 0 14%, transparent 15%),
-    radial-gradient(ellipse at 29% 58%, rgba(252, 252, 250, 0.84) 0 12%, transparent 13%),
-    radial-gradient(ellipse at 68% 58%, rgba(0, 95, 107, 0.18) 0 12%, transparent 13%),
-    radial-gradient(circle at 50% 48%, rgba(0, 124, 137, 0.1) 0 8%, transparent 9%),
-    linear-gradient(135deg, rgba(224, 193, 90, 0.18), transparent 65%);
-  transform: rotate(-26deg);
+  background: url('/images/rose-spray-gold.svg') center / contain no-repeat;
+  transform: rotate(-26deg) scaleX(-1);
 }
 
 .hero-card {
@@ -258,52 +245,11 @@ body {
 
 .floral-corner {
   position: absolute;
-  width: 170px;
-  height: 170px;
-  opacity: 0.58;
+  width: 190px;
+  height: 190px;
+  opacity: 0.85;
   pointer-events: none;
-}
-
-.floral-corner::before,
-.floral-corner::after,
-.placeholder-flower::before,
-.placeholder-flower::after,
-.rsvp-floral::before,
-.rsvp-floral::after {
-  position: absolute;
-  content: '';
-}
-
-.floral-corner::before {
-  inset: 26px;
-  border-top: 1px solid;
-  border-left: 1px solid;
-  border-color: rgba(201, 162, 39, 0.98);
-  border-radius: 80% 0 0 0;
-  transform: rotate(16deg);
-}
-
-.floral-corner::after {
-  right: 30px;
-  bottom: 26px;
-  width: 68px;
-  height: 68px;
-  border: 1px solid;
-  border-color: rgba(0, 124, 137, 0.7);
-  border-radius: 58% 42% 56% 44%;
-  background:
-    radial-gradient(ellipse at 50% 18%, rgba(0, 124, 137, 0.28) 0 16%, transparent 17%),
-    radial-gradient(ellipse at 26% 52%, rgba(0, 95, 107, 0.22) 0 15%, transparent 16%),
-    radial-gradient(ellipse at 72% 52%, rgba(0, 124, 137, 0.2) 0 15%, transparent 16%),
-    radial-gradient(circle at 50% 52%, rgba(252, 252, 250, 0.72) 0 8%, transparent 9%);
-  transform: rotate(-24deg);
-}
-
-.floral-corner {
-  background:
-    radial-gradient(ellipse at 68% 40%, rgba(0, 124, 137, 0.18) 0 18%, transparent 19%),
-    radial-gradient(ellipse at 48% 68%, rgba(0, 95, 107, 0.14) 0 16%, transparent 17%),
-    radial-gradient(ellipse at 34% 46%, rgba(252, 252, 250, 0.62) 0 12%, transparent 13%);
+  background: url('/images/rose-spray-gold.svg') center / contain no-repeat;
 }
 
 .floral-corner-left {
@@ -826,36 +772,11 @@ body {
 
 .divider-flower {
   position: absolute;
-  width: 2.8rem;
-  height: 2.8rem;
-  opacity: 0.78;
+  width: 3rem;
+  height: 3rem;
+  opacity: 0.9;
   pointer-events: none;
-}
-
-.divider-flower::before,
-.divider-flower::after {
-  position: absolute;
-  content: '';
-  border: 1px solid rgba(201, 162, 39, 0.86);
-}
-
-.divider-flower::before {
-  inset: 0.45rem;
-  border-right: 0;
-  border-bottom: 0;
-  border-radius: 80% 0 0 0;
-  transform: rotate(34deg);
-}
-
-.divider-flower::after {
-  right: 0.25rem;
-  bottom: 0.25rem;
-  width: 1.05rem;
-  height: 1.45rem;
-  border-color: rgba(0, 124, 137, 0.62);
-  border-radius: 50% 50% 0 50%;
-  background: rgba(0, 124, 137, 0.08);
-  transform: rotate(-28deg);
+  background: url('/images/rose-gold.svg') center / contain no-repeat;
 }
 
 .divider-flower-left {
@@ -873,20 +794,15 @@ body {
 
 .floral-card::after {
   position: absolute;
-  right: -1.4rem;
-  bottom: -1.1rem;
-  width: 8rem;
-  height: 8rem;
+  right: -1rem;
+  bottom: -1rem;
+  width: 7.5rem;
+  height: 7.5rem;
   pointer-events: none;
   content: '';
-  opacity: 0.5;
-  background:
-    radial-gradient(ellipse at 50% 17%, rgba(0, 124, 137, 0.26) 0 15%, transparent 16%),
-    radial-gradient(ellipse at 28% 48%, rgba(0, 95, 107, 0.18) 0 14%, transparent 15%),
-    radial-gradient(ellipse at 72% 48%, rgba(0, 124, 137, 0.18) 0 14%, transparent 15%),
-    radial-gradient(ellipse at 50% 76%, rgba(252, 252, 250, 0.82) 0 12%, transparent 13%);
-  border-left: 1px solid rgba(201, 162, 39, 0.46);
-  border-radius: 999px;
+  opacity: 0.7;
+  background: url('/images/rose-spray-gold.svg') center / contain no-repeat;
+  transform: rotate(180deg);
 }
 
 .floral-section {
@@ -912,25 +828,16 @@ body {
 .floral-section::before {
   width: clamp(7rem, 22vw, 13rem);
   aspect-ratio: 1;
-  border-radius: 999px;
-  opacity: 0.58;
-  background:
-    radial-gradient(ellipse at 50% 17%, rgba(0, 124, 137, 0.29) 0 13%, transparent 14%),
-    radial-gradient(ellipse at 25% 48%, rgba(0, 95, 107, 0.2) 0 13%, transparent 14%),
-    radial-gradient(ellipse at 75% 48%, rgba(0, 124, 137, 0.21) 0 13%, transparent 14%),
-    radial-gradient(ellipse at 50% 76%, rgba(252, 252, 250, 0.88) 0 12%, transparent 13%),
-    radial-gradient(circle at 50% 50%, rgba(0, 95, 107, 0.1) 0 8%, transparent 9%),
-    conic-gradient(from 220deg, transparent 0 62%, rgba(212, 175, 55, 0.38) 63% 66%, transparent 67%);
-  filter: drop-shadow(0 18px 32px rgba(0, 95, 107, 0.14));
+  opacity: 0.7;
+  background: url('/images/rose-spray-gold.svg') center / contain no-repeat;
+  filter: drop-shadow(0 14px 26px rgba(0, 95, 107, 0.12));
 }
 
 .floral-section::after {
   width: clamp(5.75rem, 18vw, 10rem);
   aspect-ratio: 1;
-  border-top: 1px solid rgba(201, 162, 39, 0.58);
-  border-left: 1px solid rgba(201, 162, 39, 0.58);
-  border-radius: 80% 0 0 0;
-  opacity: 0.72;
+  opacity: 0.62;
+  background: url('/images/rose-gold.svg') center / contain no-repeat;
 }
 
 .floral-section-invitation::before {
@@ -997,13 +904,8 @@ body {
   bottom: -2.5rem;
   width: min(54vw, 16rem);
   aspect-ratio: 1;
-  opacity: 0.42;
-  background:
-    radial-gradient(ellipse at 50% 18%, rgba(0, 124, 137, 0.22) 0 12%, transparent 13%),
-    radial-gradient(ellipse at 28% 48%, rgba(224, 193, 90, 0.22) 0 12%, transparent 13%),
-    radial-gradient(ellipse at 72% 48%, rgba(0, 95, 107, 0.18) 0 12%, transparent 13%),
-    radial-gradient(ellipse at 50% 74%, rgba(252, 252, 250, 0.62) 0 11%, transparent 12%),
-    conic-gradient(from 215deg, transparent 0 60%, rgba(224, 193, 90, 0.42) 61% 65%, transparent 66%);
+  opacity: 0.6;
+  background: url('/images/rose-spray-gold.svg') center / contain no-repeat;
   transform: rotate(-18deg);
 }
 
@@ -1478,62 +1380,17 @@ body {
 .placeholder-flower {
   position: absolute;
   inset: 16%;
-  opacity: 0.72;
-}
-
-.placeholder-flower::before {
-  top: 8%;
-  left: 12%;
-  width: 58%;
-  height: 58%;
-  border-top: 1px solid;
-  border-left: 1px solid;
-  border-color: rgba(201, 162, 39, 0.8);
-  border-radius: 90% 0 0 0;
-  transform: rotate(28deg);
-}
-
-.placeholder-flower::after {
-  right: 12%;
-  bottom: 14%;
-  width: 24%;
-  height: 38%;
-  border: 1px solid;
-  border-color: rgba(0, 124, 137, 0.6);
-  border-radius: 50% 50% 0 50%;
-  transform: rotate(-22deg);
+  opacity: 0.6;
+  background: url('/images/rose-gold.svg') center / contain no-repeat;
 }
 
 .rsvp-floral {
   position: absolute;
   width: 10rem;
   height: 10rem;
-  opacity: 0.48;
+  opacity: 0.7;
   pointer-events: none;
-}
-
-.rsvp-floral::before {
-  inset: 1.2rem;
-  border-top: 1px solid rgba(224, 193, 90, 0.88);
-  border-left: 1px solid rgba(224, 193, 90, 0.88);
-  border-radius: 80% 0 0 0;
-  transform: rotate(20deg);
-}
-
-.rsvp-floral::after {
-  right: 0.8rem;
-  bottom: 0.8rem;
-  width: 4.6rem;
-  height: 4.6rem;
-  border: 1px solid rgba(224, 193, 90, 0.72);
-  border-radius: 58% 42% 56% 44%;
-  background:
-    radial-gradient(ellipse at 50% 16%, rgba(0, 124, 137, 0.32) 0 16%, transparent 17%),
-    radial-gradient(ellipse at 25% 50%, rgba(0, 95, 107, 0.22) 0 15%, transparent 16%),
-    radial-gradient(ellipse at 75% 50%, rgba(0, 124, 137, 0.23) 0 15%, transparent 16%),
-    radial-gradient(ellipse at 50% 78%, rgba(252, 252, 250, 0.78) 0 12%, transparent 13%),
-    radial-gradient(circle at 50% 51%, rgba(0, 95, 107, 0.1) 0 8%, transparent 9%);
-  transform: rotate(-24deg);
+  background: url('/images/rose-spray-gold.svg') center / contain no-repeat;
 }
 
 .rsvp-floral-left {

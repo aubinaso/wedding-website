@@ -29,3 +29,8 @@ Thumbs.db
 
 # Azure Static Web Apps local config
 .swa/
+
+# Stray files not related to the wedding site
+TUTO SIGNATURE NUMERIQUE_ESG.pdf
+vite-dev.log
+vite-dev.err.log

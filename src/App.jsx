@@ -358,7 +358,7 @@ function App() {
               <span>{wedding.weddingPeriod}</span>
               <span>{wedding.location}</span>
             </div>
-            <a href={wedding.rsvpLink} className="premium-button mt-8">
+            <a href={wedding.rsvpFormLink} target="_blank" rel="noreferrer" className="premium-button mt-8">
               Confirmer ma présence
             </a>
           </div>
@@ -520,6 +520,24 @@ function App() {
             Quelques images de notre chemin, choisies pour raconter la tendresse, la joie et la promesse.
           </SectionHeader>
           <Gallery />
+        </div>
+      </section>
+
+      <section className="faith-section floral-section floral-section-story">
+        <div className="section-shell">
+          <SectionHeader eyebrow="Foi & promesse" title="Les versets qui nous portent" centered>
+            Quelques paroles qui inspirent notre engagement et accompagnent le début de notre vie à deux.
+          </SectionHeader>
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {bibleVerses.map((verse) => (
+              <article key={verse.ref} className="verse-card">
+                <p className="font-serif text-2xl leading-snug text-teal">“{verse.text}”</p>
+                <span className="mt-4 block text-xs font-bold uppercase tracking-[0.18em] text-gold">
+                  {verse.ref}
+                </span>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
