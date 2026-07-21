@@ -200,50 +200,115 @@ function BotanicalCorner({ className }) {
   );
 }
 
+/* Une rose ivoire stylisée (pétales en spirale + feuillage doré) */
+function Rose({ x, y, s = 1, r = 0 }) {
+  return (
+    <g transform={`translate(${x} ${y}) scale(${s}) rotate(${r})`}>
+      {/* feuillage doré */}
+      <g fill="url(#leaf)" opacity="0.95">
+        <ellipse cx="-30" cy="12" rx="8" ry="18" transform="rotate(-42 -30 12)" />
+        <ellipse cx="30" cy="14" rx="8" ry="18" transform="rotate(42 30 14)" />
+        <ellipse cx="-6" cy="-30" rx="6" ry="15" transform="rotate(-12 -6 -30)" />
+        <ellipse cx="14" cy="-26" rx="6" ry="14" transform="rotate(20 14 -26)" />
+      </g>
+      {/* pétales extérieurs */}
+      <g fill="url(#petalA)" stroke="#C7A24A" strokeWidth="0.5">
+        {[0, 60, 120, 180, 240, 300].map((a) => (
+          <ellipse key={a} cx="0" cy="-15" rx="12.5" ry="16" transform={`rotate(${a})`} />
+        ))}
+      </g>
+      {/* pétales médians */}
+      <g fill="url(#petalB)" stroke="#C7A24A" strokeWidth="0.4">
+        {[30, 90, 150, 210, 270, 330].map((a) => (
+          <ellipse key={a} cx="0" cy="-9" rx="8.5" ry="11" transform={`rotate(${a})`} />
+        ))}
+      </g>
+      {/* cœur en spirale */}
+      <g fill="url(#petalA)" stroke="#C7A24A" strokeWidth="0.35">
+        {[0, 120, 240].map((a) => (
+          <ellipse key={a} cx="0" cy="-4" rx="4.5" ry="6" transform={`rotate(${a})`} />
+        ))}
+      </g>
+      <circle r="3.4" fill="url(#petalB)" />
+      <path d="M-2.4 0.8 A3.2 3.2 0 1 1 2.4 -0.8" fill="none" stroke="#C7A24A" strokeWidth="0.6" opacity="0.8" />
+    </g>
+  );
+}
+
 function FloralWreath({ children }) {
+  // Anneau de scintillements dorés (positions déterministes)
+  const jitter = [0, 9, -7, 15, -11, 5, 18, -5, 11, -14, 6, -3, 16, -9, 12, 2];
+  const sparkles = [];
+  const bands = [
+    { count: 130, base: 236, min: 3.1 },
+    { count: 52, base: 210, min: 2.4 },
+    { count: 44, base: 262, min: 2.2 },
+  ];
+  bands.forEach((band, bi) => {
+    for (let i = 0; i < band.count; i += 1) {
+      const a = ((i + bi * 1.7) / band.count) * Math.PI * 2;
+      const rr = band.base + jitter[(i + bi) % 16] * (bi === 0 ? 1 : 0.5);
+      const size = i % 6 === 0 ? band.min : i % 2 ? 1.1 : 1.7;
+      sparkles.push([300 + rr * Math.cos(a), 300 + rr * Math.sin(a), size, (i % 3) * 0.14]);
+    }
+  });
+
   return (
     <div className="hero-wreath">
-      <svg viewBox="0 0 320 320" fill="none" aria-hidden="true" style={{ position: 'absolute', inset: 0 }}>
+      <svg viewBox="0 0 600 600" fill="none" aria-hidden="true" className="wreath-svg">
         <defs>
           <linearGradient id="wgold" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stopColor="#D6B45C" />
+            <stop offset="0" stopColor="#E6CC7E" />
             <stop offset="0.5" stopColor="#C7A24A" />
             <stop offset="1" stopColor="#A8842F" />
           </linearGradient>
+          <linearGradient id="leaf" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stopColor="#D6B45C" />
+            <stop offset="1" stopColor="#A8842F" />
+          </linearGradient>
+          <radialGradient id="petalA" cx="0.4" cy="0.35" r="0.75">
+            <stop offset="0" stopColor="#FFFDF7" />
+            <stop offset="0.7" stopColor="#F6ECD7" />
+            <stop offset="1" stopColor="#E7D6B6" />
+          </radialGradient>
+          <radialGradient id="petalB" cx="0.5" cy="0.4" r="0.7">
+            <stop offset="0" stopColor="#FFFCF4" />
+            <stop offset="1" stopColor="#EAD9BB" />
+          </radialGradient>
         </defs>
-        {/* anneau scintillant */}
-        <circle cx="160" cy="160" r="132" stroke="url(#wgold)" strokeWidth="2" strokeDasharray="1.5 7" opacity="0.9" />
-        <circle cx="160" cy="160" r="140" stroke="url(#wgold)" strokeWidth="1" strokeDasharray="0.5 10" opacity="0.6" />
-        {/* grappes de fleurs à 4 positions */}
+
+        {/* anneaux dorés fins */}
+        <circle cx="300" cy="300" r="236" stroke="url(#wgold)" strokeWidth="1.6" strokeDasharray="1.5 9" opacity="0.85" />
+        <circle cx="300" cy="300" r="248" stroke="url(#wgold)" strokeWidth="1" strokeDasharray="0.5 13" opacity="0.5" />
+
+        {/* scintillements */}
+        {sparkles.map(([cx, cy, sz, op], i) => (
+          <circle key={i} cx={cx} cy={cy} r={sz} fill="#E6CC7E" opacity={0.62 + op} />
+        ))}
+
+        {/* brins de feuilles dorées (haut & bas) */}
         {[
-          { x: 160, y: 24 },
-          { x: 296, y: 160 },
-          { x: 160, y: 296 },
-          { x: 24, y: 160 },
+          { x: 372, y: 96, r: 40, s: 0.9 },
+          { x: 232, y: 500, r: 200, s: 0.8 },
         ].map((p, i) => (
-          <g key={i} transform={`translate(${p.x} ${p.y}) rotate(${i * 63})`}>
-            <g stroke="url(#wgold)" strokeWidth="1.2" fill="none" opacity="0.9">
-              <path d="M0 0 C 18 -6, 34 2, 46 16 M0 0 C -18 -6, -34 2, -46 16" />
-              <path d="M0 0 C 8 -20, 6 -34, -2 -46" />
-            </g>
-            <g fill="url(#wgold)">
-              <circle r="9" />
-              <ellipse cx="18" cy="4" rx="6" ry="10" transform="rotate(35 18 4)" opacity="0.9" />
-              <ellipse cx="-18" cy="4" rx="6" ry="10" transform="rotate(-35 -18 4)" opacity="0.9" />
-              <ellipse cx="2" cy="-18" rx="5" ry="9" opacity="0.85" />
-            </g>
+          <g key={i} transform={`translate(${p.x} ${p.y}) rotate(${p.r}) scale(${p.s})`} fill="url(#leaf)" opacity="0.9">
+            <ellipse cx="0" cy="0" rx="7" ry="17" />
+            <ellipse cx="16" cy="8" rx="6" ry="14" transform="rotate(38 16 8)" />
+            <ellipse cx="-16" cy="8" rx="6" ry="14" transform="rotate(-38 -16 8)" />
           </g>
         ))}
-        {/* points scintillants */}
-        {[
-          [80, 60],[240, 60],[270, 110],[50, 110],[260, 220],[60, 220],[120, 300],[210, 22],
-        ].map(([cx, cy], i) => (
-          <circle key={i} cx={cx} cy={cy} r={i % 2 ? 2.4 : 1.4} fill="#D6B45C" opacity="0.8" />
-        ))}
+
+        {/* grappe de roses en haut à gauche (posées sur l'anneau) */}
+        <Rose x={135} y={158} s={1.05} r={-15} />
+        <Rose x={112} y={215} s={0.82} r={18} />
+        <Rose x={182} y={110} s={0.72} r={-42} />
+
+        {/* grappe de roses en bas à droite (posées sur l'anneau) */}
+        <Rose x={465} y={445} s={1.05} r={155} />
+        <Rose x={500} y={398} s={0.8} r={128} />
+        <Rose x={430} y={488} s={0.75} r={175} />
       </svg>
-      <div style={{ position: 'relative', padding: '4.5rem 1.5rem', textAlign: 'center' }}>
-        {children}
-      </div>
+      <div className="hero-inner">{children}</div>
     </div>
   );
 }
@@ -462,16 +527,16 @@ function SectionHeader({ eyebrow, title, children, center = true }) {
 function HeroText() {
   return (
     <div className="hero-text animate-floatIn">
-      <p className="eyebrow">Entourés de leurs familles</p>
+      <p className="hero-eyebrow">Entourés de leurs familles</p>
       <h1 className="hero-names">
         Axel
         <span className="amp">&amp;</span>
         Aivi
       </h1>
-      <div className="hero-heart"><Heart className="h-4 w-4" fill="currentColor" /></div>
+      <div className="hero-heart"><Heart className="h-3.5 w-3.5" fill="currentColor" /></div>
       <p className="hero-intro">{wedding.intro}</p>
-      <p className="hero-date mt-4">{wedding.dateLong}</p>
-      <div className="mt-7 flex flex-wrap items-center justify-center lg:justify-start gap-3">
+      <p className="hero-date">{wedding.dateLong}</p>
+      <div className="hero-cta">
         <a href={wedding.rsvpFormLink} target="_blank" rel="noreferrer" className="btn-primary">
           <Send className="h-4 w-4" /> Confirmer ma présence
         </a>
@@ -488,45 +553,15 @@ function App() {
     <main className="overflow-hidden">
       <TopBar />
 
-      {/* HERO */}
+      {/* HERO — couronne florale centrée (identique mobile & desktop) */}
       <section id="accueil" className="hero">
         <BotanicalCorner className="hero-botanical tl" />
         <BotanicalCorner className="hero-botanical br" />
-        <div className="section" style={{ paddingTop: '3rem', paddingBottom: '3.5rem' }}>
-          <div className="hero-grid">
-            {/* Desktop : photo à gauche */}
-            <div className="hero-media">
-              <div className="hero-photo-wrap animate-fadeIn">
-                <img
-                  className="rose-accent animate-sway"
-                  src="/images/rose-spray.png"
-                  alt=""
-                  style={{ width: '8rem', top: '-2rem', left: '-2rem' }}
-                />
-                <img
-                  className="rose-accent"
-                  src="/images/rose-bloom.png"
-                  alt=""
-                  style={{ width: '6.5rem', bottom: '-1.5rem', right: '-1rem' }}
-                />
-                <div className="oval-frame">
-                  <img src={wedding.images.hero} alt={`${wedding.couple} se regardant`} />
-                </div>
-              </div>
-            </div>
-
-            {/* Desktop : texte à droite / Mobile : couronne florale */}
-            <div>
-              <div className="only-desktop">
-                <HeroText />
-              </div>
-              <div className="only-mobile">
-                <FloralWreath>
-                  <HeroText />
-                </FloralWreath>
-              </div>
-            </div>
-          </div>
+        <div className="section hero-section">
+          <FloralWreath>
+            <HeroText />
+          </FloralWreath>
+          <Flourish />
         </div>
       </section>
 
