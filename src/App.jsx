@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import {
   Camera,
+  ChevronLeft,
+  ChevronRight,
   Church,
   Gift,
   GlassWater,
@@ -62,9 +64,9 @@ const wedding = {
 const navItems = [
   { label: 'Accueil', href: '#accueil' },
   { label: 'Mot des mariés', href: '#mot' },
+  { label: 'Nous en photos', href: '#galerie' },
   { label: 'Notre histoire', href: '#histoire' },
   { label: 'Programme', href: '#programme' },
-  { label: 'Galerie', href: '#galerie' },
   { label: 'Nos couleurs', href: '#couleurs' },
   { label: 'RSVP', href: '#rsvp' },
   { label: 'Participer', href: '#participer' },
@@ -510,6 +512,127 @@ function HeroText() {
   );
 }
 
+function PhotoCarousel() {
+  const total = galleryImages.length;
+  const slides = [galleryImages[total - 1], ...galleryImages, galleryImages[0]];
+  const [position, setPosition] = useState(1);
+  const [animate, setAnimate] = useState(true);
+  const [paused, setPaused] = useState(false);
+  const touchStartX = useRef(null);
+
+  const activeIndex = position === 0 ? total - 1 : position === total + 1 ? 0 : position - 1;
+
+  const move = (direction) => {
+    setAnimate(true);
+    setPosition((current) => current + direction);
+  };
+
+  const goTo = (index) => {
+    setAnimate(true);
+    setPosition(index + 1);
+  };
+
+  useEffect(() => {
+    if (paused) return undefined;
+    const id = setInterval(() => move(1), 4000);
+    return () => clearInterval(id);
+  }, [paused]);
+
+  const handleTransitionEnd = () => {
+    if (position === 0) {
+      setAnimate(false);
+      setPosition(total);
+    } else if (position === total + 1) {
+      setAnimate(false);
+      setPosition(1);
+    }
+  };
+
+  const handleTouchEnd = (event) => {
+    if (touchStartX.current === null) return;
+    const distance = touchStartX.current - event.changedTouches[0].clientX;
+    touchStartX.current = null;
+    if (Math.abs(distance) > 40) move(distance > 0 ? 1 : -1);
+  };
+
+  return (
+    <div
+      className="photo-carousel"
+      role="region"
+      aria-roledescription="carrousel"
+      aria-label="Photos d'Axel et Aivi"
+      tabIndex="0"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocus={() => setPaused(true)}
+      onBlur={() => setPaused(false)}
+      onKeyDown={(event) => {
+        if (event.key === 'ArrowLeft') {
+          event.preventDefault();
+          move(-1);
+        }
+        if (event.key === 'ArrowRight') {
+          event.preventDefault();
+          move(1);
+        }
+      }}
+      onTouchStart={(event) => { touchStartX.current = event.changedTouches[0].clientX; }}
+      onTouchEnd={handleTouchEnd}
+    >
+      <div
+        className="photo-carousel-track"
+        style={{
+          transform: `translateX(-${position * 100}%)`,
+          transition: animate ? 'transform 380ms cubic-bezier(0.4, 0, 0.2, 1)' : 'none',
+        }}
+        onTransitionEnd={handleTransitionEnd}
+      >
+        {slides.map((image, index) => {
+          const isClone = index === 0 || index === slides.length - 1;
+          const originalIndex = index === 0 ? total - 1 : index === slides.length - 1 ? 0 : index - 1;
+          return (
+            <figure
+              key={`${isClone ? 'clone' : 'slide'}-${image.src}-${index}`}
+              className="photo-carousel-slide"
+              aria-hidden={isClone || originalIndex !== activeIndex}
+            >
+              <img
+                src={image.src}
+                alt={isClone ? '' : image.alt}
+                loading={originalIndex === 0 ? 'eager' : 'lazy'}
+              />
+            </figure>
+          );
+        })}
+      </div>
+
+      <BotanicalCorner className="photo-carousel-botanical top" />
+      <BotanicalCorner className="photo-carousel-botanical bottom" />
+
+      <button type="button" className="photo-carousel-btn prev" onClick={() => move(-1)} aria-label="Photo précédente">
+        <ChevronLeft aria-hidden="true" />
+      </button>
+      <button type="button" className="photo-carousel-btn next" onClick={() => move(1)} aria-label="Photo suivante">
+        <ChevronRight aria-hidden="true" />
+      </button>
+
+      <div className="photo-carousel-dots" role="group" aria-label="Choisir une photo">
+        {galleryImages.map((image, index) => (
+          <button
+            type="button"
+            key={image.src}
+            className={`photo-carousel-dot ${index === activeIndex ? 'active' : ''}`}
+            onClick={() => goTo(index)}
+            aria-label={`Afficher la photo ${index + 1}`}
+            aria-current={index === activeIndex ? 'true' : undefined}
+          />
+        ))}
+      </div>
+      <p className="sr-only" aria-live="polite">Photo {activeIndex + 1} sur {total}</p>
+    </div>
+  );
+}
+
 /* ============================================================
    APP
    ============================================================ */
@@ -536,7 +659,7 @@ function App() {
       <section className="band-cream">
         <div className="section" style={{ paddingTop: '4rem', paddingBottom: '4rem' }}>
           <Reveal className="text-center">
-            <p className="eyebrow">Jours avant le grand jour</p>
+            <p className="eyebrow">Le grand jour approche</p>
             <div className="mt-8">
               <Countdown />
             </div>
@@ -563,6 +686,20 @@ function App() {
               <p className="mot-signature" style={{ whiteSpace: 'pre-line' }}>{wedding.motSignature}</p>
             </Reveal>
           </div>
+        </div>
+      </section>
+
+      {/* GALERIE */}
+      <section id="galerie" className="band-cream">
+        <div className="section">
+          <Reveal>
+            <SectionHeader eyebrow="Souvenirs" title="Nous en photos" center={false}>
+              Des instants choisis pour raconter la tendresse, la complicité et la promesse qui nous unissent.
+            </SectionHeader>
+          </Reveal>
+          <Reveal className="mt-12">
+            <PhotoCarousel />
+          </Reveal>
         </div>
       </section>
 
@@ -653,26 +790,6 @@ function App() {
               <a href={wedding.rsvpFormLink} target="_blank" rel="noreferrer" className="btn-ghost">
                 <Navigation className="h-4 w-4" /> En savoir plus
               </a>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* GALERIE */}
-      <section id="galerie" className="band-cream">
-        <div className="section">
-          <Reveal>
-            <SectionHeader eyebrow="Nous en photos" title="Quelques souvenirs">
-              Des instants choisis pour raconter la tendresse, la complicité et la promesse qui nous unissent.
-            </SectionHeader>
-          </Reveal>
-          <Reveal className="mt-14">
-            <div className="gallery-grid">
-              {galleryImages.map((image, index) => (
-                <div key={image.src + index} className="gallery-item">
-                  <img src={image.src} alt={image.alt} loading="lazy" />
-                </div>
-              ))}
             </div>
           </Reveal>
         </div>
