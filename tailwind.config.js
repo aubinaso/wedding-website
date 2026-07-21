@@ -4,32 +4,34 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Base ivoire / crème
-        ivory: '#FBF8F1',
-        cream: '#F4EEE1',
-        // Bleu canard / sarcelle (couleur principale)
-        canard: '#12626E',
-        canardDark: '#0C4A54',
+        // Base ivoire / beige
+        ivory: '#FFF9F0',
+        cream: '#F2E9DA',
+        beige: '#F2E9DA',
+        // Bleu canard (couleur principale)
+        canard: '#005F73',
+        canardDark: '#084F59',
         canardDeep: '#07333B',
         // Or
-        gold: '#C9A227',
-        goldSoft: '#D9BE6A',
-        goldDeep: '#A8871B',
+        gold: '#C7A24A',
+        goldSoft: '#D6B45C',
+        goldDeep: '#A8842F',
         // Floral / accent doux
         blush: '#E7C9C2',
         rose: '#C98B86',
         // Texte
-        ink: '#243029',
+        ink: '#263A3A',
         muted: '#5C6B62',
       },
       fontFamily: {
-        script: ['"Great Vibes"', 'cursive'],
+        script: ['Parisienne', 'cursive'],
         serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
-        sans: ['Jost', 'Montserrat', 'system-ui', 'sans-serif'],
+        display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+        sans: ['Manrope', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
-        soft: '0 20px 60px rgba(6, 53, 40, 0.12)',
-        frame: '0 30px 80px rgba(6, 53, 40, 0.20)',
+        soft: '0 20px 60px rgba(7, 51, 59, 0.12)',
+        frame: '0 30px 80px rgba(7, 51, 59, 0.20)',
       },
       keyframes: {
         floatIn: {
@@ -48,12 +50,17 @@ export default {
           '0%, 100%': { transform: 'rotate(-3deg)' },
           '50%': { transform: 'rotate(3deg)' },
         },
+        shimmer: {
+          '0%, 100%': { opacity: '0.55' },
+          '50%': { opacity: '1' },
+        },
       },
       animation: {
         floatIn: 'floatIn 900ms ease-out both',
         fadeIn: 'fadeIn 1200ms ease-out both',
         slowZoom: 'slowZoom 18s ease-in-out infinite',
         sway: 'sway 9s ease-in-out infinite',
+        shimmer: 'shimmer 3.5s ease-in-out infinite',
       },
     },
   },

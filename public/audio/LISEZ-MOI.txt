@@ -1,0 +1,5 @@
+Déposez ici le fichier de votre chanson nommé :
+  notre-chanson.mp3
+
+Le lecteur en haut du site le lira automatiquement.
+Tant que le fichier est absent, le bouton lecture reste désactivé (silencieux).
