@@ -44,7 +44,7 @@ const wedding = {
     title: 'Notre chanson — Axel & Aivi',
   },
 
-  intro: 'ont la joie de vous convier à leur mariage',
+  intro: 'ont la joie de vous convier\nà leur mariage',
 
   motTitle: 'Mot des mariés',
   mot: "C'est avec une immense joie que nous vous invitons à partager l'un des plus beaux jours de notre vie. Votre présence et vos prières sont nos plus beaux cadeaux.",
@@ -200,56 +200,82 @@ function BotanicalCorner({ className }) {
   );
 }
 
-/* Une rose ivoire stylisée (pétales en spirale + feuillage doré) */
+/* Une rose ivoire réaliste : pétales disposés en spirale (angle d'or),
+   les grands pétales froissés dessous, le cœur serré dessus. */
 function Rose({ x, y, s = 1, r = 0 }) {
+  const petals = [];
+  for (let i = 24; i >= 0; i -= 1) {
+    const a = i * 137.508 + r * 1.7;
+    const rad = (a * Math.PI) / 180;
+    const dist = 1 + i * 0.92;
+    petals.push({
+      px: dist * Math.cos(rad),
+      py: dist * Math.sin(rad),
+      ps: 0.3 + i * 0.05,
+      a,
+      i,
+    });
+  }
   return (
     <g transform={`translate(${x} ${y}) scale(${s}) rotate(${r})`}>
-      {/* feuillage doré */}
+      {/* feuillage doré sous la fleur */}
       <g fill="url(#leaf)" opacity="0.95">
-        <ellipse cx="-30" cy="12" rx="8" ry="18" transform="rotate(-42 -30 12)" />
-        <ellipse cx="30" cy="14" rx="8" ry="18" transform="rotate(42 30 14)" />
-        <ellipse cx="-6" cy="-30" rx="6" ry="15" transform="rotate(-12 -6 -30)" />
-        <ellipse cx="14" cy="-26" rx="6" ry="14" transform="rotate(20 14 -26)" />
+        <ellipse cx="-32" cy="10" rx="8" ry="19" transform="rotate(-48 -32 10)" />
+        <ellipse cx="32" cy="13" rx="8" ry="18" transform="rotate(46 32 13)" />
+        <ellipse cx="-8" cy="-32" rx="6" ry="15" transform="rotate(-14 -8 -32)" />
+        <ellipse cx="16" cy="-28" rx="6" ry="14" transform="rotate(24 16 -28)" />
+        <ellipse cx="-24" cy="-22" rx="5" ry="12" transform="rotate(-58 -24 -22)" />
       </g>
-      {/* pétales extérieurs */}
-      <g fill="url(#petalA)" stroke="#C7A24A" strokeWidth="0.5">
-        {[0, 60, 120, 180, 240, 300].map((a) => (
-          <ellipse key={a} cx="0" cy="-15" rx="12.5" ry="16" transform={`rotate(${a})`} />
-        ))}
-      </g>
-      {/* pétales médians */}
-      <g fill="url(#petalB)" stroke="#C7A24A" strokeWidth="0.4">
-        {[30, 90, 150, 210, 270, 330].map((a) => (
-          <ellipse key={a} cx="0" cy="-9" rx="8.5" ry="11" transform={`rotate(${a})`} />
-        ))}
-      </g>
-      {/* cœur en spirale */}
-      <g fill="url(#petalA)" stroke="#C7A24A" strokeWidth="0.35">
-        {[0, 120, 240].map((a) => (
-          <ellipse key={a} cx="0" cy="-4" rx="4.5" ry="6" transform={`rotate(${a})`} />
-        ))}
-      </g>
-      <circle r="3.4" fill="url(#petalB)" />
-      <path d="M-2.4 0.8 A3.2 3.2 0 1 1 2.4 -0.8" fill="none" stroke="#C7A24A" strokeWidth="0.6" opacity="0.8" />
+      {/* ombre douce sous la corolle */}
+      <ellipse cx="1.5" cy="3" rx="26" ry="24" fill="#9C7B3A" opacity="0.28" />
+      {/* pétales en spirale : extérieurs d'abord, cœur au-dessus */}
+      {petals.map((p) => (
+        <ellipse
+          key={p.i}
+          cx={p.px}
+          cy={p.py}
+          rx={8.4 * p.ps}
+          ry={9.6 * p.ps}
+          transform={`rotate(${p.a + 90} ${p.px} ${p.py})`}
+          fill={p.i < 7 ? 'url(#petalB)' : 'url(#petalA)'}
+          stroke="#C9A46B"
+          strokeWidth={p.i < 7 ? 0.3 : 0.4}
+          strokeOpacity="0.5"
+        />
+      ))}
+      <circle r="1.6" fill="#E8D4AC" />
     </g>
   );
 }
 
+/* Pseudo-aléatoire déterministe (pas de Math.random : rendu stable) */
+function rnd(n) {
+  const v = Math.sin(n * 127.1 + 311.7) * 43758.5453;
+  return v - Math.floor(v);
+}
+
 function FloralWreath({ children }) {
-  // Anneau de scintillements dorés (positions déterministes)
-  const jitter = [0, 9, -7, 15, -11, 5, 18, -5, 11, -14, 6, -3, 16, -9, 12, 2];
+  // Poussière d'or : paillettes irrégulières resserrées autour de l'anneau,
+  // plus quelques éclats dispersés vers l'intérieur/extérieur.
   const sparkles = [];
   const bands = [
-    { count: 130, base: 236, min: 3.1 },
-    { count: 52, base: 210, min: 2.4 },
-    { count: 44, base: 262, min: 2.2 },
+    { count: 300, base: 236, spread: 7, sMax: 2.2, op: 0.72 },  // cœur de l'anneau, dense et continu
+    { count: 150, base: 236, spread: 22, sMax: 1.8, op: 0.45 }, // halo proche
+    { count: 80, base: 236, spread: 55, sMax: 1.4, op: 0.28 },  // éclats dispersés
   ];
   bands.forEach((band, bi) => {
     for (let i = 0; i < band.count; i += 1) {
-      const a = ((i + bi * 1.7) / band.count) * Math.PI * 2;
-      const rr = band.base + jitter[(i + bi) % 16] * (bi === 0 ? 1 : 0.5);
-      const size = i % 6 === 0 ? band.min : i % 2 ? 1.1 : 1.7;
-      sparkles.push([300 + rr * Math.cos(a), 300 + rr * Math.sin(a), size, (i % 3) * 0.14]);
+      const n = bi * 1000 + i;
+      // angle uniforme + léger jitter → couverture régulière de tout l'anneau
+      const a = (i / band.count) * Math.PI * 2 + (rnd(n) - 0.5) * 0.12;
+      const rr = band.base + (rnd(n + 0.37) + rnd(n + 0.83) - 1) * band.spread;
+      const size = 0.7 + rnd(n + 0.71) * band.sMax;
+      sparkles.push([
+        300 + rr * Math.cos(a),
+        300 + rr * Math.sin(a),
+        size,
+        band.op + rnd(n + 0.53) * 0.4,
+      ]);
     }
   });
 
@@ -278,12 +304,12 @@ function FloralWreath({ children }) {
         </defs>
 
         {/* anneaux dorés fins */}
-        <circle cx="300" cy="300" r="236" stroke="url(#wgold)" strokeWidth="1.6" strokeDasharray="1.5 9" opacity="0.85" />
-        <circle cx="300" cy="300" r="248" stroke="url(#wgold)" strokeWidth="1" strokeDasharray="0.5 13" opacity="0.5" />
+        <circle cx="300" cy="300" r="236" stroke="url(#wgold)" strokeWidth="2" strokeDasharray="2 7" opacity="0.95" />
+        <circle cx="300" cy="300" r="247" stroke="url(#wgold)" strokeWidth="1" strokeDasharray="0.8 11" opacity="0.6" />
 
-        {/* scintillements */}
+        {/* poussière d'or */}
         {sparkles.map(([cx, cy, sz, op], i) => (
-          <circle key={i} cx={cx} cy={cy} r={sz} fill="#E6CC7E" opacity={0.62 + op} />
+          <circle key={i} cx={cx} cy={cy} r={sz} fill={i % 3 ? '#E6CC7E' : '#D6B45C'} opacity={op} />
         ))}
 
         {/* brins de feuilles dorées (haut & bas) */}
@@ -300,13 +326,13 @@ function FloralWreath({ children }) {
 
         {/* grappe de roses en haut à gauche (posées sur l'anneau) */}
         <Rose x={135} y={158} s={1.05} r={-15} />
-        <Rose x={112} y={215} s={0.82} r={18} />
-        <Rose x={182} y={110} s={0.72} r={-42} />
+        <Rose x={110} y={218} s={0.82} r={18} />
+        <Rose x={184} y={108} s={0.72} r={-42} />
 
-        {/* grappe de roses en bas à droite (posées sur l'anneau) */}
-        <Rose x={465} y={445} s={1.05} r={155} />
-        <Rose x={500} y={398} s={0.8} r={128} />
-        <Rose x={430} y={488} s={0.75} r={175} />
+        {/* grappe de roses en bas à droite (posées sur l'anneau, sous la date) */}
+        <Rose x={470} y={480} s={1.05} r={155} />
+        <Rose x={510} y={432} s={0.8} r={128} />
+        <Rose x={420} y={514} s={0.72} r={175} />
       </svg>
       <div className="hero-inner">{children}</div>
     </div>
