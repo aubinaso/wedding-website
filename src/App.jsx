@@ -149,9 +149,9 @@ const galleryImages = [
 
 // Nos couleurs
 const dressColors = [
-  { name: 'Bleu canard', hex: '#005F73', swatch: 'satin-canard', card: 'on-dark' },
-  { name: 'Beige', hex: '#F2E9DA', swatch: 'satin-beige', card: 'on-light' },
-  { name: 'Or', hex: '#C7A24A', swatch: 'satin-gold', card: 'on-gold' },
+  { name: 'Bleu canard', hex: '#0B4F55', image: '/images/colors/satin-bleu-canard.jpg', card: 'on-dark' },
+  { name: 'Beige', hex: '#F2E9DA', image: '/images/colors/satin-beige.jpg', card: 'on-light' },
+  { name: 'Or', hex: '#C7A24A', image: '/images/colors/satin-or.jpg', card: 'on-gold' },
 ];
 
 // Versets
@@ -512,6 +512,32 @@ function HeroText() {
   );
 }
 
+function PaletteFlourish() {
+  return (
+    <svg className="palette-flourish" viewBox="0 0 150 20" fill="none" aria-hidden="true">
+      <path d="M4 10H61M89 10H146" stroke="currentColor" strokeWidth="1" />
+      <path d="M75 3C77 7 79 9 84 10C79 11 77 13 75 17C73 13 71 11 66 10C71 9 73 7 75 3Z" fill="currentColor" />
+    </svg>
+  );
+}
+
+function ColorSprig({ className = '' }) {
+  return (
+    <svg className={className} viewBox="0 0 120 110" fill="none" aria-hidden="true">
+      <g stroke="currentColor" strokeWidth="1.35" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M14 101C40 82 60 55 75 12" />
+        <path d="M39 78C26 71 19 62 19 51C32 53 41 60 43 72" />
+        <path d="M51 62C43 49 42 38 48 28C58 36 61 46 57 57" />
+        <path d="M61 44C61 30 66 20 76 14C80 26 76 36 66 43" />
+        <path d="M39 79C53 79 63 85 69 96C56 99 46 94 39 84" />
+        <path d="M53 61C67 59 78 63 86 73C74 78 63 74 56 66" />
+        <path d="M65 43C78 38 89 40 99 48C89 56 78 55 69 48" />
+        <path d="M73 22C86 16 96 17 106 24C97 33 86 32 77 27" />
+      </g>
+    </svg>
+  );
+}
+
 function PhotoCarousel() {
   const total = galleryImages.length;
   const slides = [galleryImages[total - 1], ...galleryImages, galleryImages[0]];
@@ -796,22 +822,29 @@ function App() {
       </section>
 
       {/* NOS COULEURS */}
-      <section id="couleurs">
+      <section id="couleurs" className="colors-section">
         <div className="section">
-          <Reveal>
-            <SectionHeader eyebrow="Dress code" title="Nos couleurs">
-              Pour ce jour béni, le thème du mariage est chic et élégant. Nous vous proposons de choisir vos
-              tenues dans ces teintes : bleu canard, beige et or.
-            </SectionHeader>
-          </Reveal>
-          <Reveal className="mt-12">
+          <Reveal className="colors-panel">
+            <ColorSprig className="colors-panel-sprig" />
+            <PaletteFlourish />
+            <header className="colors-heading">
+              <h2>Nos Couleurs</h2>
+              <span className="colors-heading-line" aria-hidden="true" />
+              <p>
+                Pour ce jour béni, le thème du mariage est chic et élégant dont les couleurs sont :{' '}
+                <strong>bleu canard, beige et or.</strong>
+              </p>
+            </header>
             <div className="colors-list">
               {dressColors.map((color) => (
-                <div key={color.name} className={`color-card ${color.card}`}>
-                  <div className={`color-swatch ${color.swatch}`} />
-                  <p className="color-name">{color.name}</p>
-                  <p className="color-hex">{color.hex}</p>
-                </div>
+                <article key={color.name} className={`color-card ${color.card}`}>
+                  <img className="color-swatch" src={color.image} alt={`Satin ${color.name.toLowerCase()}`} />
+                  <div className="color-details">
+                    <p className="color-name">{color.name}</p>
+                    <p className="color-hex">{color.hex}</p>
+                  </div>
+                  <ColorSprig className="color-card-sprig" />
+                </article>
               ))}
             </div>
           </Reveal>

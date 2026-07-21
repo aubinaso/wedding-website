@@ -884,63 +884,158 @@ img {
 }
 
 /* ============================================================
-   NOS COULEURS — TEXTURES SATIN
+   NOS COULEURS — COMPOSITION DE LA REFERENCE
    ============================================================ */
+.colors-section {
+  background: linear-gradient(180deg, #f8f3e9 0%, #fffdf9 100%);
+}
+.colors-section > .section {
+  max-width: 48rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.colors-panel {
+  position: relative;
+  overflow: hidden;
+  padding: 2rem 1.9rem 1.2rem;
+  border: 1px solid rgba(199, 162, 74, 0.23);
+  border-left: 3px solid var(--gold);
+  border-radius: 1.8rem 1.8rem 1.8rem 1.4rem;
+  background: rgba(255, 253, 249, 0.96);
+  box-shadow: 0 10px 28px rgba(77, 59, 25, 0.14);
+}
+.palette-flourish {
+  display: block;
+  width: 7.6rem;
+  height: auto;
+  margin: 0 auto 1.4rem;
+  color: var(--gold);
+}
+.colors-panel-sprig {
+  position: absolute;
+  top: 1.45rem;
+  left: 1rem;
+  width: 4.1rem;
+  color: var(--gold);
+  transform: scaleX(-1) rotate(-8deg);
+  opacity: 0.9;
+}
+.colors-heading {
+  max-width: 39rem;
+  margin: 0 auto 1.4rem;
+}
+.colors-heading h2 {
+  margin: 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(3.2rem, 8vw, 4.4rem);
+  font-weight: 600;
+  line-height: 0.95;
+  color: var(--canard-deep);
+}
+.colors-heading-line {
+  display: block;
+  width: 7.8rem;
+  height: 1px;
+  margin: 0.75rem 0 0.55rem;
+  background: var(--gold);
+}
+.colors-heading p {
+  max-width: 36rem;
+  margin: 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.28rem, 3vw, 1.55rem);
+  line-height: 1.22;
+  color: var(--canard-deep);
+}
+.colors-heading strong {
+  font-weight: 700;
+}
 .colors-list {
   display: grid;
-  gap: 1.4rem;
-  max-width: 40rem;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.8rem;
+  max-width: 39rem;
   margin: 0 auto;
 }
 .color-card {
-  border-radius: 20px;
-  padding: 1.1rem 1.1rem 1.4rem;
-  box-shadow: 0 18px 46px rgba(7, 51, 59, 0.12);
+  position: relative;
+  overflow: hidden;
+  min-width: 0;
+  min-height: 12.8rem;
+  border: 1px solid rgba(199, 162, 74, 0.45);
+  border-radius: 1.1rem;
+  padding: 0.72rem 0.72rem 0.65rem;
+  box-shadow: 0 4px 10px rgba(91, 69, 25, 0.18);
 }
 .color-swatch {
-  height: 12rem;
-  border-radius: 14px;
-  box-shadow: inset 0 2px 10px rgba(255, 255, 255, 0.25), inset 0 -10px 30px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 7.2rem;
+  border-radius: 0.8rem;
+  object-fit: cover;
+  box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.35), inset 0 -4px 12px rgba(0, 0, 0, 0.16);
 }
-/* Effet satin : plis lumineux en diagonale */
-.satin-canard {
-  background:
-    linear-gradient(115deg, rgba(255, 255, 255, 0.12) 0%, transparent 22%, rgba(0, 0, 0, 0.28) 42%, transparent 60%, rgba(255, 255, 255, 0.14) 78%, transparent 100%),
-    linear-gradient(135deg, #0a7286, #003b48);
-}
-.satin-beige {
-  background:
-    linear-gradient(115deg, rgba(255, 255, 255, 0.5) 0%, transparent 24%, rgba(150, 130, 100, 0.22) 44%, transparent 62%, rgba(255, 255, 255, 0.45) 80%, transparent 100%),
-    linear-gradient(135deg, #f6efe2, #e4d6bf);
-}
-.satin-gold {
-  background:
-    linear-gradient(115deg, rgba(255, 255, 255, 0.45) 0%, transparent 22%, rgba(120, 88, 20, 0.35) 44%, transparent 60%, rgba(255, 248, 220, 0.5) 80%, transparent 100%),
-    linear-gradient(135deg, #d9b458, #b3892c);
+.color-details {
+  position: relative;
+  z-index: 1;
+  padding: 0.48rem 0.42rem 0;
 }
 .color-name {
-  margin-top: 1rem;
-  font-family: 'Cormorant Garamond', serif;
+  margin: 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
   font-weight: 600;
-  font-size: 1.6rem;
-  line-height: 1;
+  font-size: 1.9rem;
+  line-height: 0.92;
 }
 .color-hex {
-  margin-top: 0.35rem;
-  font-family: 'Manrope', sans-serif;
-  font-size: 0.9rem;
-  letter-spacing: 0.06em;
+  margin: 0.3rem 0 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.25rem;
+  line-height: 1;
+  letter-spacing: 0;
+}
+.color-card-sprig {
+  position: absolute;
+  z-index: 0;
+  right: 0.55rem;
+  bottom: -0.35rem;
+  width: 5.5rem;
+  height: auto;
+  color: var(--gold-soft);
+  transform: rotate(10deg);
+  opacity: 0.9;
 }
 /* Cartes couleur : texte adapté au fond */
-.color-card.on-dark { background: var(--canard-dark); }
+.color-card.on-dark { background: #0b4f55; }
 .color-card.on-dark .color-name { color: var(--ivory); }
-.color-card.on-dark .color-hex { color: rgba(255, 249, 240, 0.75); }
+.color-card.on-dark .color-hex { color: var(--gold-soft); }
 .color-card.on-light { background: var(--beige); }
 .color-card.on-light .color-name { color: var(--canard-dark); }
-.color-card.on-light .color-hex { color: var(--muted); }
-.color-card.on-gold { background: linear-gradient(135deg, #d3ab52, #b98f30); }
-.color-card.on-gold .color-name { color: #fff; }
-.color-card.on-gold .color-hex { color: rgba(255, 255, 255, 0.85); }
+.color-card.on-light .color-hex { color: var(--gold-deep); }
+.color-card.on-gold { background: #dcb259; }
+.color-card.on-gold .color-name { color: var(--canard-deep); }
+.color-card.on-gold .color-hex { color: rgba(255, 255, 255, 0.92); }
+.color-card.on-gold .color-card-sprig { color: rgba(255, 249, 240, 0.85); }
+@media (max-width: 540px) {
+  .colors-section > .section { padding: 3.5rem 0.75rem; }
+  .colors-panel {
+    padding: 1.55rem 1rem 0.9rem;
+    border-radius: 1.45rem;
+  }
+  .palette-flourish { margin-bottom: 1.15rem; }
+  .colors-panel-sprig {
+    top: 1.2rem;
+    left: 0.45rem;
+    width: 3.5rem;
+  }
+  .colors-heading { margin-bottom: 1.15rem; }
+  .colors-heading h2 { font-size: clamp(2.8rem, 15vw, 3.6rem); }
+  .colors-heading p { font-size: 1.22rem; }
+  .color-card { min-height: 11.55rem; }
+  .color-swatch { height: 6.35rem; }
+  .color-name { font-size: 1.7rem; }
+  .color-hex { font-size: 1.1rem; }
+  .color-card-sprig { width: 4.8rem; }
+}
 
 /* ============================================================
    GALERIE
