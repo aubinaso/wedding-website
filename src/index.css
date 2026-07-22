@@ -1029,9 +1029,10 @@ img {
 .programme-title {
   margin: 0 0 1.6rem;
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(3.1rem, 8vw, 4.2rem);
-  font-weight: 600;
-  line-height: 0.95;
+  font-size: clamp(2.1rem, 5vw, 3.3rem);
+  font-weight: 500;
+  line-height: 1.06;
+  letter-spacing: 0.01em;
   color: var(--canard-deep);
 }
 .programme-grid {
@@ -1113,7 +1114,7 @@ img {
 @media (max-width: 540px) {
   .programme-section > .section { padding: 3.5rem 0.75rem; }
   .programme-panel { padding: 1.6rem 1rem 1.2rem; border-radius: 1.4rem; }
-  .programme-title { margin-bottom: 1.35rem; font-size: 3.15rem; }
+  .programme-title { margin-bottom: 1.35rem; }
   .programme-grid { gap: 1.2rem; }
   .prog-card-img { aspect-ratio: 2 / 1; }
   .prog-card-body { padding: 1.2rem 1.25rem 1.4rem; }
@@ -1203,9 +1204,10 @@ img {
 .colors-heading h2 {
   margin: 0;
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(3.2rem, 8vw, 4.4rem);
-  font-weight: 600;
-  line-height: 0.95;
+  font-size: clamp(2.1rem, 5vw, 3.3rem);
+  font-weight: 500;
+  line-height: 1.06;
+  letter-spacing: 0.01em;
   color: var(--canard-deep);
 }
 .colors-heading-line {
@@ -1304,7 +1306,6 @@ img {
     width: 3.5rem;
   }
   .colors-heading { margin-bottom: 1.15rem; }
-  .colors-heading h2 { font-size: clamp(2.8rem, 15vw, 3.6rem); }
   .colors-heading p { font-size: 1.22rem; }
   .color-card { min-height: 11.55rem; }
   .color-swatch { height: 6.35rem; }

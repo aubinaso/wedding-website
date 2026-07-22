@@ -743,7 +743,7 @@ function HomePage() {
             <ColorSprig className="colors-panel-sprig" />
             <PaletteFlourish />
             <header className="colors-heading">
-              <h2>Nos Couleurs</h2>
+              <h2>Nos couleurs</h2>
               <span className="colors-heading-line" aria-hidden="true" />
               <p>
                 Pour ce jour béni, le thème du mariage est chic et élégant dont les couleurs sont :{' '}
