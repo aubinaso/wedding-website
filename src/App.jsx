@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react';
 import {
   ChevronLeft,
   ChevronRight,
-  Church,
   Gift,
   HandHeart,
   Heart,
@@ -14,7 +13,6 @@ import {
   Play,
   Send,
   Sparkles,
-  UtensilsCrossed,
   X,
 } from 'lucide-react';
 
@@ -69,13 +67,6 @@ const navItems = [
   { label: 'Participer', href: '#participer' },
 ];
 
-// Frise « Au programme »
-const timeline = [
-  { day: 'Vendredi 14 août', time: '15h30', label: 'Cérémonie\nCivile', Icon: Church },
-  { day: 'Samedi 15 août', time: '15h00', label: 'Bénédiction', Icon: Heart },
-  { day: 'Samedi 15 août', time: '19h00', label: 'Réception', Icon: UtensilsCrossed },
-];
-
 // Programme détaillé
 const programme = [
   {
@@ -84,7 +75,7 @@ const programme = [
     venue: 'Mairie de Cergy',
     address: '3 place Olympe de Gouges, 95800 Cergy',
     mapsUrl: 'https://www.google.com/maps/search/?api=1&query=3%20place%20Olympe%20de%20Gouges%2C%2095800%20Cergy',
-    image: wedding.images.ceremonie,
+    image: '/images/programme/ceremonie-civile.jpg',
     alt: 'Cérémonie civile',
   },
   {
@@ -93,7 +84,7 @@ const programme = [
     venue: 'Herblay-sur-Seine',
     address: '5 bis avenue Paul Langevin, 95220 Herblay-sur-Seine',
     mapsUrl: 'https://www.google.com/maps/search/?api=1&query=5%20bis%20avenue%20Paul%20Langevin%2C%2095220%20Herblay-sur-Seine',
-    image: wedding.images.ceremonie,
+    image: '/images/programme/benediction.jpg',
     alt: 'Bénédiction du mariage',
   },
   {
@@ -102,7 +93,7 @@ const programme = [
     venue: 'Herblay-sur-Seine',
     address: '5 bis avenue Paul Langevin, 95220 Herblay-sur-Seine',
     mapsUrl: 'https://www.google.com/maps/search/?api=1&query=5%20bis%20avenue%20Paul%20Langevin%2C%2095220%20Herblay-sur-Seine',
-    image: wedding.images.reception,
+    image: '/images/programme/reception.jpg',
     alt: 'Réception & dîner',
   },
 ];
@@ -767,48 +758,32 @@ function App() {
         </div>
       </section>
 
-      {/* AU PROGRAMME — FRISE */}
-      <section id="programme" className="band-canard">
+      {/* AU PROGRAMME */}
+      <section id="programme" className="programme-section">
         <div className="section">
-          <Reveal>
-            <SectionHeader eyebrow="Le jour J" title="Au programme">
-              Retrouvez ici les horaires et les adresses des différents temps de notre mariage.
-            </SectionHeader>
-          </Reveal>
-
-          <Reveal className="mt-16">
-            <div className="timeline">
-              {timeline.map((step) => (
-                <div key={step.time} className="timeline-step">
-                  <span className="timeline-icon"><step.Icon className="h-8 w-8" /></span>
-                  <p className="timeline-day">{step.day}</p>
-                  <p className="timeline-time">{step.time}</p>
-                  <p className="timeline-label" style={{ whiteSpace: 'pre-line' }}>{step.label}</p>
-                </div>
-              ))}
-            </div>
-          </Reveal>
-
-          {/* Cartes détaillées */}
-          <div className="programme-grid mt-16">
-            {programme.map((item) => (
-              <Reveal key={item.title}>
-                <div className="prog-card h-full">
+          <Reveal className="programme-panel">
+            <h2 className="programme-title">Programme</h2>
+            <div className="programme-grid">
+              {programme.map((item) => (
+                <article key={item.title} className="prog-card">
                   <div className="prog-card-img">
                     <img src={item.image} alt={item.alt} loading="lazy" />
                   </div>
                   <div className="prog-card-body">
                     <h3 className="prog-card-title">{item.title}</h3>
                     <p className="prog-card-date">{item.date}</p>
-                    <p className="prog-card-venue">{item.venue}</p>
                     <a href={item.mapsUrl} target="_blank" rel="noreferrer" className="prog-card-place">
-                      <MapPin className="h-4 w-4" /> {item.address}
+                      <MapPin aria-hidden="true" />
+                      <span className="prog-card-location-text">
+                        <span className="prog-card-venue">{item.venue}</span>
+                        <span className="prog-card-address">{item.address}</span>
+                      </span>
                     </a>
                   </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+                </article>
+              ))}
+            </div>
+          </Reveal>
         </div>
       </section>
 
