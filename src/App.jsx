@@ -388,9 +388,9 @@ function TopBar({ homeHref = '#accueil', items = navItems }) {
       <header className="topbar">
         <a href={homeHref} className="brand-mono" aria-label={wedding.couple}>
           <span className="brand-initials">
-            <span>A</span>
+            <span className="brand-letter-first">A</span>
             <span className="brand-amp">&amp;</span>
-            <span>A</span>
+            <span className="brand-letter-second">A</span>
           </span>
           <span className="brand-floral-sprig" aria-hidden="true" />
         </a>
