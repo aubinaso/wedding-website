@@ -1139,33 +1139,6 @@ img {
 }
 
 /* ============================================================
-   LE LIEU
-   ============================================================ */
-.lieu-card {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 1.5rem 2rem;
-  padding: 2rem 2.2rem;
-  border-radius: 22px;
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(199, 162, 74, 0.35);
-  box-shadow: 0 20px 50px rgba(7, 51, 59, 0.1);
-}
-.lieu-pin {
-  flex-shrink: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 4.5rem;
-  height: 4.5rem;
-  border-radius: 50%;
-  border: 2px solid rgba(199, 162, 74, 0.5);
-  color: var(--gold);
-}
-.lieu-body { flex: 1; min-width: 14rem; }
-
-/* ============================================================
    BANDES COLORÉES
    ============================================================ */
 .band-canard {
@@ -1486,6 +1459,268 @@ img {
   .photo-carousel-btn.prev { left: 0.5rem; }
   .photo-carousel-btn.next { right: 0.5rem; }
   .photo-carousel-botanical { width: 7.5rem; opacity: 0.55; }
+}
+
+/* ============================================================
+   NOUS ACCOMPAGNER
+   ============================================================ */
+.support-section {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(255, 252, 246, 0.93), rgba(250, 246, 237, 0.96)),
+    radial-gradient(circle at 12% 8%, rgba(199, 162, 74, 0.14), transparent 26rem);
+}
+.support-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 68rem;
+}
+.support-botanical {
+  position: absolute;
+  z-index: 0;
+  width: clamp(11rem, 21vw, 18rem);
+  height: auto;
+  color: var(--gold);
+  opacity: 0.22;
+  pointer-events: none;
+}
+.support-botanical-top {
+  top: -2.5rem;
+  left: -3.5rem;
+  transform: rotate(-16deg) scaleX(-1);
+}
+.support-botanical-side {
+  top: 34%;
+  right: -5rem;
+  transform: rotate(155deg);
+}
+.support-botanical-bottom {
+  bottom: -4rem;
+  left: -3rem;
+  transform: rotate(-25deg);
+}
+.support-heading {
+  max-width: 42rem;
+  margin: 0 auto;
+  text-align: center;
+}
+.support-heading .palette-flourish {
+  width: 8.2rem;
+  margin: 0 auto 0.8rem;
+}
+.support-heading .eyebrow {
+  margin: 0;
+  color: var(--gold-deep);
+  font-size: 0.8rem;
+}
+.support-heading h2 {
+  margin: 0.4rem 0 0;
+  color: var(--canard-dark);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.55rem, 5vw, 3.6rem);
+  font-weight: 600;
+  line-height: 1;
+}
+.support-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  margin: 1.65rem auto 1.2rem;
+  color: var(--gold);
+}
+.support-divider span {
+  width: clamp(3rem, 10vw, 5.2rem);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(199, 162, 74, 0.72));
+}
+.support-divider span:last-child {
+  transform: scaleX(-1);
+}
+.support-divider svg {
+  width: 0.78rem;
+  height: 0.78rem;
+}
+.support-heading > p:last-child {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+.support-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin: 3rem auto 0;
+}
+.support-card {
+  display: flex;
+  min-width: 0;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 2rem 2.2rem;
+  border: 1px solid rgba(199, 162, 74, 0.28);
+  border-radius: 1.6rem;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 17px 35px rgba(87, 69, 38, 0.12);
+  text-align: center;
+}
+.support-icon-row {
+  display: grid;
+  width: min(100%, 18rem);
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.support-icon-row > span:not(.support-emblem) {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold));
+}
+.support-icon-row > span:last-child {
+  transform: scaleX(-1);
+}
+.support-emblem {
+  display: inline-flex;
+  width: 5rem;
+  height: 5rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(199, 162, 74, 0.25);
+  border-radius: 50%;
+  background: #fff;
+  color: var(--gold);
+  box-shadow: 0 5px 14px rgba(94, 72, 29, 0.12), inset 0 0 0 5px rgba(242, 233, 218, 0.35);
+}
+.support-emblem svg {
+  width: 2.1rem;
+  height: 2.1rem;
+  stroke-width: 1.5;
+}
+.support-card h3 {
+  margin: 0.1rem 0 0;
+  color: var(--canard-dark);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.1;
+}
+.support-card > p {
+  max-width: 28rem;
+  min-height: 5.4rem;
+  margin: 0.65rem auto 1.35rem;
+  color: var(--muted);
+  font-size: 0.96rem;
+  line-height: 1.75;
+}
+.support-button {
+  display: inline-flex;
+  width: min(100%, 20rem);
+  min-height: 3.15rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  margin-top: auto;
+  padding: 0.75rem 1.3rem;
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  color: var(--gold-deep);
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.35;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+.support-button svg {
+  width: 1rem;
+  height: 1rem;
+  flex: 0 0 auto;
+}
+.support-button:hover {
+  transform: translateY(-2px);
+  background: rgba(199, 162, 74, 0.08);
+}
+.support-button-primary {
+  border-color: var(--gold);
+  background: var(--canard);
+  color: var(--gold-soft);
+  box-shadow: 0 8px 18px rgba(7, 51, 59, 0.18), inset 0 0 0 2px var(--ivory);
+}
+.support-button-primary:hover {
+  background: var(--canard-dark);
+}
+@media (max-width: 700px) {
+  .support-section {
+    width: 100%;
+    max-width: 100vw;
+  }
+  .support-inner {
+    width: 100%;
+    min-width: 0;
+    max-width: 100vw;
+    padding: 4.5rem 0.9rem 4.2rem;
+  }
+  .support-heading,
+  .support-grid,
+  .support-card {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+  .support-heading .palette-flourish {
+    width: 7rem;
+  }
+  .support-heading h2 {
+    font-size: 2.45rem;
+  }
+  .support-heading > p:last-child {
+    padding: 0 0.5rem;
+    font-size: 0.94rem;
+  }
+  .support-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+    margin-top: 2.4rem;
+  }
+  .support-card {
+    padding: 1.4rem 1.2rem 1.55rem;
+    border-radius: 1.8rem;
+  }
+  .support-icon-row {
+    width: min(100%, 16rem);
+    margin-bottom: 0.75rem;
+  }
+  .support-emblem {
+    width: 4.7rem;
+    height: 4.7rem;
+  }
+  .support-card h3 {
+    font-size: 1.9rem;
+  }
+  .support-card > p {
+    min-height: 0;
+    margin: 0.55rem auto 1.15rem;
+    font-size: 0.9rem;
+  }
+  .support-button {
+    min-height: 3rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    overflow-wrap: anywhere;
+    font-size: 0.68rem;
+  }
+  .support-botanical {
+    width: 11rem;
+    opacity: 0.2;
+  }
+  .support-botanical-side {
+    right: -6.5rem;
+  }
 }
 
 /* ============================================================

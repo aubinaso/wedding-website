@@ -9,7 +9,6 @@ import {
   MapPin,
   Menu,
   Music,
-  Navigation,
   Pause,
   Play,
   Send,
@@ -64,8 +63,8 @@ const navItems = [
   { label: 'Notre histoire', href: '/histoire' },
   { label: 'Programme', href: '#programme' },
   { label: 'Nos couleurs', href: '#couleurs' },
-  { label: 'RSVP', href: '#rsvp' },
   { label: 'Participer', href: '#participer' },
+  { label: 'RSVP', href: '#rsvp' },
 ];
 
 const storyNavItems = [
@@ -828,41 +827,43 @@ function HomePage() {
         </div>
       </section>
 
-      {/* LE LIEU */}
-      <section id="lieu">
-        <div className="section" style={{ paddingTop: '4.5rem', paddingBottom: '4.5rem' }}>
-          <Reveal>
-            <div className="lieu-card">
-              <span className="lieu-pin"><MapPin className="h-8 w-8" /></span>
-              <div className="lieu-body">
-                <p className="eyebrow" style={{ color: 'var(--gold-deep)' }}>Les lieux</p>
-                <h3 className="font-display text-3xl font-semibold text-canardDark mt-1">Cergy &amp; Herblay-sur-Seine</h3>
-                <p className="section-copy mt-2">
-                  La cérémonie civile aura lieu à Cergy. La bénédiction et la réception se dérouleront ensuite à Herblay-sur-Seine.
-                </p>
-              </div>
-              <a href="#programme" className="btn-ghost">
-                <Navigation className="h-4 w-4" /> Voir les adresses
-              </a>
+      {/* NOUS ACCOMPAGNER */}
+      <section id="participer" className="support-section">
+        <BotanicalCorner className="support-botanical support-botanical-top" />
+        <BotanicalCorner className="support-botanical support-botanical-side" />
+        <BotanicalCorner className="support-botanical support-botanical-bottom" />
+        <div className="section support-inner">
+          <Reveal as="header" className="support-heading">
+            <PaletteFlourish />
+            <p className="eyebrow">Je participe</p>
+            <h2>Nous accompagner</h2>
+            <div className="support-divider" aria-hidden="true">
+              <span /><Heart fill="currentColor" /><span />
             </div>
+            <p>
+              Votre présence est déjà le plus beau des cadeaux.<br />
+              Pour ceux qui le souhaitent, voici comment nous gâter.
+            </p>
           </Reveal>
-        </div>
-      </section>
 
-      {/* VERSETS / FOI */}
-      <section className="band-canard">
-        <div className="section">
-          <Reveal>
-            <SectionHeader eyebrow="Foi & promesse" title="Les paroles qui nous portent" />
-          </Reveal>
-          <div className="mt-12 grid gap-5 md:grid-cols-3">
-            {verses.map((verse) => (
-              <Reveal key={verse.ref}>
-                <div className="verse-card h-full">
-                  <Sparkles className="mx-auto h-5 w-5 text-goldSoft" />
-                  <p className="mt-4 font-display text-2xl italic leading-snug">“{verse.text}”</p>
-                  <span className="mt-4 block text-xs uppercase tracking-[0.18em] text-goldSoft">{verse.ref}</span>
+          <div className="support-grid">
+            {supportCards.map(({ icon: Icon, title, text, button, href }, index) => (
+              <Reveal as="article" className="support-card" key={title}>
+                <div className="support-icon-row" aria-hidden="true">
+                  <span />
+                  <span className="support-emblem"><Icon /></span>
+                  <span />
                 </div>
+                <h3>{title}</h3>
+                <p>{text}</p>
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={`support-button ${index === 0 ? 'support-button-primary' : ''}`}
+                >
+                  {button}<ChevronRight aria-hidden="true" />
+                </a>
               </Reveal>
             ))}
           </div>
@@ -887,22 +888,19 @@ function HomePage() {
         </div>
       </section>
 
-      {/* PARTICIPER */}
-      <section id="participer" className="band-cream">
+      {/* VERSETS / FOI */}
+      <section className="band-canard">
         <div className="section">
           <Reveal>
-            <SectionHeader eyebrow="Je participe" title="Nous accompagner">
-              Votre présence est déjà le plus beau des cadeaux. Pour ceux qui le souhaitent, voici comment nous gâter.
-            </SectionHeader>
+            <SectionHeader eyebrow="Foi & promesse" title="Les paroles qui nous portent" />
           </Reveal>
-          <div className="mt-12 grid gap-6 md:grid-cols-2 max-w-3xl mx-auto">
-            {supportCards.map(({ icon: Icon, title, text, button, href }) => (
-              <Reveal key={title}>
-                <div className="card p-8 h-full text-center">
-                  <span className="icon-badge mb-4"><Icon className="h-6 w-6" /></span>
-                  <h3 className="font-display text-2xl font-semibold text-canardDark">{title}</h3>
-                  <p className="section-copy mx-auto mt-3">{text}</p>
-                  <a href={href} target="_blank" rel="noreferrer" className="btn-ghost mt-6">{button}</a>
+          <div className="mt-12 grid gap-5 md:grid-cols-3">
+            {verses.map((verse) => (
+              <Reveal key={verse.ref}>
+                <div className="verse-card h-full">
+                  <Sparkles className="mx-auto h-5 w-5 text-goldSoft" />
+                  <p className="mt-4 font-display text-2xl italic leading-snug">“{verse.text}”</p>
+                  <span className="mt-4 block text-xs uppercase tracking-[0.18em] text-goldSoft">{verse.ref}</span>
                 </div>
               </Reveal>
             ))}
