@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import {
+  BookOpen,
   ChevronLeft,
   ChevronRight,
   Gift,
@@ -788,7 +789,39 @@ function App() {
       </section>
 
       {/* NOTRE HISTOIRE */}
-      <section id="histoire" className="band-cream">
+      <section id="histoire" className="story-teaser-section">
+        <div className="section">
+          <Reveal as="article" className="story-teaser-card">
+            <header className="story-teaser-copy">
+              <ColorSprig className="story-teaser-sprig" />
+              <p className="eyebrow">Notre histoire</p>
+              <h2>Là où tout<br />a commencé</h2>
+              <p>
+                Une histoire née dans la confiance, nourrie par la foi et portée par la joie de bâtir ensemble.
+              </p>
+            </header>
+
+            <div className="story-teaser-media">
+              <img src="/images/couple/sous_les_parapluie.jpeg" alt="Axel et Aivi sous les parapluies" loading="lazy" />
+              <span className="story-teaser-heart" aria-hidden="true">
+                <Heart />
+              </span>
+            </div>
+
+            <a href="#histoire-details" className="story-teaser-link">
+              <span className="story-teaser-link-icon" aria-hidden="true"><BookOpen /></span>
+              <span className="story-teaser-link-copy">
+                <strong>Découvrez notre histoire</strong>
+                <small>De la rencontre à la promesse</small>
+              </span>
+              <span className="story-teaser-link-arrow" aria-hidden="true"><ChevronRight /></span>
+            </a>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* HISTOIRE DÉTAILLÉE */}
+      <section id="histoire-details" className="band-cream story-details-section">
         <div className="section">
           <Reveal>
             <SectionHeader eyebrow="Notre histoire" title="Comment tout a commencé">
