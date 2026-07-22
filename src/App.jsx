@@ -74,18 +74,18 @@ const navItems = [
 
 // Frise « Au programme »
 const timeline = [
-  { time: '14h00', label: 'Cérémonie\nMairie', Icon: Church },
-  { time: '15h30', label: 'Cérémonie\nReligieuse', Icon: Heart },
-  { time: '17h00', label: 'Séance\nPhotos', Icon: Camera },
-  { time: '18h30', label: 'Cocktail', Icon: GlassWater },
-  { time: '20h00', label: 'Dîner &\nSoirée', Icon: UtensilsCrossed },
+  { day: 'Vendredi 14 août', time: '14h00', label: 'Cérémonie\nMairie', Icon: Church },
+  { day: 'Samedi 15 août', time: '15h30', label: 'Cérémonie\nReligieuse', Icon: Heart },
+  { day: 'Samedi 15 août', time: '17h00', label: 'Séance\nPhotos', Icon: Camera },
+  { day: 'Samedi 15 août', time: '18h30', label: 'Cocktail', Icon: GlassWater },
+  { day: 'Samedi 15 août', time: '20h00', label: 'Dîner &\nSoirée', Icon: UtensilsCrossed },
 ];
 
 // Programme détaillé
 const programme = [
   {
     title: 'Cérémonie civile',
-    date: '15 août 2026 à 14h00',
+    date: 'Vendredi 14 août 2026 à 14h00',
     place: 'Lieu à préciser',
     image: wedding.images.ceremonie,
     alt: 'Cérémonie civile',
@@ -773,6 +773,7 @@ function App() {
               {timeline.map((step) => (
                 <div key={step.time} className="timeline-step">
                   <span className="timeline-icon"><step.Icon className="h-8 w-8" /></span>
+                  <p className="timeline-day">{step.day}</p>
                   <p className="timeline-time">{step.time}</p>
                   <p className="timeline-label" style={{ whiteSpace: 'pre-line' }}>{step.label}</p>
                 </div>

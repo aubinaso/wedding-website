@@ -773,6 +773,15 @@ img {
   margin: 0 auto 0.9rem;
   color: var(--gold-soft);
 }
+.timeline-day {
+  min-height: 1.1rem;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.66rem;
+  font-weight: 700;
+  line-height: 1.35;
+  text-transform: uppercase;
+  color: rgba(255, 249, 240, 0.72);
+}
 .timeline-time {
   font-family: 'Cormorant Garamond', serif;
   font-weight: 600;
