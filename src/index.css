@@ -669,14 +669,20 @@ img {
    COMPTE À REBOURS
    ============================================================ */
 .countdown {
-  display: flex;
+  display: grid;
+  width: min(100%, 46rem);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   align-items: stretch;
-  justify-content: center;
-  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 1.45rem 1rem;
+  border: 1px solid rgba(199, 162, 74, 0.12);
+  border-radius: 3rem;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: inset 0 1px 5px rgba(255, 255, 255, 0.75), 0 12px 28px rgba(79, 61, 29, 0.12);
 }
 .count-box {
-  min-width: 84px;
-  padding: 0.3rem 1.4rem;
+  min-width: 0;
+  padding: 0.3rem 0.75rem;
   text-align: center;
 }
 .count-box + .count-box {
@@ -686,7 +692,7 @@ img {
   display: block;
   font-family: 'Cormorant Garamond', serif;
   font-weight: 600;
-  font-size: clamp(2.4rem, 7vw, 3.4rem);
+  font-size: clamp(2.1rem, 5vw, 3.2rem);
   line-height: 1;
   color: var(--gold-deep);
 }
@@ -694,9 +700,36 @@ img {
   display: block;
   margin-top: 0.45rem;
   font-size: 0.64rem;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--muted);
+}
+.countdown-ornament {
+  margin-top: 2.3rem;
+  color: var(--gold);
+}
+.countdown-heart {
+  display: block;
+  width: 0.78rem;
+  height: 0.78rem;
+  margin: 0 auto;
+}
+.countdown-ornament .flourish {
+  width: 4.8rem;
+  margin-top: 0.35rem;
+}
+@media (max-width: 540px) {
+  .countdown {
+    padding: 1.25rem 0.35rem;
+    border-radius: 2.6rem;
+  }
+  .count-box { padding: 0.25rem 0.2rem; }
+  .count-box strong { font-size: 2rem; }
+  .count-box span {
+    margin-top: 0.4rem;
+    font-size: 0.53rem;
+    letter-spacing: 0.1em;
+  }
 }
 
 /* ============================================================

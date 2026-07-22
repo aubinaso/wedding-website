@@ -701,7 +701,10 @@ function HomePage() {
             <div className="mt-8">
               <Countdown />
             </div>
-            <Flourish />
+            <div className="countdown-ornament" aria-hidden="true">
+              <Heart className="countdown-heart" fill="currentColor" />
+              <Flourish />
+            </div>
           </Reveal>
         </div>
       </section>
