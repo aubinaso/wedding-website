@@ -729,6 +729,36 @@ function App() {
         </div>
       </section>
 
+      {/* NOS COULEURS */}
+      <section id="couleurs" className="colors-section">
+        <div className="section">
+          <Reveal className="colors-panel">
+            <ColorSprig className="colors-panel-sprig" />
+            <PaletteFlourish />
+            <header className="colors-heading">
+              <h2>Nos Couleurs</h2>
+              <span className="colors-heading-line" aria-hidden="true" />
+              <p>
+                Pour ce jour béni, le thème du mariage est chic et élégant dont les couleurs sont :{' '}
+                <strong>bleu canard, beige et or.</strong>
+              </p>
+            </header>
+            <div className="colors-list">
+              {dressColors.map((color) => (
+                <article key={color.name} className={`color-card ${color.card}`}>
+                  <img className="color-swatch" src={color.image} alt={`Satin ${color.name.toLowerCase()}`} />
+                  <div className="color-details">
+                    <p className="color-name">{color.name}</p>
+                    <p className="color-hex">{color.hex}</p>
+                  </div>
+                  <ColorSprig className="color-card-sprig" />
+                </article>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* NOTRE HISTOIRE */}
       <section id="histoire" className="band-cream">
         <div className="section">
@@ -816,36 +846,6 @@ function App() {
               <a href={wedding.rsvpFormLink} target="_blank" rel="noreferrer" className="btn-ghost">
                 <Navigation className="h-4 w-4" /> En savoir plus
               </a>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* NOS COULEURS */}
-      <section id="couleurs" className="colors-section">
-        <div className="section">
-          <Reveal className="colors-panel">
-            <ColorSprig className="colors-panel-sprig" />
-            <PaletteFlourish />
-            <header className="colors-heading">
-              <h2>Nos Couleurs</h2>
-              <span className="colors-heading-line" aria-hidden="true" />
-              <p>
-                Pour ce jour béni, le thème du mariage est chic et élégant dont les couleurs sont :{' '}
-                <strong>bleu canard, beige et or.</strong>
-              </p>
-            </header>
-            <div className="colors-list">
-              {dressColors.map((color) => (
-                <article key={color.name} className={`color-card ${color.card}`}>
-                  <img className="color-swatch" src={color.image} alt={`Satin ${color.name.toLowerCase()}`} />
-                  <div className="color-details">
-                    <p className="color-name">{color.name}</p>
-                    <p className="color-hex">{color.hex}</p>
-                  </div>
-                  <ColorSprig className="color-card-sprig" />
-                </article>
-              ))}
             </div>
           </Reveal>
         </div>
