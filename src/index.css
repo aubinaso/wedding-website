@@ -838,6 +838,23 @@ img {
   .prog-card-title { font-size: 1.8rem; }
   .prog-card-date { font-size: 0.96rem; }
 }
+@media (min-width: 900px) {
+  .programme-section > .section { max-width: 72rem; }
+  .programme-panel { padding: 2.7rem 2.5rem 2.8rem; }
+  .programme-title { margin-bottom: 2rem; }
+  .programme-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+    max-width: none;
+  }
+  .prog-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .prog-card-img { aspect-ratio: 1.85 / 1; }
+  .prog-card-body { flex: 1; }
+}
 
 /* ============================================================
    LE LIEU
@@ -1039,6 +1056,22 @@ img {
   .color-name { font-size: 1.7rem; }
   .color-hex { font-size: 1.1rem; }
   .color-card-sprig { width: 4.8rem; }
+}
+@media (min-width: 900px) {
+  .colors-section > .section { max-width: 72rem; }
+  .colors-panel { padding: 2.5rem 2.6rem 2.7rem; }
+  .colors-heading {
+    max-width: none;
+    margin-bottom: 1.8rem;
+  }
+  .colors-heading p { max-width: 42rem; }
+  .colors-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    max-width: none;
+  }
+  .color-card { height: 100%; }
+  .color-swatch { height: 8rem; }
 }
 
 /* ============================================================
