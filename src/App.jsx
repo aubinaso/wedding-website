@@ -156,9 +156,9 @@ const galleryImages = [
 
 // Nos couleurs
 const dressColors = [
-  { name: 'Bleu canard', hex: '#0B4F55', image: '/images/colors/satin-bleu-canard.jpg', card: 'on-dark' },
-  { name: 'Beige', hex: '#F2E9DA', image: '/images/colors/satin-beige.jpg', card: 'on-light' },
-  { name: 'Or', hex: '#C7A24A', image: '/images/colors/satin-or.jpg', card: 'on-gold' },
+  { name: 'Bleu canard', image: '/images/colors/satin-bleu-canard.jpg', card: 'on-dark' },
+  { name: 'Beige', image: '/images/colors/satin-beige.jpg', card: 'on-light' },
+  { name: 'Or', image: '/images/colors/satin-or.jpg', card: 'on-gold' },
 ];
 
 // Versets
@@ -389,19 +389,12 @@ function TopBar({ homeHref = '#accueil', items = navItems }) {
           <span className="brand-a brand-a-first">A</span>
           <span className="brand-a brand-a-second">A</span>
           <svg className="brand-floral-sprig" viewBox="0 0 82 66" fill="none" aria-hidden="true">
-            <path d="M5 61C26 57 42 47 53 32C60 23 65 14 69 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-            <path d="M29 52C23 45 22 38 25 33C33 36 37 42 34 49C33 51 31 52 29 52Z" fill="currentColor" />
-            <path d="M43 42C37 35 37 28 40 23C48 27 51 33 48 39C47 41 45 42 43 42Z" fill="currentColor" />
-            <path d="M53 31C56 23 62 19 68 20C68 28 63 33 56 34C54 34 53 33 53 31Z" fill="currentColor" />
-            <path d="M61 19C62 12 66 8 71 7C73 13 70 19 65 21C63 22 62 21 61 19Z" fill="currentColor" />
-            <g transform="translate(70 7)" fill="currentColor">
-              <ellipse cx="0" cy="-4" rx="2" ry="4" />
-              <ellipse cx="3.8" cy="-1.2" rx="2" ry="4" transform="rotate(72 3.8 -1.2)" />
-              <ellipse cx="2.3" cy="3.3" rx="2" ry="4" transform="rotate(144 2.3 3.3)" />
-              <ellipse cx="-2.3" cy="3.3" rx="2" ry="4" transform="rotate(216 -2.3 3.3)" />
-              <ellipse cx="-3.8" cy="-1.2" rx="2" ry="4" transform="rotate(288 -3.8 -1.2)" />
-              <circle r="1.5" fill="#084f59" />
-            </g>
+            <path d="M5 60C25 59 42 55 54 47C64 40 69 32 74 22" stroke="currentColor" strokeWidth="1.35" strokeLinecap="round" />
+            <path d="M28 56C23 52 22 47 24 43C30 45 34 49 33 53C32 55 30 56 28 56Z" fill="currentColor" />
+            <path d="M41 52C36 48 36 43 38 39C44 41 47 45 46 49C45 51 43 52 41 52Z" fill="currentColor" />
+            <path d="M53 46C55 40 60 37 65 38C64 44 60 47 55 48C54 48 53 47 53 46Z" fill="currentColor" />
+            <path d="M63 38C64 33 68 29 73 29C73 35 70 39 65 40C64 40 63 39 63 38Z" fill="currentColor" />
+            <path d="M70 29C70 25 73 21 77 20C78 25 76 29 72 31C71 31 70 30 70 29Z" fill="currentColor" />
           </svg>
         </a>
         <MusicPlayer />
@@ -769,10 +762,10 @@ function HomePage() {
             <div className="colors-list">
               {dressColors.map((color) => (
                 <article key={color.name} className={`color-card ${color.card}`}>
+                  <Heart className="color-card-heart" fill="currentColor" aria-hidden="true" />
                   <img className="color-swatch" src={color.image} alt={`Satin ${color.name.toLowerCase()}`} />
                   <div className="color-details">
                     <p className="color-name">{color.name}</p>
-                    <p className="color-hex">{color.hex}</p>
                   </div>
                   <ColorSprig className="color-card-sprig" />
                 </article>
