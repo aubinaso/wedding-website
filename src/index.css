@@ -239,9 +239,9 @@ img {
   position: absolute;
   right: -0.05rem;
   bottom: -0.05rem;
-  z-index: 2;
-  width: 5rem;
-  height: 5rem;
+  z-index: 1;
+  width: 4rem;
+  height: 4rem;
   background-image: url('/images/hero-floral-overlay.png');
   background-repeat: no-repeat;
   background-position: 100% 100%;
@@ -249,15 +249,25 @@ img {
   filter: drop-shadow(0 2px 2px rgba(4, 43, 50, 0.16));
   pointer-events: none;
 }
-.brand-a {
+.brand-initials {
   position: absolute;
-  z-index: 1;
+  top: 1rem;
+  left: 1.05rem;
+  z-index: 3;
+  display: flex;
+  width: 5.35rem;
+  height: 5.35rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.16em;
   font-weight: 500;
-  font-size: 2.2rem;
+  font-size: 1.55rem;
   line-height: 1;
 }
-.brand-a-first { top: 2.05rem; left: 2.15rem; }
-.brand-a-second { top: 3.65rem; left: 3.5rem; font-size: 1.85rem; }
+.brand-amp {
+  color: var(--gold);
+  font-size: 0.7em;
+}
 
 .player {
   flex: 1;
@@ -640,13 +650,18 @@ img {
     border-width: 1px;
   }
   .brand-floral-sprig {
-    right: -0.05rem;
-    bottom: -0.05rem;
-    width: 2.85rem;
-    height: 2.85rem;
+    right: -0.08rem;
+    bottom: -0.08rem;
+    width: 2.15rem;
+    height: 2.15rem;
   }
-  .brand-a-first { top: 1.25rem; left: 1.3rem; font-size: 1.55rem; }
-  .brand-a-second { top: 2.35rem; left: 2.25rem; font-size: 1.3rem; }
+  .brand-initials {
+    top: 0.55rem;
+    left: 0.55rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    font-size: 1.05rem;
+  }
   .player {
     justify-content: flex-start;
     gap: 0.55rem;
