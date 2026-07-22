@@ -61,11 +61,19 @@ const navItems = [
   { label: 'Accueil', href: '#accueil' },
   { label: 'Mot des mariés', href: '#mot' },
   { label: 'Nous en photos', href: '#galerie' },
-  { label: 'Notre histoire', href: '#histoire' },
+  { label: 'Notre histoire', href: '/histoire' },
   { label: 'Programme', href: '#programme' },
   { label: 'Nos couleurs', href: '#couleurs' },
   { label: 'RSVP', href: '#rsvp' },
   { label: 'Participer', href: '#participer' },
+];
+
+const storyNavItems = [
+  { label: 'Accueil', href: '/' },
+  { label: 'Notre histoire', href: '#histoire-page' },
+  { label: 'Programme', href: '/#programme' },
+  { label: 'Nous en photos', href: '/#galerie' },
+  { label: 'RSVP', href: '/#rsvp' },
 ];
 
 // Programme détaillé
@@ -364,7 +372,7 @@ function MusicPlayer() {
 /* ============================================================
    BARRE HAUTE + MENU
    ============================================================ */
-function TopBar() {
+function TopBar({ homeHref = '#accueil', items = navItems }) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -377,7 +385,7 @@ function TopBar() {
   return (
     <>
       <header className="topbar">
-        <a href="#accueil" className="brand-mono" aria-label={wedding.couple}>
+        <a href={homeHref} className="brand-mono" aria-label={wedding.couple}>
           <span className="brand-a brand-a-first">A</span>
           <span className="brand-a brand-a-second">A</span>
         </a>
@@ -397,7 +405,7 @@ function TopBar() {
           <button type="button" className="menu-close" onClick={() => setOpen(false)} aria-label="Fermer le menu">
             <X className="h-6 w-6" />
           </button>
-          {navItems.map((item) => (
+          {items.map((item) => (
             <a key={item.href} href={item.href} onClick={() => setOpen(false)}>
               {item.label}
             </a>
@@ -662,7 +670,7 @@ function PhotoCarousel() {
 /* ============================================================
    APP
    ============================================================ */
-function App() {
+function HomePage() {
   return (
     <main className="overflow-hidden">
       <TopBar />
@@ -808,7 +816,7 @@ function App() {
               </span>
             </div>
 
-            <a href="#histoire-details" className="story-teaser-link">
+            <a href="/histoire" className="story-teaser-link">
               <span className="story-teaser-link-icon" aria-hidden="true"><BookOpen /></span>
               <span className="story-teaser-link-copy">
                 <strong>Découvrez notre histoire</strong>
@@ -817,34 +825,6 @@ function App() {
               <span className="story-teaser-link-arrow" aria-hidden="true"><ChevronRight /></span>
             </a>
           </Reveal>
-        </div>
-      </section>
-
-      {/* HISTOIRE DÉTAILLÉE */}
-      <section id="histoire-details" className="band-cream story-details-section">
-        <div className="section">
-          <Reveal>
-            <SectionHeader eyebrow="Notre histoire" title="Comment tout a commencé">
-              Une histoire née dans la confiance, nourrie par la foi et portée par la joie de bâtir ensemble.
-            </SectionHeader>
-          </Reveal>
-
-          <div className="mt-16 space-y-16">
-            {storyItems.map((item, index) => (
-              <Reveal key={item.step}>
-                <div className={`story-item ${index % 2 === 1 ? 'reverse' : ''}`}>
-                  <div className="story-media">
-                    <img src={item.image} alt={item.alt} loading="lazy" />
-                  </div>
-                  <div className={index % 2 === 1 ? 'lg:pr-6' : 'lg:pl-6'}>
-                    <span className="story-step">{item.step}</span>
-                    <h3 className="story-title">{item.title}</h3>
-                    <p className="section-copy">{item.text}</p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -948,6 +928,82 @@ function App() {
       </a>
     </main>
   );
+}
+
+function StoryPage() {
+  useEffect(() => {
+    const previousTitle = document.title;
+    document.title = `Notre histoire — ${wedding.couple}`;
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    return () => {
+      document.title = previousTitle;
+    };
+  }, []);
+
+  return (
+    <main className="story-page overflow-hidden">
+      <TopBar homeHref="/" items={storyNavItems} />
+
+      <section id="histoire-page" className="story-page-hero">
+        <BotanicalCorner className="story-page-botanical left" />
+        <BotanicalCorner className="story-page-botanical right" />
+        <div className="section">
+          <Reveal className="story-page-heading">
+            <a href="/" className="story-page-back">
+              <ChevronLeft aria-hidden="true" /> Retour à l'accueil
+            </a>
+            <p className="eyebrow">Axel &amp; Aivi</p>
+            <h1>Notre histoire</h1>
+            <p>De la rencontre à la promesse, découvrez les étapes qui nous ont conduits jusqu'au grand jour.</p>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="band-cream story-details-section">
+        <div className="section">
+          <Reveal>
+            <SectionHeader eyebrow="Notre histoire" title="Là où tout a commencé">
+              Une histoire née dans la confiance, nourrie par la foi et portée par la joie de bâtir ensemble.
+            </SectionHeader>
+          </Reveal>
+
+          <div className="mt-16 space-y-16">
+            {storyItems.map((item, index) => (
+              <Reveal key={item.step}>
+                <div className={`story-item ${index % 2 === 1 ? 'reverse' : ''}`}>
+                  <div className="story-media">
+                    <img src={item.image} alt={item.alt} loading="lazy" />
+                  </div>
+                  <div className={index % 2 === 1 ? 'lg:pr-6' : 'lg:pl-6'}>
+                    <span className="story-step">{item.step}</span>
+                    <h2 className="story-title">{item.title}</h2>
+                    <p className="section-copy">{item.text}</p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <footer className="footer">
+        <p className="footer-names">Axel &amp; Aivi</p>
+        <p className="mt-3 text-sm uppercase tracking-[0.28em] text-goldSoft">{wedding.dateLong}</p>
+        <a href="/" className="btn-primary mt-7">
+          <ChevronLeft className="h-4 w-4" /> Retour à l'accueil
+        </a>
+      </footer>
+
+      <a href={wedding.rsvpFormLink} target="_blank" rel="noreferrer" className="mobile-rsvp">
+        <Send className="h-4 w-4" /> RSVP
+      </a>
+    </main>
+  );
+}
+
+function App() {
+  const pathname = window.location.pathname.replace(/\/+$/, '') || '/';
+  return pathname === '/histoire' ? <StoryPage /> : <HomePage />;
 }
 
 export default App;
