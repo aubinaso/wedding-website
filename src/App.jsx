@@ -1,11 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import {
-  Camera,
   ChevronLeft,
   ChevronRight,
   Church,
   Gift,
-  GlassWater,
   HandHeart,
   Heart,
   MapPin,
@@ -30,14 +28,13 @@ const wedding = {
   initials: 'A A',
   dateShort: '15 août 2026',
   dateLong: 'Samedi 15 Août 2026',
-  dateISO: '2026-08-15T14:00:00',
-  city: 'Lieu à préciser',
+  dateISO: '2026-08-15T15:00:00',
+  city: 'Cergy & Herblay-sur-Seine',
 
-  // Liens (à mettre à jour)
   rsvpFormLink: 'https://forms.gle/X6uTjDfS6XoWH4VQ9',
   support: {
-    cagnotte: '#cagnotte-a-mettre-a-jour',
-    liste: '#liste-cadeaux-a-mettre-a-jour',
+    cagnotte: 'https://pots.lydia.me/collect/pots?id=72259-axel-aivi-s-wedding',
+    liste: 'https://www.listy.fr/listes/axel-aivi-s-wedding',
   },
 
   // Musique — déposez le fichier ici : public/audio/notre-chanson.mp3
@@ -74,26 +71,37 @@ const navItems = [
 
 // Frise « Au programme »
 const timeline = [
-  { day: 'Vendredi 14 août', time: '14h00', label: 'Cérémonie\nMairie', Icon: Church },
-  { day: 'Samedi 15 août', time: '15h30', label: 'Cérémonie\nReligieuse', Icon: Heart },
-  { day: 'Samedi 15 août', time: '17h00', label: 'Séance\nPhotos', Icon: Camera },
-  { day: 'Samedi 15 août', time: '18h30', label: 'Cocktail', Icon: GlassWater },
-  { day: 'Samedi 15 août', time: '20h00', label: 'Dîner &\nSoirée', Icon: UtensilsCrossed },
+  { day: 'Vendredi 14 août', time: '15h30', label: 'Cérémonie\nCivile', Icon: Church },
+  { day: 'Samedi 15 août', time: '15h00', label: 'Bénédiction', Icon: Heart },
+  { day: 'Samedi 15 août', time: '19h00', label: 'Réception', Icon: UtensilsCrossed },
 ];
 
 // Programme détaillé
 const programme = [
   {
     title: 'Cérémonie civile',
-    date: 'Vendredi 14 août 2026 à 14h00',
-    place: 'Lieu à préciser',
+    date: 'Vendredi 14 août 2026 à 15h30',
+    venue: 'Mairie de Cergy',
+    address: '3 place Olympe de Gouges, 95800 Cergy',
+    mapsUrl: 'https://www.google.com/maps/search/?api=1&query=3%20place%20Olympe%20de%20Gouges%2C%2095800%20Cergy',
     image: wedding.images.ceremonie,
     alt: 'Cérémonie civile',
   },
   {
+    title: 'Bénédiction',
+    date: 'Samedi 15 août 2026 à 15h00',
+    venue: 'Herblay-sur-Seine',
+    address: '5 bis avenue Paul Langevin, 95220 Herblay-sur-Seine',
+    mapsUrl: 'https://www.google.com/maps/search/?api=1&query=5%20bis%20avenue%20Paul%20Langevin%2C%2095220%20Herblay-sur-Seine',
+    image: wedding.images.ceremonie,
+    alt: 'Bénédiction du mariage',
+  },
+  {
     title: 'Réception',
-    date: '15 août 2026 à 18h00',
-    place: 'Lieu à préciser',
+    date: 'Samedi 15 août 2026 à 19h00',
+    venue: 'Herblay-sur-Seine',
+    address: '5 bis avenue Paul Langevin, 95220 Herblay-sur-Seine',
+    mapsUrl: 'https://www.google.com/maps/search/?api=1&query=5%20bis%20avenue%20Paul%20Langevin%2C%2095220%20Herblay-sur-Seine',
     image: wedding.images.reception,
     alt: 'Réception & dîner',
   },
@@ -173,7 +181,7 @@ const supportCards = [
   {
     icon: HandHeart,
     title: 'Liste de cadeaux',
-    text: 'Une sélection sera partagée prochainement pour ceux qui souhaitent nous offrir un souvenir.',
+    text: 'Consultez notre liste pour choisir un cadeau qui nous accompagnera dans notre vie à deux.',
     button: 'Voir la liste',
     href: wedding.support.liste,
   },
@@ -764,7 +772,7 @@ function App() {
         <div className="section">
           <Reveal>
             <SectionHeader eyebrow="Le jour J" title="Au programme">
-              Retrouvez ici le déroulé du grand jour. Les lieux seront précisés très prochainement.
+              Retrouvez ici les horaires et les adresses des différents temps de notre mariage.
             </SectionHeader>
           </Reveal>
 
@@ -782,7 +790,7 @@ function App() {
           </Reveal>
 
           {/* Cartes détaillées */}
-          <div className="mt-16 grid gap-7 md:grid-cols-2">
+          <div className="programme-grid mt-16">
             {programme.map((item) => (
               <Reveal key={item.title}>
                 <div className="prog-card h-full">
@@ -792,8 +800,9 @@ function App() {
                   <div className="prog-card-body">
                     <h3 className="prog-card-title">{item.title}</h3>
                     <p className="prog-card-date">{item.date}</p>
-                    <a href="#lieu" className="prog-card-place">
-                      <MapPin className="h-4 w-4" /> {item.place}
+                    <p className="prog-card-venue">{item.venue}</p>
+                    <a href={item.mapsUrl} target="_blank" rel="noreferrer" className="prog-card-place">
+                      <MapPin className="h-4 w-4" /> {item.address}
                     </a>
                   </div>
                 </div>
@@ -838,14 +847,14 @@ function App() {
             <div className="lieu-card">
               <span className="lieu-pin"><MapPin className="h-8 w-8" /></span>
               <div className="lieu-body">
-                <p className="eyebrow" style={{ color: 'var(--gold-deep)' }}>Le lieu</p>
-                <h3 className="font-display text-3xl font-semibold text-canardDark mt-1">Bientôt dévoilé</h3>
+                <p className="eyebrow" style={{ color: 'var(--gold-deep)' }}>Les lieux</p>
+                <h3 className="font-display text-3xl font-semibold text-canardDark mt-1">Cergy &amp; Herblay-sur-Seine</h3>
                 <p className="section-copy mt-2">
-                  Découvrez très bientôt tous les détails du lieu de notre mariage.
+                  La cérémonie civile aura lieu à Cergy. La bénédiction et la réception se dérouleront ensuite à Herblay-sur-Seine.
                 </p>
               </div>
-              <a href={wedding.rsvpFormLink} target="_blank" rel="noreferrer" className="btn-ghost">
-                <Navigation className="h-4 w-4" /> En savoir plus
+              <a href="#programme" className="btn-ghost">
+                <Navigation className="h-4 w-4" /> Voir les adresses
               </a>
             </div>
           </Reveal>
@@ -905,7 +914,7 @@ function App() {
                   <span className="icon-badge mb-4"><Icon className="h-6 w-6" /></span>
                   <h3 className="font-display text-2xl font-semibold text-canardDark">{title}</h3>
                   <p className="section-copy mx-auto mt-3">{text}</p>
-                  <a href={href} className="btn-ghost mt-6">{button}</a>
+                  <a href={href} target="_blank" rel="noreferrer" className="btn-ghost mt-6">{button}</a>
                 </div>
               </Reveal>
             ))}
