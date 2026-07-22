@@ -356,6 +356,7 @@ function MusicPlayer() {
       >
         {playing ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" style={{ marginLeft: 1 }} />}
       </button>
+      <span className="player-mobile-title">Play our song</span>
       <div className="player-meta">
         <p className="player-title">{wedding.music.title}</p>
         <div className="player-bar"><i style={{ width: `${progress}%` }} /></div>
