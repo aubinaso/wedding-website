@@ -389,14 +389,7 @@ function TopBar({ homeHref = '#accueil', items = navItems }) {
         <a href={homeHref} className="brand-mono" aria-label={wedding.couple}>
           <span className="brand-a brand-a-first">A</span>
           <span className="brand-a brand-a-second">A</span>
-          <svg className="brand-floral-sprig" viewBox="0 0 82 66" fill="none" aria-hidden="true">
-            <path d="M5 60C25 59 42 55 54 47C64 40 69 32 74 22" stroke="currentColor" strokeWidth="1.35" strokeLinecap="round" />
-            <path d="M28 56C23 52 22 47 24 43C30 45 34 49 33 53C32 55 30 56 28 56Z" fill="currentColor" />
-            <path d="M41 52C36 48 36 43 38 39C44 41 47 45 46 49C45 51 43 52 41 52Z" fill="currentColor" />
-            <path d="M53 46C55 40 60 37 65 38C64 44 60 47 55 48C54 48 53 47 53 46Z" fill="currentColor" />
-            <path d="M63 38C64 33 68 29 73 29C73 35 70 39 65 40C64 40 63 39 63 38Z" fill="currentColor" />
-            <path d="M70 29C70 25 73 21 77 20C78 25 76 29 72 31C71 31 70 30 70 29Z" fill="currentColor" />
-          </svg>
+          <span className="brand-floral-sprig" aria-hidden="true" />
         </a>
         <MusicPlayer />
         <button
