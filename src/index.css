@@ -261,8 +261,8 @@ img {
 }
 .brand-initials > span { position: absolute; }
 .brand-letter-first {
-  top: 16%;
-  left: 19%;
+  top: 19%;
+  left: 22%;
   font-size: 1.75rem;
 }
 .brand-amp {
@@ -273,8 +273,8 @@ img {
   transform: translate(-50%, -50%);
 }
 .brand-letter-second {
-  right: 17%;
-  bottom: 14%;
+  right: 20%;
+  bottom: 17%;
   font-size: 1.45rem;
 }
 
