@@ -759,34 +759,6 @@ function App() {
         </div>
       </section>
 
-      {/* NOTRE HISTOIRE */}
-      <section id="histoire" className="band-cream">
-        <div className="section">
-          <Reveal>
-            <SectionHeader eyebrow="Notre histoire" title="Comment tout a commencé">
-              Une histoire née dans la confiance, nourrie par la foi et portée par la joie de bâtir ensemble.
-            </SectionHeader>
-          </Reveal>
-
-          <div className="mt-16 space-y-16">
-            {storyItems.map((item, index) => (
-              <Reveal key={item.step}>
-                <div className={`story-item ${index % 2 === 1 ? 'reverse' : ''}`}>
-                  <div className="story-media">
-                    <img src={item.image} alt={item.alt} loading="lazy" />
-                  </div>
-                  <div className={index % 2 === 1 ? 'lg:pr-6' : 'lg:pl-6'}>
-                    <span className="story-step">{item.step}</span>
-                    <h3 className="story-title">{item.title}</h3>
-                    <p className="section-copy">{item.text}</p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* AU PROGRAMME — FRISE */}
       <section id="programme" className="band-canard">
         <div className="section">
@@ -822,6 +794,34 @@ function App() {
                     <a href="#lieu" className="prog-card-place">
                       <MapPin className="h-4 w-4" /> {item.place}
                     </a>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* NOTRE HISTOIRE */}
+      <section id="histoire" className="band-cream">
+        <div className="section">
+          <Reveal>
+            <SectionHeader eyebrow="Notre histoire" title="Comment tout a commencé">
+              Une histoire née dans la confiance, nourrie par la foi et portée par la joie de bâtir ensemble.
+            </SectionHeader>
+          </Reveal>
+
+          <div className="mt-16 space-y-16">
+            {storyItems.map((item, index) => (
+              <Reveal key={item.step}>
+                <div className={`story-item ${index % 2 === 1 ? 'reverse' : ''}`}>
+                  <div className="story-media">
+                    <img src={item.image} alt={item.alt} loading="lazy" />
+                  </div>
+                  <div className={index % 2 === 1 ? 'lg:pr-6' : 'lg:pl-6'}>
+                    <span className="story-step">{item.step}</span>
+                    <h3 className="story-title">{item.title}</h3>
+                    <p className="section-copy">{item.text}</p>
                   </div>
                 </div>
               </Reveal>
