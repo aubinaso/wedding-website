@@ -388,6 +388,21 @@ function TopBar({ homeHref = '#accueil', items = navItems }) {
         <a href={homeHref} className="brand-mono" aria-label={wedding.couple}>
           <span className="brand-a brand-a-first">A</span>
           <span className="brand-a brand-a-second">A</span>
+          <svg className="brand-floral-sprig" viewBox="0 0 82 66" fill="none" aria-hidden="true">
+            <path d="M5 61C26 57 42 47 53 32C60 23 65 14 69 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+            <path d="M29 52C23 45 22 38 25 33C33 36 37 42 34 49C33 51 31 52 29 52Z" fill="currentColor" />
+            <path d="M43 42C37 35 37 28 40 23C48 27 51 33 48 39C47 41 45 42 43 42Z" fill="currentColor" />
+            <path d="M53 31C56 23 62 19 68 20C68 28 63 33 56 34C54 34 53 33 53 31Z" fill="currentColor" />
+            <path d="M61 19C62 12 66 8 71 7C73 13 70 19 65 21C63 22 62 21 61 19Z" fill="currentColor" />
+            <g transform="translate(70 7)" fill="currentColor">
+              <ellipse cx="0" cy="-4" rx="2" ry="4" />
+              <ellipse cx="3.8" cy="-1.2" rx="2" ry="4" transform="rotate(72 3.8 -1.2)" />
+              <ellipse cx="2.3" cy="3.3" rx="2" ry="4" transform="rotate(144 2.3 3.3)" />
+              <ellipse cx="-2.3" cy="3.3" rx="2" ry="4" transform="rotate(216 -2.3 3.3)" />
+              <ellipse cx="-3.8" cy="-1.2" rx="2" ry="4" transform="rotate(288 -3.8 -1.2)" />
+              <circle r="1.5" fill="#084f59" />
+            </g>
+          </svg>
         </a>
         <MusicPlayer />
         <button

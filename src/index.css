@@ -235,17 +235,15 @@ img {
   border: 1.5px solid var(--gold-soft);
   border-radius: 50%;
 }
-.brand-mono::after {
-  content: '';
+.brand-floral-sprig {
   position: absolute;
-  top: 5.15rem;
-  left: 3.45rem;
-  width: 2.55rem;
-  height: 1.2rem;
-  border-bottom: 2px solid var(--gold-soft);
-  border-radius: 50%;
-  transform: rotate(-18deg);
-  opacity: 0.9;
+  right: 0.45rem;
+  bottom: 0.35rem;
+  z-index: 2;
+  width: 4.3rem;
+  height: auto;
+  color: var(--gold-soft);
+  pointer-events: none;
 }
 .brand-a {
   position: absolute;
@@ -640,12 +638,10 @@ img {
     height: 3.5rem;
     border-width: 1px;
   }
-  .brand-mono::after {
-    top: 3.55rem;
-    left: 2.2rem;
-    width: 1.55rem;
-    height: 0.72rem;
-    border-bottom-width: 1px;
+  .brand-floral-sprig {
+    right: 0.2rem;
+    bottom: 0.15rem;
+    width: 2.65rem;
   }
   .brand-a-first { top: 1.25rem; left: 1.3rem; font-size: 1.55rem; }
   .brand-a-second { top: 2.35rem; left: 2.25rem; font-size: 1.3rem; }
