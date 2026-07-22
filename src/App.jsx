@@ -79,7 +79,7 @@ const storyNavItems = [
 // Programme détaillé
 const programme = [
   {
-    title: 'Cérémonie civile',
+    title: 'Mairie',
     date: 'Vendredi 14 août 2026 à 15h30',
     venue: 'Mairie de Cergy',
     address: '3 place Olympe de Gouges, 95800 Cergy',
