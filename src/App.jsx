@@ -26,6 +26,7 @@ const wedding = {
   initials: 'A A',
   dateShort: '15 août 2026',
   dateLong: 'Samedi 15 Août 2026',
+  dateWeekend: 'Vendredi 14 & Samedi 15 Août 2026',
   dateISO: '2026-08-15T15:00:00',
   city: 'Cergy & Herblay-sur-Seine',
 
@@ -518,12 +519,6 @@ function HeroText() {
       </h1>
       <div className="hero-heart"><Heart className="h-3.5 w-3.5" fill="currentColor" /></div>
       <p className="hero-intro">{wedding.intro}</p>
-      <p className="hero-date">{wedding.dateLong}</p>
-      <div className="hero-cta">
-        <a href={wedding.rsvpFormLink} target="_blank" rel="noreferrer" className="btn-primary">
-          Confirmer ma présence
-        </a>
-      </div>
     </div>
   );
 }
@@ -693,6 +688,7 @@ function HomePage() {
           <FloralWreath>
             <HeroText />
           </FloralWreath>
+          <p className="hero-date hero-date-below">{wedding.dateWeekend}</p>
           <Flourish />
         </div>
       </section>

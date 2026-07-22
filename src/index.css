@@ -512,15 +512,12 @@ img {
   white-space: nowrap;
   text-shadow: 0 2px 5px rgba(4, 43, 50, 0.75);
 }
-.hero-cta {
-  margin-top: 1.15rem;
-  display: flex;
-  justify-content: center;
-}
-.hero-cta .btn-primary {
-  min-width: 19rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+.hero-date-below {
+  max-width: min(100%, 34rem);
+  margin: 1rem auto 0;
+  padding: 0 0.75rem;
+  text-align: center;
+  white-space: normal;
 }
 /* petit séparateur coeur avec traits dorés */
 .hero-heart {
@@ -665,19 +662,6 @@ img {
     width: 2.8rem;
     height: 2.8rem;
   }
-  .hero-cta {
-    position: absolute;
-    bottom: -3.75rem;
-    left: 50%;
-    width: min(19rem, 82vw);
-    margin-top: 0;
-    transform: translateX(-50%);
-  }
-  .hero-cta .btn-primary {
-    width: 100%;
-    min-width: 0;
-  }
-  .hero-section > .flourish { margin-top: 4.6rem; }
   .hero, .hero-section { min-height: calc(100svh - 5.95rem); }
 }
 
