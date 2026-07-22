@@ -156,9 +156,9 @@ const galleryImages = [
 
 // Nos couleurs
 const dressColors = [
-  { name: 'Bleu canard', image: '/images/colors/satin-bleu-canard.jpg', card: 'on-dark' },
-  { name: 'Beige', image: '/images/colors/satin-beige.jpg', card: 'on-light' },
-  { name: 'Or', image: '/images/colors/satin-or.jpg', card: 'on-gold' },
+  { name: 'Bleu canard', image: '/images/colors/fabric-bleu-canard.png', card: 'on-dark' },
+  { name: 'Beige', image: '/images/colors/fabric-beige.png', card: 'on-light' },
+  { name: 'Or', image: '/images/colors/fabric-or.png', card: 'on-gold' },
 ];
 
 // Versets
