@@ -397,7 +397,6 @@ function TopBar({ homeHref = '#accueil', items = navItems }) {
         <a href={homeHref} className="brand-mono" aria-label={wedding.couple}>
           <span className="brand-initials">
             <span className="brand-letter-first">A</span>
-            <span className="brand-amp">&amp;</span>
             <span className="brand-letter-second">A</span>
           </span>
           <span className="brand-floral-sprig" aria-hidden="true" />
@@ -1042,7 +1041,7 @@ function StoryPage() {
                 L'Éternel Dieu forma une femme de la côte qu'il avait prise de l'homme, et il l'amena vers l'homme.
               </p>
               <p>
-                Et l'homme dit: Voici cette fois celle qui est os de mes os et chair de ma chair! on l'appellera femme{' '}
+                Et l'homme dit: Voici cette fois celle qui est os de mes os et chair de ma chair! On l'appellera femme{' '}
                 <span className="story-scripture-name">(Aivi)</span>, parce qu'elle a été prise de l'homme{' '}
                 <span className="story-scripture-name">(Axel)</span>.
               </p>

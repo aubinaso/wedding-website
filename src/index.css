@@ -261,21 +261,14 @@ img {
 }
 .brand-initials > span { position: absolute; }
 .brand-letter-first {
-  top: 19%;
-  left: 22%;
-  font-size: 1.75rem;
-}
-.brand-amp {
-  top: 52%;
-  left: 51%;
-  color: var(--gold);
-  font-size: 0.95rem;
-  transform: translate(-50%, -50%);
+  top: 18%;
+  left: 24%;
+  font-size: 1.65rem;
 }
 .brand-letter-second {
-  right: 20%;
-  bottom: 17%;
-  font-size: 1.45rem;
+  right: 24%;
+  bottom: 18%;
+  font-size: 1.65rem;
 }
 
 .player {
@@ -670,9 +663,8 @@ img {
     width: 3.5rem;
     height: 3.5rem;
   }
-  .brand-letter-first { font-size: 1.15rem; }
-  .brand-amp { font-size: 0.65rem; }
-  .brand-letter-second { font-size: 1rem; }
+  .brand-letter-first,
+  .brand-letter-second { font-size: 1.05rem; }
   .player {
     justify-content: flex-start;
     gap: 0.55rem;
