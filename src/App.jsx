@@ -1037,7 +1037,21 @@ function StoryPage() {
             </a>
             <p className="eyebrow">Axel &amp; Aivi</p>
             <h1>Notre histoire</h1>
-            <p>De la rencontre à la promesse, découvrez les étapes qui nous ont conduits jusqu'au grand jour.</p>
+            <blockquote className="story-scripture">
+              <p>
+                L'Éternel Dieu forma une femme de la côte qu'il avait prise de l'homme, et il l'amena vers l'homme.
+              </p>
+              <p>
+                Et l'homme dit: Voici cette fois celle qui est os de mes os et chair de ma chair! on l'appellera femme{' '}
+                <span className="story-scripture-name">(Aivi)</span>, parce qu'elle a été prise de l'homme{' '}
+                <span className="story-scripture-name">(Axel)</span>.
+              </p>
+              <p>
+                C'est pourquoi l'homme <span className="story-scripture-name">(Axel)</span> quittera son père et sa mère,
+                et s'attachera à sa femme <span className="story-scripture-name">(Aivi)</span>, et ils deviendront une seule chair.
+              </p>
+              <cite>Genèse 2:22-24</cite>
+            </blockquote>
           </Reveal>
         </div>
       </section>

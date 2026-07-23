@@ -1065,13 +1065,32 @@ img {
   line-height: 0.92;
   color: var(--ivory);
 }
-.story-page-heading > p:last-child {
-  max-width: 41rem;
+.story-scripture {
+  max-width: 47rem;
   margin: 1.4rem auto 0;
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(1.3rem, 2.5vw, 1.65rem);
-  line-height: 1.45;
+  font-size: clamp(1.12rem, 2vw, 1.4rem);
+  line-height: 1.5;
   color: rgba(255, 249, 240, 0.82);
+}
+.story-scripture p {
+  margin: 0.75rem 0 0;
+}
+.story-scripture-name {
+  color: var(--gold-soft);
+  font-weight: 700;
+  white-space: nowrap;
+}
+.story-scripture cite {
+  display: block;
+  margin-top: 1.1rem;
+  color: var(--gold-soft);
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.72rem;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 .story-page-back {
   display: inline-flex;
@@ -1096,7 +1115,7 @@ img {
   .story-page-hero > .section { padding-top: 4.5rem; padding-bottom: 4.5rem; }
   .story-page-botanical { width: 10rem; opacity: 0.22; }
   .story-page-heading h1 { font-size: 4rem; }
-  .story-page-heading > p:last-child { font-size: 1.25rem; }
+  .story-scripture { font-size: 1.08rem; line-height: 1.5; }
 }
 
 /* ============================================================
