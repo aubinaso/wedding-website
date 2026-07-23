@@ -1005,6 +1005,10 @@ function HomePage() {
         <SiteLike />
       </footer>
 
+      <a href={wedding.rsvpFormLink} target="_blank" rel="noreferrer" className="mobile-rsvp">
+        <Send className="h-4 w-4" /> RSVP
+      </a>
+
     </main>
   );
 }
