@@ -153,6 +153,7 @@ const galleryImages = [
   { src: '/images/galeris/image8.jpg', alt: 'Axel et Aivi, souvenir 8' },
   { src: '/images/galeris/image9.jpg', alt: 'Axel et Aivi, souvenir 9' },
   { src: '/images/galeris/image10.jpg', alt: 'Axel et Aivi, souvenir 10' },
+  { src: '/images/galeris/image11.jpg', alt: 'Axel et Aivi, souvenir 11' },
 ];
 
 // Notre thème
