@@ -65,7 +65,7 @@ const navItems = [
   { label: 'Nous en photos', href: '#galerie' },
   { label: 'Notre histoire', href: '/histoire' },
   { label: 'Programme', href: '#programme' },
-  { label: 'Nos couleurs', href: '#couleurs' },
+  { label: 'Notre thème', href: '#couleurs' },
   { label: 'Participer', href: '#participer' },
   { label: 'RSVP', href: '#rsvp' },
 ];
@@ -148,15 +148,14 @@ const galleryImages = [
   { src: '/images/galeris/image3.jpg', alt: 'Axel et Aivi, souvenir 3' },
   { src: '/images/galeris/image3.jpeg', alt: 'Axel et Aivi, souvenir 4' },
   { src: '/images/galeris/image4.jpg', alt: 'Axel et Aivi, souvenir 5' },
-  { src: '/images/galeris/image5.jpg', alt: 'Axel et Aivi, souvenir 6' },
-  { src: '/images/galeris/image6.jpg', alt: 'Axel et Aivi, souvenir 7' },
-  { src: '/images/galeris/image7.jpg', alt: 'Axel et Aivi, souvenir 8' },
-  { src: '/images/galeris/image8.jpg', alt: 'Axel et Aivi, souvenir 9' },
-  { src: '/images/galeris/image9.jpg', alt: 'Axel et Aivi, souvenir 10' },
-  { src: '/images/galeris/image10.jpg', alt: 'Axel et Aivi, souvenir 11' },
+  { src: '/images/galeris/image6.jpg', alt: 'Axel et Aivi, souvenir 6' },
+  { src: '/images/galeris/image7.jpg', alt: 'Axel et Aivi, souvenir 7' },
+  { src: '/images/galeris/image8.jpg', alt: 'Axel et Aivi, souvenir 8' },
+  { src: '/images/galeris/image9.jpg', alt: 'Axel et Aivi, souvenir 9' },
+  { src: '/images/galeris/image10.jpg', alt: 'Axel et Aivi, souvenir 10' },
 ];
 
-// Nos couleurs
+// Notre thème
 const dressColors = [
   { name: 'Bleu canard', image: '/images/colors/fabric-bleu-canard.png', card: 'on-dark' },
   { name: 'Beige', image: '/images/colors/fabric-beige.png', card: 'on-light' },
@@ -822,7 +821,7 @@ function HomePage() {
             <ColorSprig className="colors-panel-sprig" />
             <PaletteFlourish />
             <header className="colors-heading">
-              <h2>Nos couleurs</h2>
+              <h2>Notre thème</h2>
               <span className="colors-heading-line" aria-hidden="true" />
               <p>
                 Pour célébrer notre amour en beauté et afin de vous inspirer pour vos tenues, notre mariage aura pour dress code :{' '}
