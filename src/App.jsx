@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import {
   BookOpen,
   ChevronLeft,
@@ -14,6 +15,7 @@ import {
   Send,
   Sparkles,
   X,
+  ZoomIn,
 } from 'lucide-react';
 
 /* ============================================================
@@ -45,7 +47,7 @@ const wedding = {
   intro: 'ont la joie de vous convier\nà leur mariage',
 
   motTitle: 'Mot des mariés',
-  mot: "C'est avec une immense joie que nous vous invitons à partager l'un des plus beaux jours de notre vie. Votre présence et vos prières sont nos plus beaux cadeaux.",
+  mot: "C'est avec une joie immense et le cœur rempli de gratitude que nous vous convions à célébrer notre union. Dans quelques jours, nous nous engagerons l’un à l’autre devant Dieu et entourés de ceux qui nous sont chers.\n\nVotre présence à nos côtés sera pour nous le plus précieux des soutiens.",
   motSignature: 'Avec tout notre amour,\nAxel & Aivi',
 
   images: {
@@ -141,18 +143,17 @@ const storyItems = [
 
 // Galerie « Nous en photos »
 const galleryImages = [
-  { src: '/images/couple/photo_a_2.jpeg', alt: 'Portrait de couple d’Axel et Aivi' },
-  { src: '/images/couple/les_regards_un_sur_autre.jpeg', alt: 'Axel et Aivi se regardant' },
-  { src: '/images/couple/demande_fiancailles.jpeg', alt: 'Le bouquet de fiançailles' },
-  { src: '/images/couple/a_genoux_pour_demande_mariage.jpeg', alt: 'La demande en mariage' },
-  { src: '/images/couple/repas_chez_fiancaille_avec_guitare.jpeg', alt: 'Repas de fiançailles avec guitare' },
-  { src: '/images/couple/restaurant1.jpeg', alt: 'Souvenir au restaurant' },
-  { src: '/images/couple/sortie_a_2_.jpeg', alt: 'Sortie à deux' },
-  { src: '/images/couple/voyage_orlean_pour_bague.jpeg', alt: 'Voyage à Orléans pour la bague' },
-  { src: '/images/couple/restaurant3.jpeg', alt: 'Au restaurant ensemble' },
-  { src: '/images/couple/sous_les_parapluie.jpeg', alt: 'Sous les parapluies' },
-  { src: '/images/couple/restaurant.jpeg', alt: 'Dîner en amoureux' },
-  { src: '/images/couple/sortie_a_2.jpeg', alt: 'Complices lors d’une sortie' },
+  { src: '/images/galeris/image1.jpg', alt: 'Axel et Aivi, souvenir 1' },
+  { src: '/images/galeris/image2.jpg', alt: 'Axel et Aivi, souvenir 2' },
+  { src: '/images/galeris/image3.jpg', alt: 'Axel et Aivi, souvenir 3' },
+  { src: '/images/galeris/image3.jpeg', alt: 'Axel et Aivi, souvenir 4' },
+  { src: '/images/galeris/image4.jpg', alt: 'Axel et Aivi, souvenir 5' },
+  { src: '/images/galeris/image5.jpg', alt: 'Axel et Aivi, souvenir 6' },
+  { src: '/images/galeris/image6.jpg', alt: 'Axel et Aivi, souvenir 7' },
+  { src: '/images/galeris/image7.jpg', alt: 'Axel et Aivi, souvenir 8' },
+  { src: '/images/galeris/image8.jpg', alt: 'Axel et Aivi, souvenir 9' },
+  { src: '/images/galeris/image9.jpg', alt: 'Axel et Aivi, souvenir 10' },
+  { src: '/images/galeris/image10.jpg', alt: 'Axel et Aivi, souvenir 11' },
 ];
 
 // Nos couleurs
@@ -174,7 +175,7 @@ const supportCards = [
   {
     icon: Gift,
     title: 'Cagnotte',
-    text: 'Participez à notre cagnotte pour nous accompagner dans le début de notre vie à deux.',
+    text: 'Voici comment nous faire plaisir',
     button: 'Participer à la cagnotte',
     href: wedding.support.cagnotte,
   },
@@ -282,7 +283,6 @@ function FloralWreath({ children }) {
         alt=""
         aria-hidden="true"
       />
-      <p className="hero-eyebrow">Entourés de leurs familles</p>
       <div className="hero-inner">{children}</div>
     </div>
   );
@@ -551,6 +551,7 @@ function PhotoCarousel() {
   const [position, setPosition] = useState(1);
   const [animate, setAnimate] = useState(true);
   const [paused, setPaused] = useState(false);
+  const [zoomed, setZoomed] = useState(false);
   const touchStartX = useRef(null);
 
   const activeIndex = position === 0 ? total - 1 : position === total + 1 ? 0 : position - 1;
@@ -566,10 +567,26 @@ function PhotoCarousel() {
   };
 
   useEffect(() => {
-    if (paused) return undefined;
+    if (paused || zoomed) return undefined;
     const id = setInterval(() => move(1), 4000);
     return () => clearInterval(id);
-  }, [paused]);
+  }, [paused, zoomed]);
+
+  useEffect(() => {
+    if (!zoomed) return undefined;
+    const previousOverflow = document.body.style.overflow;
+    const closeOnEscape = (event) => {
+      if (event.key === 'Escape') setZoomed(false);
+    };
+
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', closeOnEscape);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', closeOnEscape);
+    };
+  }, [zoomed]);
 
   const handleTransitionEnd = () => {
     if (position === 0) {
@@ -589,80 +606,138 @@ function PhotoCarousel() {
   };
 
   return (
-    <div
-      className="photo-carousel"
-      role="region"
-      aria-roledescription="carrousel"
-      aria-label="Photos d'Axel et Aivi"
-      tabIndex="0"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-      onFocus={() => setPaused(true)}
-      onBlur={() => setPaused(false)}
-      onKeyDown={(event) => {
-        if (event.key === 'ArrowLeft') {
-          event.preventDefault();
-          move(-1);
-        }
-        if (event.key === 'ArrowRight') {
-          event.preventDefault();
-          move(1);
-        }
-      }}
-      onTouchStart={(event) => { touchStartX.current = event.changedTouches[0].clientX; }}
-      onTouchEnd={handleTouchEnd}
-    >
+    <>
       <div
-        className="photo-carousel-track"
-        style={{
-          transform: `translateX(-${position * 100}%)`,
-          transition: animate ? 'transform 380ms cubic-bezier(0.4, 0, 0.2, 1)' : 'none',
+        className="photo-carousel"
+        role="region"
+        aria-roledescription="carrousel"
+        aria-label="Photos d'Axel et Aivi"
+        tabIndex="0"
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+        onFocus={() => setPaused(true)}
+        onBlur={() => setPaused(false)}
+        onKeyDown={(event) => {
+          if (event.key === 'ArrowLeft') {
+            event.preventDefault();
+            move(-1);
+          }
+          if (event.key === 'ArrowRight') {
+            event.preventDefault();
+            move(1);
+          }
         }}
-        onTransitionEnd={handleTransitionEnd}
+        onTouchStart={(event) => { touchStartX.current = event.changedTouches[0].clientX; }}
+        onTouchEnd={handleTouchEnd}
       >
-        {slides.map((image, index) => {
-          const isClone = index === 0 || index === slides.length - 1;
-          const originalIndex = index === 0 ? total - 1 : index === slides.length - 1 ? 0 : index - 1;
-          return (
-            <figure
-              key={`${isClone ? 'clone' : 'slide'}-${image.src}-${index}`}
-              className="photo-carousel-slide"
-              aria-hidden={isClone || originalIndex !== activeIndex}
-            >
-              <img
-                src={image.src}
-                alt={isClone ? '' : image.alt}
-                loading={originalIndex === 0 ? 'eager' : 'lazy'}
-              />
-            </figure>
-          );
-        })}
+        <div
+          className="photo-carousel-track"
+          style={{
+            transform: `translateX(-${position * 100}%)`,
+            transition: animate ? 'transform 380ms cubic-bezier(0.4, 0, 0.2, 1)' : 'none',
+          }}
+          onTransitionEnd={handleTransitionEnd}
+        >
+          {slides.map((image, index) => {
+            const isClone = index === 0 || index === slides.length - 1;
+            const originalIndex = index === 0 ? total - 1 : index === slides.length - 1 ? 0 : index - 1;
+            return (
+              <figure
+                key={`${isClone ? 'clone' : 'slide'}-${image.src}-${index}`}
+                className="photo-carousel-slide"
+                aria-hidden={isClone || originalIndex !== activeIndex}
+              >
+                <img
+                  src={image.src}
+                  alt={isClone ? '' : image.alt}
+                  loading={originalIndex === 0 ? 'eager' : 'lazy'}
+                />
+              </figure>
+            );
+          })}
+        </div>
+
+        <BotanicalCorner className="photo-carousel-botanical top" />
+        <BotanicalCorner className="photo-carousel-botanical bottom" />
+
+        <button type="button" className="photo-carousel-btn prev" onClick={() => move(-1)} aria-label="Photo précédente">
+          <ChevronLeft aria-hidden="true" />
+        </button>
+        <button type="button" className="photo-carousel-btn next" onClick={() => move(1)} aria-label="Photo suivante">
+          <ChevronRight aria-hidden="true" />
+        </button>
+        <button type="button" className="photo-carousel-zoom" onClick={() => setZoomed(true)} aria-label="Agrandir la photo">
+          <ZoomIn aria-hidden="true" />
+        </button>
+
+        <div className="photo-carousel-dots" role="group" aria-label="Choisir une photo">
+          {galleryImages.map((image, index) => (
+            <button
+              type="button"
+              key={image.src}
+              className={`photo-carousel-dot ${index === activeIndex ? 'active' : ''}`}
+              onClick={() => goTo(index)}
+              aria-label={`Afficher la photo ${index + 1}`}
+              aria-current={index === activeIndex ? 'true' : undefined}
+            />
+          ))}
+        </div>
+        <p className="sr-only" aria-live="polite">Photo {activeIndex + 1} sur {total}</p>
       </div>
-
-      <BotanicalCorner className="photo-carousel-botanical top" />
-      <BotanicalCorner className="photo-carousel-botanical bottom" />
-
-      <button type="button" className="photo-carousel-btn prev" onClick={() => move(-1)} aria-label="Photo précédente">
-        <ChevronLeft aria-hidden="true" />
-      </button>
-      <button type="button" className="photo-carousel-btn next" onClick={() => move(1)} aria-label="Photo suivante">
-        <ChevronRight aria-hidden="true" />
-      </button>
-
-      <div className="photo-carousel-dots" role="group" aria-label="Choisir une photo">
-        {galleryImages.map((image, index) => (
-          <button
-            type="button"
-            key={image.src}
-            className={`photo-carousel-dot ${index === activeIndex ? 'active' : ''}`}
-            onClick={() => goTo(index)}
-            aria-label={`Afficher la photo ${index + 1}`}
-            aria-current={index === activeIndex ? 'true' : undefined}
+      {zoomed ? createPortal((
+        <div
+          className="photo-lightbox"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Photo agrandie"
+          onClick={() => setZoomed(false)}
+        >
+          <button type="button" className="photo-lightbox-close" onClick={() => setZoomed(false)} aria-label="Fermer la photo">
+            <X aria-hidden="true" />
+          </button>
+          <img
+            src={galleryImages[activeIndex].src}
+            alt={galleryImages[activeIndex].alt}
+            onClick={(event) => event.stopPropagation()}
           />
-        ))}
-      </div>
-      <p className="sr-only" aria-live="polite">Photo {activeIndex + 1} sur {total}</p>
-    </div>
+        </div>
+      ), document.body) : null}
+    </>
+  );
+}
+
+function SiteLike() {
+  const [liked, setLiked] = useState(() => {
+    try {
+      return window.localStorage.getItem('axel-aivi-site-liked') === 'true';
+    } catch {
+      return false;
+    }
+  });
+
+  const toggleLike = () => {
+    setLiked((current) => {
+      const next = !current;
+      try {
+        window.localStorage.setItem('axel-aivi-site-liked', String(next));
+      } catch {
+        // Le bouton reste utilisable lorsque le stockage local est désactivé.
+      }
+      return next;
+    });
+  };
+
+  return (
+    <button
+      type="button"
+      className={`site-like ${liked ? 'liked' : ''}`}
+      onClick={toggleLike}
+      aria-pressed={liked}
+    >
+      <Heart fill={liked ? 'currentColor' : 'none'} aria-hidden="true" />
+      <span>{liked ? 'Vous aimez ce site' : "J’aime ce site"}</span>
+      <strong aria-label={`${liked ? 1 : 0} mention J’aime`}>{liked ? 1 : 0}</strong>
+    </button>
   );
 }
 
@@ -719,7 +794,7 @@ function HomePage() {
               <span className="divider" aria-hidden="true" style={{ margin: '1rem 0', justifyContent: 'flex-start' }}>
                 <span>❦</span>
               </span>
-              <p className="section-copy">{wedding.mot}</p>
+              <p className="section-copy" style={{ whiteSpace: 'pre-line' }}>{wedding.mot}</p>
               <p className="mot-signature" style={{ whiteSpace: 'pre-line' }}>{wedding.motSignature}</p>
             </Reveal>
           </div>
@@ -750,8 +825,8 @@ function HomePage() {
               <h2>Nos couleurs</h2>
               <span className="colors-heading-line" aria-hidden="true" />
               <p>
-                Pour ce jour béni, le thème du mariage est chic et élégant dont les couleurs sont :{' '}
-                <strong>bleu canard, beige et or.</strong>
+                Pour célébrer notre amour en beauté et afin de vous inspirer pour vos tenues, notre mariage aura pour dress code :{' '}
+                <strong>un écrin chic aux nuances de bleu canard, beige et or.</strong>
               </p>
             </header>
             <div className="colors-list">
@@ -917,17 +992,11 @@ function HomePage() {
         <p className="footer-names">Axel &amp; Aivi</p>
         <p className="mt-3 text-sm uppercase tracking-[0.28em] text-goldSoft">{wedding.dateLong}</p>
         <p className="mx-auto mt-5 max-w-xl leading-8" style={{ color: 'rgba(255,249,240,0.7)' }}>
-          Merci de faire partie de notre histoire. Nous avons hâte de partager ce moment avec vous.
+          Merci de faire partie de notre histoire. Nous avons hâte de partager ces moments avec vous.
         </p>
-        <a href={wedding.rsvpFormLink} target="_blank" rel="noreferrer" className="btn-primary mt-7">
-          <Heart className="h-4 w-4" /> Confirmer ma présence
-        </a>
+        <SiteLike />
       </footer>
 
-      {/* RSVP flottant mobile */}
-      <a href={wedding.rsvpFormLink} target="_blank" rel="noreferrer" className="mobile-rsvp">
-        <Send className="h-4 w-4" /> RSVP
-      </a>
     </main>
   );
 }
