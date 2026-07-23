@@ -1286,6 +1286,13 @@ img {
 .band-canard .section-title { color: var(--ivory); }
 .band-canard .eyebrow { color: var(--gold-soft); }
 .band-canard .section-copy { color: rgba(255, 249, 240, 0.82); }
+.verse-copy {
+  margin-top: 1rem;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.25rem, 2vw, 1.55rem);
+  font-style: italic;
+  line-height: 1.45;
+}
 
 .band-cream {
   background:

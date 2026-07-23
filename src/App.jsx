@@ -164,9 +164,30 @@ const dressColors = [
 
 // Versets
 const verses = [
-  { ref: 'Colossiens 3:14', text: "Par-dessus tout cela, revêtez-vous de l'amour." },
-  { ref: 'Ecclésiaste 4:9', text: 'Deux valent mieux qu’un.' },
-  { ref: 'Marc 10:9', text: "Que l'homme ne sépare pas ce que Dieu a uni." },
+  {
+    ref: 'Matthieu 19:6',
+    text: "Ainsi ils ne sont plus deux, mais une seule chair. Que l'homme donc ne sépare pas ce que Dieu a joint.",
+  },
+  {
+    ref: 'Proverbes 18:22',
+    text: "Celui qui a trouvé une femme a trouvé le bonheur ; c'est une grâce qu'il obtient de l'Éternel.",
+  },
+  {
+    ref: 'Ecclésiaste 4.11.12',
+    text: "Et si quelqu'un est plus fort qu'un seul, les deux peuvent lui résister; et la corde à trois fils ne se rompt pas facilement.",
+  },
+  {
+    ref: 'Genèse 3.22-24',
+    text: (
+      <>
+        L&apos;Eternel Dieu forma une femme à partir de la côte qu&apos;il avait prise à l&apos;homme et il
+        l&apos;amena vers l&apos;homme. L&apos;homme dit: «Voici cette fois celle qui est faite des mêmes os
+        et de la même chair que moi. On l&apos;appellera femme <em>(Aivi)</em> parce qu&apos;elle a été tirée
+        de l&apos;homme <em>(Axel)</em>.» C&apos;est pourquoi l&apos;homme <em>(Axel)</em> quittera son père et
+        sa mère et s&apos;attachera à sa femme <em>(Aivi)</em>, et ils ne feront qu’un.
+      </>
+    ),
+  },
 ];
 
 // Participation
@@ -174,7 +195,7 @@ const supportCards = [
   {
     icon: Gift,
     title: 'Cagnotte',
-    text: 'Voici comment nous faire plaisir',
+    text: 'Participez à notre cagnotte pour nous accompagner dans le début de notre vie à deux.',
     button: 'Participer à la cagnotte',
     href: wedding.support.cagnotte,
   },
@@ -920,7 +941,7 @@ function HomePage() {
             </div>
             <p>
               Votre présence est déjà le plus beau des cadeaux.<br />
-              Pour ceux qui le souhaitent, voici comment nous gâter.
+              Pour ceux qui le souhaitent, voici comment nous faire plaisir.
             </p>
           </Reveal>
 
@@ -970,14 +991,14 @@ function HomePage() {
       <section className="band-canard">
         <div className="section">
           <Reveal>
-            <SectionHeader eyebrow="Foi & promesse" title="Les paroles qui nous portent" />
+            <SectionHeader eyebrow="Foi & promesse" title="Versets bibliques" />
           </Reveal>
-          <div className="mt-12 grid gap-5 md:grid-cols-3">
+          <div className="mt-12 grid gap-5 md:grid-cols-2">
             {verses.map((verse) => (
               <Reveal key={verse.ref}>
                 <div className="verse-card h-full">
                   <Sparkles className="mx-auto h-5 w-5 text-goldSoft" />
-                  <p className="mt-4 font-display text-2xl italic leading-snug">“{verse.text}”</p>
+                  <p className="verse-copy">“{verse.text}”</p>
                   <span className="mt-4 block text-xs uppercase tracking-[0.18em] text-goldSoft">{verse.ref}</span>
                 </div>
               </Reveal>
