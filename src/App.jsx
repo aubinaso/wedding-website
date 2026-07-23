@@ -176,18 +176,6 @@ const verses = [
     ref: 'Ecclésiaste 4.11.12',
     text: "Et si quelqu'un est plus fort qu'un seul, les deux peuvent lui résister; et la corde à trois fils ne se rompt pas facilement.",
   },
-  {
-    ref: 'Genèse 3.22-24',
-    text: (
-      <>
-        L&apos;Eternel Dieu forma une femme à partir de la côte qu&apos;il avait prise à l&apos;homme et il
-        l&apos;amena vers l&apos;homme. L&apos;homme dit: «Voici cette fois celle qui est faite des mêmes os
-        et de la même chair que moi. On l&apos;appellera femme <em>(Aivi)</em> parce qu&apos;elle a été tirée
-        de l&apos;homme <em>(Axel)</em>.» C&apos;est pourquoi l&apos;homme <em>(Axel)</em> quittera son père et
-        sa mère et s&apos;attachera à sa femme <em>(Aivi)</em>, et ils ne feront qu’un.
-      </>
-    ),
-  },
 ];
 
 // Participation
@@ -993,7 +981,7 @@ function HomePage() {
           <Reveal>
             <SectionHeader eyebrow="Foi & promesse" title="Versets bibliques" />
           </Reveal>
-          <div className="mt-12 grid gap-5 md:grid-cols-2">
+          <div className="mt-12 grid gap-5 md:grid-cols-3">
             {verses.map((verse) => (
               <Reveal key={verse.ref}>
                 <div className="verse-card h-full">
