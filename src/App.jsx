@@ -965,7 +965,7 @@ function HomePage() {
               <p className="eyebrow">Notre histoire</p>
               <h2>Là où tout<br />a commencé</h2>
               <p>
-                Une histoire née d’une rencontre, préparée par Dieu
+                Une histoire née d’une rencontre, préparée par Dieu.
               </p>
             </header>
 
