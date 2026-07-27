@@ -124,7 +124,7 @@ const aiviStoryParagraphs = [
   "À cette époque, il y avait encore dans mon cœur une lutte intérieure : celle de mettre un terme à une relation de copinage. Je pensais sincèrement qu'il était presque impossible de rencontrer un homme qui aime véritablement le Seigneur. J'avais l'impression que c'était une affaire de femmes et je pensais pouvoir épouser quelqu'un qui n'avait pas encore vécu une réelle transformation en Jésus-Christ.",
   "Mais Dieu, dans Sa bonté, avait de meilleurs plans. Au fil des mois, plus ma relation avec le Seigneur grandissait, plus mes désirs étaient transformés. Mon cœur s'attachait davantage aux intérêts du Royaume de Dieu et cette relation qui occupait autrefois une place importante dans ma vie perdait progressivement son attrait.",
   "C'est durant cette période de confinement que le Seigneur a préparé une rencontre qui allait marquer mon histoire.",
-  "Le week-end du 24 avril 2021, j'accompagnais celle qui est ma mère dans le Seigneur à une session de prière de 24 h. Avec le recul, je comprends que Dieu avait fixé un rendez-vous avec moi. L'un des pasteurs avait donné quelques sujets de prière et certaines personnes s'étaient avancées pour prier à haute voix. Absorbée par une conversation avec une sœur, je n'y prêtais pas vraiment attention... jusqu'à ce qu'une voix attire soudain toute mon attention. C'était la prière d'un jeune frère. Il priait avec une telle sincérité : « Seigneur, je veux T'aimer. Je veux T'être utile... » Ce n'étaient que quelques mots. Pourtant, ils ont suffi pour arrêter net ma conversation. Je me suis mise à l'écouter attentivement. Une seule pensée traversait mon esprit : « C'est possible ? Un homme qui prie simplement pour aimer Dieu ? » Cela me paraissait presque irréel. À cet instant, quelque chose s'est produit dans mon cœur. J'ai prié intérieurement en disant au Seigneur que, s'il était possible de Le servir en étant mariée à un homme qui L'aime réellement, alors c'était ce genre de mari que je souhaiterais avoir. En quittant ce siège de prière, une conviction nouvelle était née en moi : le monde n'avait rien à m'offrir. Je ne voulais plus construire ma vie selon mes propres critères, mais faire confiance au Seigneur, convaincue que c'est en Christ que je trouverais le conjoint qu'Il avait préparé pour moi.",
+  "Le week-end du 24 avril 2021, j'accompagnais celle qui est ma mère dans le Seigneur à une session de prière de 24 h. Avec le recul, je comprends que Dieu avait fixé un rendez-vous avec moi. L'un des pasteurs avait donné quelques sujets de prière et certaines personnes s'étaient avancées pour prier à haute voix. Absorbée par une conversation avec une sœur, je n'y prêtais pas vraiment attention... jusqu'à ce qu'une voix attire soudain toute mon attention. C'était la prière d'un jeune frère. Il priait avec une telle sincérité : « Seigneur, je veux T'aimer. Je veux T'être utile... » Ce n'étaient que quelques mots. Pourtant, ils ont suffi pour arrêter net mon échange. Je me suis mise à l'écouter attentivement. Une seule pensée traversait mon esprit : « C'est possible ? Un homme qui prie simplement pour aimer Dieu ? » Cela me paraissait presque irréel. À cet instant, quelque chose s'est produit dans mon cœur. J'ai prié intérieurement en disant au Seigneur que, s'il était possible de Le servir en étant mariée à un homme qui L'aime réellement, alors c'était ce genre de mari que je souhaiterais avoir. En quittant ce siège de prière, une conviction nouvelle était née en moi : le monde n'avait rien à m'offrir. Je ne voulais plus construire ma vie selon mes propres critères, mais faire confiance au Seigneur, convaincue que c'est en Christ que je trouverais le conjoint qu'Il avait préparé pour moi.",
   "Les mois ont passé. Lorsque les nuits de prière à l'Église de Paris ont repris en présentiel, j'ai de nouveau entendu cette voix qui m'avait marquée. Sans même le connaître, une admiration est née dans mon cœur. J'ai fini par apprendre qu'il s'appelait Axel.",
   "Par la suite, nous avons eu l'occasion d'échanger lorsque nous servions ensemble au sein de la commission du petit-déjeuner pendant la Convention européenne de 2021. J'ai alors découvert l'homme qui se cachait derrière cette voix qui m'avait touchée, et mon admiration a peu à peu laissé place à des sentiments. Mais cette histoire s'est aussitôt arrêtée. Un jour, à la suite d'un mariage, alors que nous abordions ce même sujet, Axel m'a confié qu'il ne comptait pas se marier. Tiens, tiens ! Un autre Paul... Il fallait absolument que mes sentiments fassent demi-tour.",
   "Une fois de plus, le Seigneur a eu pitié de moi et m'a exaucée. En peu de temps, tout ce qui n'était pas de Sa volonté a disparu, jusqu'à ce que j'en vienne même à oublier son existence.",
@@ -456,7 +456,7 @@ function MusicPlayer() {
 /* ============================================================
    BARRE HAUTE + MENU
    ============================================================ */
-function TopBar({ homeHref = '#accueil', items = navItems }) {
+function TopBar({ homeHref = '#accueil', items = navItems, onNavigate }) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -469,7 +469,12 @@ function TopBar({ homeHref = '#accueil', items = navItems }) {
   return (
     <>
       <header className="topbar">
-        <a href={homeHref} className="brand-mono" aria-label={wedding.couple}>
+        <a
+          href={homeHref}
+          className="brand-mono"
+          aria-label={wedding.couple}
+          onClick={(event) => onNavigate(event, homeHref)}
+        >
           <span className="brand-initials">
             <span className="brand-letter-first">A</span>
             <span className="brand-letter-second">A</span>
@@ -493,7 +498,14 @@ function TopBar({ homeHref = '#accueil', items = navItems }) {
             <X className="h-6 w-6" />
           </button>
           {items.map((item) => (
-            <a key={item.href} href={item.href} onClick={() => setOpen(false)}>
+            <a
+              key={item.href}
+              href={item.href}
+              onClick={(event) => {
+                onNavigate(event, item.href);
+                setOpen(false);
+              }}
+            >
               {item.label}
             </a>
           ))}
@@ -826,7 +838,7 @@ function SiteLike() {
 /* ============================================================
    APP
    ============================================================ */
-function HomePage() {
+function HomePage({ onNavigate }) {
   return (
     <main className="overflow-hidden">
       {/* HERO — couronne florale centrée (identique mobile & desktop) */}
@@ -974,7 +986,11 @@ function HomePage() {
               </span>
             </div>
 
-            <a href="/histoire" className="story-teaser-link">
+            <a
+              href="/histoire"
+              className="story-teaser-link"
+              onClick={(event) => onNavigate(event, '/histoire')}
+            >
               <span className="story-teaser-link-icon" aria-hidden="true"><BookOpen /></span>
               <span className="story-teaser-link-copy">
                 <strong>Découvrez notre histoire</strong>
@@ -1085,7 +1101,7 @@ function HomePage() {
   );
 }
 
-function StoryPage() {
+function StoryPage({ onNavigate }) {
   useEffect(() => {
     const previousTitle = document.title;
     document.title = `Notre histoire — ${wedding.couple}`;
@@ -1102,7 +1118,11 @@ function StoryPage() {
         <BotanicalCorner className="story-page-botanical right" />
         <div className="section">
           <Reveal className="story-page-heading">
-            <a href="/" className="story-page-back">
+            <a
+              href="/"
+              className="story-page-back"
+              onClick={(event) => onNavigate(event, '/')}
+            >
               <ChevronLeft aria-hidden="true" /> Retour à l'accueil
             </a>
             <p className="eyebrow">Axel &amp; Aivi</p>
@@ -1165,7 +1185,11 @@ function StoryPage() {
       <footer className="footer">
         <p className="footer-names">Axel &amp; Aivi</p>
         <p className="mt-3 text-sm uppercase tracking-[0.28em] text-goldSoft">{wedding.dateLong}</p>
-        <a href="/" className="btn-primary mt-7">
+        <a
+          href="/"
+          className="btn-primary mt-7"
+          onClick={(event) => onNavigate(event, '/')}
+        >
           <ChevronLeft className="h-4 w-4" /> Retour à l'accueil
         </a>
       </footer>
@@ -1188,44 +1212,29 @@ function App() {
       setRoute((current) => ({ href: readLocation(), key: current.key + 1 }));
     };
 
-    const handleInternalLink = (event) => {
-      if (
-        event.defaultPrevented
-        || event.button !== 0
-        || event.metaKey
-        || event.ctrlKey
-        || event.shiftKey
-        || event.altKey
-        || !(event.target instanceof Element)
-      ) {
-        return;
-      }
-
-      const link = event.target.closest('a[href]');
-      if (!link || link.target || link.hasAttribute('download')) return;
-
-      const destination = new URL(link.href, window.location.href);
-      const destinationPath = destination.pathname.replace(/\/+$/, '') || '/';
-      if (
-        destination.origin !== window.location.origin
-        || !['/', '/histoire'].includes(destinationPath)
-      ) {
-        return;
-      }
-
-      event.preventDefault();
-      window.history.pushState({}, '', destination);
-      updateRoute();
-    };
-
     window.addEventListener('popstate', updateRoute);
-    document.addEventListener('click', handleInternalLink);
-
-    return () => {
-      window.removeEventListener('popstate', updateRoute);
-      document.removeEventListener('click', handleInternalLink);
-    };
+    return () => window.removeEventListener('popstate', updateRoute);
   }, []);
+
+  const navigate = (event, href) => {
+    if (
+      event.button !== 0
+      || event.metaKey
+      || event.ctrlKey
+      || event.shiftKey
+      || event.altKey
+    ) {
+      return;
+    }
+
+    const destination = new URL(href, window.location.href);
+    event.preventDefault();
+    window.history.pushState({}, '', destination);
+    setRoute((current) => ({
+      href: `${destination.pathname}${destination.search}${destination.hash}`,
+      key: current.key + 1,
+    }));
+  };
 
   useEffect(() => {
     const frame = window.requestAnimationFrame(() => {
@@ -1245,8 +1254,11 @@ function App() {
       <TopBar
         homeHref={isStoryPage ? '/' : '#accueil'}
         items={isStoryPage ? storyNavItems : navItems}
+        onNavigate={navigate}
       />
-      {isStoryPage ? <StoryPage /> : <HomePage />}
+      {isStoryPage
+        ? <StoryPage onNavigate={navigate} />
+        : <HomePage onNavigate={navigate} />}
     </>
   );
 }
