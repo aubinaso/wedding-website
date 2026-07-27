@@ -146,27 +146,27 @@ const aiviStoryParagraphs = [
 const axelStoryParagraphs = [
   'Un homme ne peut recevoir que ce qui lui a été donné du ciel.',
   "Aivi, tu es pour moi un don de l'Éternel.",
-  "Tout comme je n'ai point mérité l'amour de Dieu,\nMa chérie, je ne mérite pas non plus ton amour.\nBelle, charmante, élégante et pleine d'humour,\nC'est avec toi que j'ai choisi de passer le reste de mes jours.",
-  "Je n'aurais jamais imaginé que tu serais un jour mienne. Toi pour qui mon cœur a flanché en 2021.\nAssurément, Dieu écrit droit avec des lignes courbes.",
-  "Je me suis souvent intéressé au mariage. Hum, sans faire genre ! Je m'y suis beaucoup intéressé. Je pense que c'était plus pour le consommer que pour le supporter. J'en devenais à la limite obsédé. C'était devenu une idole que je devais déraciner.",
-  "Alors que je devenais disciple du Seigneur Jésus-Christ, le Seigneur m'a montré l'exemple d'Abraham et de son fils. J'ai compris que je devais à mon tour faire un sacrifice. J'ai alors décidé d'abandonner l'idée de me marier et d'en remettre les droits au Seigneur.",
-  "Du temps s'est écoulé et le Seigneur a confirmé que je devais me marier.\nMais avec qui ? Telle est la question !\nAh, cette histoire de tomber amoureux ! Je ne sais même pas pourquoi je tombais amoureux, mais je me suis beaucoup cassé. J'ai accepté que mon cœur était léger et c'est ainsi que j'ai pu crier à Dieu pour être libéré.",
-  "Le mariage n'est pas un sujet que j'abordais vraiment avec mes dirigeants. Mais quand le moment est venu, ils m'en ont parlé. Le Seigneur m'a appris que moi-même, je ne savais pas ce qui était bon pour moi. J'ai fait confiance à Dieu qui, par l'intermédiaire de mes dirigeants, m'a conduit vers celle qui est aujourd'hui ma fiancée et qui sera dans quelque temps ma femme.",
-  "Après une courte retraite, le Seigneur m'a parlé et j'ai eu la confirmation qu'Aivi était l'épouse idéale pour moi. Il m'a dit qu'Aivi était Sa princesse. Chaque jour, je comprends mieux, je le vois et je le contemple.",
-  "Aivi, c’est une crème. C’est la crème de la crème.\nElle est belle, au teint clair.\nElle est naturelle, c’est une lumière.\nElle est venue éclairer ma vie comme un soleil\nEt la couronner telle un diadème.\nJe l’ai choisie et mon cœur l’aime.\nUn grand merci à l’Éternel !",
-  "Quand je pense à elle,\nJe pense à quelque chose de cher,\nÀ la chair de ma chair,\nÀ l’os de mes os.\nMerci à papa et maman pour les travaux !",
-  "Que dire de plus, que dire de plus de ma bien-aimée ?\nJ’ai juste envie de laisser mon cœur encore un peu parler.",
-  "Elle est comme un parfum de nard de grand prix\nUn arbre qui donne d’excellents fruits\nElle se distingue entre dix-huit mille\nElle est unique, elle est à part comme une île\nSon amour est comme la rosée du matin\nComme une fontaine des jardins\nSon sourire distille le miel\nSa générosité raconte la bonté du ciel\nSon romantisme, son élégance et sa prestance me désarment\nToute sa personne est pleine de charme\nSes yeux noirs sont comme deux nuits où mon âme se perd,\nSes cheveux sont comme une cascade qui ondule avec grâce,\nSes dents, pleines d'éclat et alignées à leur place,\nDonnent à son sourire une valeur de beaucoup de carats.",
+  "Tout comme je n'ai point mérité l'amour de Dieu,\nMa chérie je ne mérite non plus ton amour.\nBelle, charmante, élégante et pleine d'humour,\nC'est avec toi que j'ai choisi de passer le restant de mes jours.",
+  "Je n'aurais pas imaginé un jour que tu serais mienne. Toi pour qui un jour mon cœur a flanché en 2021.\nAssurément, Dieu écrit droit avec des lignes courbes.",
+  "Je me suis souvent intéressé au mariage. Hum, que je ne fasse pas genre ! Je m'en suis beaucoup intéressé. Je pense plus pour le consommer que pour le supporter. Et j'en devenais à la limite obsédé. C'est devenu une idole que je devais déraciner.",
+  "Au carrefour d'être disciple du Seigneur Jésus Christ, le Seigneur m'a montré l'exemple d'Abraham et son fils. Et j'ai compris que je devais à mon tour faire un sacrifice. J'ai alors décidé d'abandonner l'idée de me marier, et d'en remettre les droits au Seigneur.",
+  "Des temps se sont écoulés et le Seigneur a confirmé que je devais me marier.\nMais avec qui? Tel est la question !...\nAhh cette histoire de tomber amoureux ! Je ne sais même pas pourquoi je tombais, mais je me suis beaucoup cassé. J'ai accepté que mon cœur était léger et c'est ainsi que j'ai pu crier à Dieu pour être libéré.",
+  "Ce n'est pas un sujet (le mariage) que j'abordais vraiment avec mes dirigeants. Mais quand le moment est venu, ils m'en ont parlé. Le Seigneur m'a appris que moi-même je ne savais pas ce qui était bon pour moi. Et j'ai fait confiance à Dieu qui par la main de mes dirigeants m'a conduit vers celle qui est aujourd'hui ma fiancée et qui sera dans quelques temps ma femme.",
+  "Après une courte retraite que j'ai prise, le Seigneur m'a parlé et j'ai eu la confirmation que Aivi est l'épouse idéale pour moi. Il m’a dit que Aivi c’est sa princesse. Et chaque jour je comprends mieux, je le vois, je le contemple.",
+  "Aivi c’est une crème. C’est la crème de la crème,\nElle est belle ! au teint clair,\nElle est naturelle, c’est une lumière\nElle est venue éclairer ma vie comme un soleil\nEt la couronner tel un diadème\nJe l’ai choisie et mon cœur l’aime\nUn grand merci à l’Eternel !",
+  "Quand je pense à elle,\nJe pense à quelque chose de cher\nA la chair de ma chair\nL’os de mes os\nMerci à papa et maman pour les travaux !",
+  "Que dire de plus, que dire de plus de ma bien aimée\nJ’ai juste envie de laisser mon cœur encore un peu parler.",
+  "Elle est comme un parfum de nard de grand prix\nUn arbre qui donne d’excellents fruits\nElle se distingue entre dix-huit mille\nElle est unique elle est à part comme une île\nSon amour est comme la rosée du matin\nComme une fontaine des jardins\nSon sourire distille le miel\nSa générosité raconte la bonté du ciel\nSa romance, son élégance et sa prestance me désarme\nToute sa personne est pleine de charme\nSes yeux noirs sont comme deux nuits où mon âme se perd,\nSes cheveux sont comme une cascade qui ondule avec grâce,\nSes dents, plein d'éclat, et alignées à leur place,\nDonne à son sourire une valeur de beaucoup de carats.",
   "Ma douce, mon amour, ma préférée,\nTe regarder me donne davantage de plaisir.\nTe voir chaque jour me réjouit de t’avoir choisie.",
-  "La vie nous réserve bien des choses\nEt bien que le chemin ne soit pas toujours rose,\nJe sais que Celui qui nous a appelés, qui nous a prédestinés et qui a tout orchestré\na mis en moi pour toi un :\nA mour\nI nconditionnel\nV éritable et\nI nfini",
-  "J’ai hâte que nous soyons enfin officiellement mari et femme.\nChaque seconde qui passe est une épreuve pour mon âme.\nJe t’aime, ma princesse !",
+  "La vie nous réserve bien des choses\nEt bien que le chemin ne sera pas toujours rose,\nJe sais que celui qui nous a appelés, qui nous a prédestinés et qui a tout orchestrés,\na mis en moi pour toi, un :\nA mour\nI nconditionnel\nV éritable et\nI nfini",
+  "J’ai hâte que nous soyons enfin officiellement mari et femme\nChaque seconde qui passe, est une épreuve pour mon âme\nJe t’aime ma princesse !!!",
 ];
 
 const storyTestimonies = [
   {
     label: "Il parle d'elle",
     author: 'Axel',
-    title: 'Mon histoire avec Aivi',
+    title: 'Mon histoire Avec Aivi',
     image: '/images/story/il-parle-d-elle.png',
     alt: 'Portrait d’Axel',
     imagePosition: 'center 35%',
@@ -178,7 +178,7 @@ const storyTestimonies = [
     title: 'Mon histoire avec Axel',
     image: '/images/story/elle-parle-de-lui.png',
     alt: 'Portrait d’Aivi',
-    imagePosition: 'center 66%',
+    imagePosition: 'center 31%',
     paragraphs: aiviStoryParagraphs,
   },
 ];
@@ -370,6 +370,37 @@ function MusicPlayer() {
   const [duration, setDuration] = useState(0);
   const [ready, setReady] = useState(false);
 
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return undefined;
+
+    let disposed = false;
+
+    const removeFallbackListeners = () => {
+      window.removeEventListener('pointerdown', startPlayback);
+      window.removeEventListener('keydown', startPlayback);
+    };
+
+    const addFallbackListeners = () => {
+      window.addEventListener('pointerdown', startPlayback, { once: true });
+      window.addEventListener('keydown', startPlayback, { once: true });
+    };
+
+    function startPlayback() {
+      removeFallbackListeners();
+      audio.play().catch(() => {
+        if (!disposed) addFallbackListeners();
+      });
+    }
+
+    startPlayback();
+
+    return () => {
+      disposed = true;
+      removeFallbackListeners();
+    };
+  }, []);
+
   const toggle = () => {
     const audio = audioRef.current;
     if (!audio) return;
@@ -387,7 +418,8 @@ function MusicPlayer() {
       <audio
         ref={audioRef}
         src={wedding.music.src}
-        preload="metadata"
+        preload="auto"
+        autoPlay
         onLoadedMetadata={(e) => {
           setDuration(e.currentTarget.duration);
           setReady(true);
@@ -856,7 +888,7 @@ function HomePage() {
         <div className="section">
           <Reveal>
             <SectionHeader eyebrow="Souvenirs" title="Nous en photos" center={false}>
-              Des instants choisis pour raconter la tendresse, la complicité et la promesse qui nous unissent.
+              Des instants choisis pour raconter ce qui nous unit.
             </SectionHeader>
           </Reveal>
           <Reveal className="mt-12">
@@ -933,7 +965,7 @@ function HomePage() {
               <p className="eyebrow">Notre histoire</p>
               <h2>Là où tout<br />a commencé</h2>
               <p>
-                Une histoire née dans la confiance, nourrie par la foi et portée par la joie de bâtir ensemble.
+                Une histoire née d’une rencontre, préparée par Dieu
               </p>
             </header>
 
