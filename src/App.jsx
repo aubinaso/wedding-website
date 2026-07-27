@@ -190,12 +190,12 @@ const galleryImages = [
   { src: '/images/galeris/image3.jpg', alt: 'Axel et Aivi, souvenir 3' },
   { src: '/images/galeris/image3.jpeg', alt: 'Axel et Aivi, souvenir 4' },
   { src: '/images/galeris/image4.jpg', alt: 'Axel et Aivi, souvenir 5' },
-  { src: '/images/galeris/image6.jpg', alt: 'Axel et Aivi, souvenir 6' },
+  { src: '/images/galeris/image6.jpeg', alt: 'Axel et Aivi, souvenir 6' },
   { src: '/images/galeris/image7.jpg', alt: 'Axel et Aivi, souvenir 7' },
   { src: '/images/galeris/image8.jpg', alt: 'Axel et Aivi, souvenir 8' },
   { src: '/images/galeris/image9.jpg', alt: 'Axel et Aivi, souvenir 9' },
-  { src: '/images/galeris/image10.jpg', alt: 'Axel et Aivi, souvenir 10' },
-  { src: '/images/galeris/image11.jpg', alt: 'Axel et Aivi, souvenir 11' },
+  { src: '/images/galeris/image10.jpeg', alt: 'Axel et Aivi, souvenir 10' },
+  { src: '/images/galeris/image11.jpeg', alt: 'Axel et Aivi, souvenir 11' },
 ];
 
 // Notre thème
