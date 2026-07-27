@@ -41,7 +41,7 @@ const wedding = {
   // Musique — déposez le fichier ici : public/audio/notre-chanson.mp3
   music: {
     src: '/audio/notre-chanson.mp3',
-    title: "Je t'aime Aivi",
+    title: "Je t'aime Aivi — Axel",
   },
 
   intro: 'ont la joie de vous convier\nà leur mariage',
@@ -121,11 +121,11 @@ const programme = [
 const aiviStoryParagraphs = [
   "Je ne pourrais pas relater mon histoire avec mon prince charmant aux yeux revolver sans commencer par Celui qui en est véritablement le point de départ : le Seigneur Jésus-Christ.",
   "Le 15 novembre 2020, le Seigneur Jésus s'est révélé à moi. Cette rencontre a changé le cours de ma vie. J'ai aussitôt commencé à marcher avec Lui, à apprendre à Le connaître, à L'aimer et à désirer Lui plaire.",
-  "À cette époque, je traversais pourtant une lutte intérieure : celle de mettre un terme à une relation de copinage. Je pensais sincèrement qu'il était presque impossible de rencontrer un homme qui aime véritablement le Seigneur. J'avais l'impression que c'était une affaire de femmes et je pensais pouvoir épouser quelqu'un qui n'avait pas encore vécu une réelle transformation en Jésus-Christ.",
+  "À cette époque, il y avait encore dans mon cœur une lutte intérieure : celle de mettre un terme à une relation de copinage. Je pensais sincèrement qu'il était presque impossible de rencontrer un homme qui aime véritablement le Seigneur. J'avais l'impression que c'était une affaire de femmes et je pensais pouvoir épouser quelqu'un qui n'avait pas encore vécu une réelle transformation en Jésus-Christ.",
   "Mais Dieu, dans Sa bonté, avait de meilleurs plans. Au fil des mois, plus ma relation avec le Seigneur grandissait, plus mes désirs étaient transformés. Mon cœur s'attachait davantage aux intérêts du Royaume de Dieu et cette relation qui occupait autrefois une place importante dans ma vie perdait progressivement son attrait.",
   "C'est durant cette période de confinement que le Seigneur a préparé une rencontre qui allait marquer mon histoire.",
-  "Le week-end du 24 avril 2021, j'accompagnais celle qui est ma mère dans le Seigneur à une session de prière de 24 h. Avec le recul, je comprends que Dieu avait fixé un rendez-vous avec moi. L'un des pasteurs avait donné quelques sujets de prière et certaines personnes s'étaient avancées pour prier à haute voix. Absorbée par une conversation avec une sœur, je n'y prêtais pas vraiment attention... jusqu'à ce qu'une voix attire soudain toute mon attention. C'était la prière d'un jeune frère. Il priait avec une telle sincérité : « Seigneur, je veux T'aimer. Je veux T'être utile... » Ce n'étaient que quelques mots. Pourtant, ils ont suffi pour arrêter net ma conversation. Je me suis mise à l'écouter attentivement. Une seule pensée traversait mon esprit : « C'est possible ? Un homme qui prie simplement pour aimer Dieu ? » Cela me paraissait presque irréel. À cet instant, quelque chose a profondément touché mon cœur. J'ai prié en mon cœur en disant au Seigneur que, s'il était possible de Le servir en étant mariée à un homme qui L'aime réellement, alors c'était ce genre de mari que je souhaiterais avoir. En quittant ce siège de prière, une conviction nouvelle était née en moi : le monde n'avait rien à m'offrir. Je ne voulais plus construire ma vie selon mes propres critères, mais faire confiance au Seigneur, convaincue que c'est en Christ que je trouverais le conjoint qu'Il avait préparé pour moi.",
-  "Les mois ont passé. Lorsque les nuits de prière à l'Église de Paris ont repris en présentiel, j'ai de nouveau entendu cette voix qui m'avait marquée. Sans même le connaître, une admiration est née dans mon cœur. J'ai fini par apprendre qu'il s'appelait Axel Mvogo.",
+  "Le week-end du 24 avril 2021, j'accompagnais celle qui est ma mère dans le Seigneur à une session de prière de 24 h. Avec le recul, je comprends que Dieu avait fixé un rendez-vous avec moi. L'un des pasteurs avait donné quelques sujets de prière et certaines personnes s'étaient avancées pour prier à haute voix. Absorbée par une conversation avec une sœur, je n'y prêtais pas vraiment attention... jusqu'à ce qu'une voix attire soudain toute mon attention. C'était la prière d'un jeune frère. Il priait avec une telle sincérité : « Seigneur, je veux T'aimer. Je veux T'être utile... » Ce n'étaient que quelques mots. Pourtant, ils ont suffi pour arrêter net ma conversation. Je me suis mise à l'écouter attentivement. Une seule pensée traversait mon esprit : « C'est possible ? Un homme qui prie simplement pour aimer Dieu ? » Cela me paraissait presque irréel. À cet instant, quelque chose s'est produit dans mon cœur. J'ai prié intérieurement en disant au Seigneur que, s'il était possible de Le servir en étant mariée à un homme qui L'aime réellement, alors c'était ce genre de mari que je souhaiterais avoir. En quittant ce siège de prière, une conviction nouvelle était née en moi : le monde n'avait rien à m'offrir. Je ne voulais plus construire ma vie selon mes propres critères, mais faire confiance au Seigneur, convaincue que c'est en Christ que je trouverais le conjoint qu'Il avait préparé pour moi.",
+  "Les mois ont passé. Lorsque les nuits de prière à l'Église de Paris ont repris en présentiel, j'ai de nouveau entendu cette voix qui m'avait marquée. Sans même le connaître, une admiration est née dans mon cœur. J'ai fini par apprendre qu'il s'appelait Axel.",
   "Par la suite, nous avons eu l'occasion d'échanger lorsque nous servions ensemble au sein de la commission du petit-déjeuner pendant la Convention européenne de 2021. J'ai alors découvert l'homme qui se cachait derrière cette voix qui m'avait touchée, et mon admiration a peu à peu laissé place à des sentiments. Mais cette histoire s'est aussitôt arrêtée. Un jour, à la suite d'un mariage, alors que nous abordions ce même sujet, Axel m'a confié qu'il ne comptait pas se marier. Tiens, tiens ! Un autre Paul... Il fallait absolument que mes sentiments fassent demi-tour.",
   "Une fois de plus, le Seigneur a eu pitié de moi et m'a exaucée. En peu de temps, tout ce qui n'était pas de Sa volonté a disparu, jusqu'à ce que j'en vienne même à oublier son existence.",
   "Nos chemins se sont simplement recroisés à quelques occasions, notamment lors des cours de guitare que nous avons suivis ensemble en 2023. Puis le temps a continué son œuvre.",
@@ -135,10 +135,12 @@ const aiviStoryParagraphs = [
   "Notre relation grandissait et, de mon côté, je continuais à prier concernant mon mariage. Un matin, alors que je méditais la Parole de Dieu, un fardeau très particulier s'est déposé sur mon cœur : prier afin que les choses soient clarifiées concernant Axel. J'ai moi-même été surprise par ce qui émanait de mon cœur. J'ai voulu résister parce qu'à mes yeux, il n'y avait rien, mais ce fardeau devenait de plus en plus intense. J'ai finalement obéi.",
   "Il était environ 7 h lorsque j'ai terminé de prier avant de partir au travail. À 9 h, un courriel d'Axel intitulé « Ce que je voulais te partager » est arrivé dans ma boîte mail. J'étais sans voix, très agréablement surprise... Une crainte de Dieu s'est emparée de mon cœur...",
   "Dans cette lettre, Axel s'exprimait avec tellement de délicatesse, de pudeur et de sincérité... J'ai été conquise. Il me demandait si j'accepterais que nous apprenions à mieux nous connaître dans la perspective d'un projet de mariage. Je lui ai répondu oui, et c'est ainsi que notre histoire a véritablement commencé.",
-  "J'ai d'abord été séduite par sa passion pour le Seigneur. Puis, en apprenant à le connaître, j'ai découvert un homme immense et dense. Axel est un homme de Dieu, profond, concentré, mature, responsable, respectueux, romantique, attentionné, etc. C'est un poète. Il sait mettre des mots sur ce qu'il pense et ressent. Il a également une âme de musicien.",
+  "J'ai d'abord été séduite par sa passion pour le Seigneur. Puis, en apprenant à le connaître, j'ai découvert, sous ses beaux traits physiques, un homme immense et dense. Axel est un homme de Dieu, profond, concentré, mature, responsable, respectueux, romantique, attentionné, etc. C'est un poète. Il sait mettre des mots sur ce qu'il pense et ressent. Il a également une âme de musicien.",
   "Ô combien j'aime ses lettres...\nÔ combien j'aime les chants qu'il compose...",
   "Aujourd'hui, après ce petit bout de chemin parcouru ensemble, mon cœur déborde de reconnaissance envers Dieu.",
-  "Axel, mon amour,\nMerci de m'avoir choisie pour marcher à tes côtés. Comptant sur le Seigneur, je veux être une épouse qui t'encourage, te soutient et contribue à l'accomplissement de l'appel de Dieu sur ta vie.\nJe t'aime profondément et j'ai hâte de devenir tienne.",
+  "Axel, mon amour,\nMerci de m'avoir choisie pour marcher à tes côtés. Comptant sur le Seigneur, je veux être une épouse qui t'encourage, te soutient et contribue à l'accomplissement de l'appel de Dieu sur ta vie.",
+  "À celui que mon cœur chérit, il me tarde tant que vienne enfin ce 14 août pour que je devienne officiellement tienne.",
+  "Je t'aime profondément, Douuu.",
 ];
 
 const axelStoryParagraphs = [
@@ -162,20 +164,22 @@ const axelStoryParagraphs = [
 
 const storyTestimonies = [
   {
+    label: "Il parle d'elle",
+    author: 'Axel',
+    title: 'Mon histoire avec Aivi',
+    image: '/images/story/il-parle-d-elle.png',
+    alt: 'Portrait d’Axel',
+    imagePosition: 'center 35%',
+    paragraphs: axelStoryParagraphs,
+  },
+  {
     label: 'Elle parle de lui',
     author: 'Aivi',
     title: 'Mon histoire avec Axel',
     image: '/images/story/elle-parle-de-lui.png',
     alt: 'Portrait d’Aivi',
+    imagePosition: 'center 66%',
     paragraphs: aiviStoryParagraphs,
-  },
-  {
-    label: "Il parle d'elle",
-    author: 'Axel MVOGO',
-    title: 'Mon histoire avec Aivi',
-    image: '/images/story/il-parle-d-elle.png',
-    alt: 'Portrait d’Axel',
-    paragraphs: axelStoryParagraphs,
   },
 ];
 
@@ -1096,18 +1100,17 @@ function StoryPage() {
 
       <section className="story-testimonies-section">
         <div className="section">
-          <Reveal>
-            <SectionHeader eyebrow="Regards croisés" title="Elle parle de lui, il parle d’elle">
-              Deux récits, deux voix et une même reconnaissance pour le chemin parcouru.
-            </SectionHeader>
-          </Reveal>
-
           <div className="story-testimonies">
             {storyTestimonies.map((testimony, index) => (
               <article className={`story-testimony ${index % 2 === 1 ? 'reverse' : ''}`} key={testimony.label}>
                 <Reveal className="story-testimony-portrait">
                   <span className="story-portrait-medallion">
-                    <img src={testimony.image} alt={testimony.alt} loading="lazy" />
+                    <img
+                      src={testimony.image}
+                      alt={testimony.alt}
+                      loading="lazy"
+                      style={{ objectPosition: testimony.imagePosition }}
+                    />
                   </span>
                 </Reveal>
                 <div className="story-testimony-content">

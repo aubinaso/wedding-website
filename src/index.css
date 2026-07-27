@@ -1115,7 +1115,7 @@ img {
   border-top: 1px solid rgba(199, 162, 74, 0.2);
 }
 .story-testimonies {
-  margin-top: 4rem;
+  margin-top: 0;
 }
 .story-testimony {
   display: flow-root;
@@ -1187,9 +1187,6 @@ img {
   border: 2px solid #fffaf1;
   border-radius: 50%;
 }
-.story-testimony.reverse .story-portrait-medallion img {
-  object-position: center 35%;
-}
 .story-testimony-content {
   min-width: 0;
   max-width: none;
@@ -1246,7 +1243,6 @@ img {
   }
 }
 @media (max-width: 620px) {
-  .story-testimonies { margin-top: 3rem; }
   .story-testimony { padding: 3.5rem 0; }
   .story-testimony-prose { font-size: 0.94rem; line-height: 1.82; }
   .story-testimony-prose p:first-child { font-size: 1.22rem; }
