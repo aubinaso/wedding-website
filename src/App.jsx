@@ -118,38 +118,6 @@ const programme = [
   },
 ];
 
-// Timeline « Notre histoire »
-const storyItems = [
-  {
-    step: 'I',
-    title: 'La rencontre',
-    text: "Le début d'une histoire douce, construite pas à pas dans la confiance et la sincérité.",
-    image: '/images/couple/sortie_a_2.jpeg',
-    alt: 'Axel et Aivi lors d’une sortie à deux',
-  },
-  {
-    step: 'II',
-    title: 'Sous la pluie et le soleil',
-    text: 'Des saisons traversées ensemble, dans la patience, la foi et la joie de grandir côte à côte.',
-    image: '/images/couple/sous_les_parapluie.jpeg',
-    alt: 'Axel et Aivi sous les parapluies',
-  },
-  {
-    step: 'III',
-    title: 'La demande',
-    text: "Une promesse posée à genoux, avec émotion, comme une évidence tournée vers l'avenir.",
-    image: '/images/couple/a_genoux_pour_demande_mariage.jpeg',
-    alt: 'Axel à genoux pour la demande en mariage',
-  },
-  {
-    step: 'IV',
-    title: 'Les fiançailles',
-    text: `Le oui qui ouvre le chemin vers le grand jour, célébré le ${wedding.dateShort}.`,
-    image: '/images/couple/demande_fiancailles.jpeg',
-    alt: 'Axel et Aivi le jour des fiançailles',
-  },
-];
-
 const aiviStoryParagraphs = [
   "Je ne pourrais pas relater mon histoire avec mon prince charmant aux yeux revolver sans commencer par Celui qui en est véritablement le point de départ : le Seigneur Jésus-Christ.",
   "Le 15 novembre 2020, le Seigneur Jésus s'est révélé à moi. Cette rencontre a changé le cours de ma vie. J'ai aussitôt commencé à marcher avec Lui, à apprendre à Le connaître, à L'aimer et à désirer Lui plaire.",
@@ -1123,33 +1091,6 @@ function StoryPage() {
               <cite>Genèse 2:22-24</cite>
             </blockquote>
           </Reveal>
-        </div>
-      </section>
-
-      <section className="band-cream story-details-section">
-        <div className="section">
-          <Reveal>
-            <SectionHeader eyebrow="Notre histoire" title="Là où tout a commencé">
-              Une histoire née dans la confiance, nourrie par la foi et portée par la joie de bâtir ensemble.
-            </SectionHeader>
-          </Reveal>
-
-          <div className="mt-16 space-y-16">
-            {storyItems.map((item, index) => (
-              <Reveal key={item.step}>
-                <div className={`story-item ${index % 2 === 1 ? 'reverse' : ''}`}>
-                  <div className="story-media">
-                    <img src={item.image} alt={item.alt} loading="lazy" />
-                  </div>
-                  <div className={index % 2 === 1 ? 'lg:pr-6' : 'lg:pl-6'}>
-                    <span className="story-step">{item.step}</span>
-                    <h2 className="story-title">{item.title}</h2>
-                    <p className="section-copy">{item.text}</p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
 
