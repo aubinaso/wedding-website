@@ -27,8 +27,8 @@ const wedding = {
   couple: 'Axel & Aivi',
   initials: 'A A',
   dateShort: '15 août 2026',
-  dateLong: 'Samedi 15 Août 2026',
-  dateWeekend: 'Vendredi 14 Août & Samedi 15 Août 2026',
+  dateLong: 'Samedi 15 août 2026',
+  dateWeekend: 'Vendredi 14 août & Samedi 15 août 2026',
   dateISO: '2026-08-15T15:00:00',
   city: 'Cergy & Herblay-sur-Seine',
 
@@ -41,7 +41,7 @@ const wedding = {
   // Musique — déposez le fichier ici : public/audio/notre-chanson.mp3
   music: {
     src: '/audio/notre-chanson.mp3',
-    title: "Je t'aim Aivi",
+    title: "Je t'aime Aivi",
   },
 
   intro: 'ont la joie de vous convier\nà leur mariage',
@@ -82,7 +82,7 @@ const storyNavItems = [
 const programme = [
   {
     title: 'Mairie',
-    date: 'Vendredi 14 août 2026 à 15h30',
+    date: 'Vendredi 14 août 2026 à 15 h 30',
     venue: 'Mairie de Cergy',
     address: '3 place Olympe de Gouges, 95800 Cergy',
     mapsUrl: 'https://www.google.com/maps/search/?api=1&query=3%20place%20Olympe%20de%20Gouges%2C%2095800%20Cergy',
@@ -91,16 +91,16 @@ const programme = [
   },
   {
     title: 'Cocktail',
-    date: 'Vendredi 14 août 2026 dès 17h30',
+    date: 'Vendredi 14 août 2026 dès 17 h 30',
     venue: 'Parc François Mitterrand',
-    address: '3 Av. du Parc, 95000 Cergy',
+    address: '3 avenue du Parc, 95000 Cergy',
     mapsUrl: 'https://www.google.com/maps/search/?api=1&query=3%20avenue%20du%20Parc%2C%2095000%20Cergy',
     image: '/images/programme/cocktail.png',
     alt: 'Cocktail au parc François Mitterrand',
   },
   {
     title: 'Bénédiction',
-    date: 'Samedi 15 août 2026 à 15h00',
+    date: 'Samedi 15 août 2026 à 15 h',
     venue: 'Herblay-sur-Seine',
     address: '5 bis avenue Paul Langevin, 95220 Herblay-sur-Seine',
     mapsUrl: 'https://www.google.com/maps/search/?api=1&query=5%20bis%20avenue%20Paul%20Langevin%2C%2095220%20Herblay-sur-Seine',
@@ -109,12 +109,12 @@ const programme = [
   },
   {
     title: 'Réception',
-    date: 'Samedi 15 août 2026 à 19h00',
+    date: 'Samedi 15 août 2026 à 19 h',
     venue: 'Herblay-sur-Seine',
     address: '5 bis avenue Paul Langevin, 95220 Herblay-sur-Seine',
     mapsUrl: 'https://www.google.com/maps/search/?api=1&query=5%20bis%20avenue%20Paul%20Langevin%2C%2095220%20Herblay-sur-Seine',
     image: '/images/programme/reception.jpg',
-    alt: 'Réception & dîner',
+    alt: 'Réception et dîner',
   },
 ];
 
@@ -123,41 +123,41 @@ const aiviStoryParagraphs = [
   "Le 15 novembre 2020, le Seigneur Jésus s'est révélé à moi. Cette rencontre a changé le cours de ma vie. J'ai aussitôt commencé à marcher avec Lui, à apprendre à Le connaître, à L'aimer et à désirer Lui plaire.",
   "À cette époque, je traversais pourtant une lutte intérieure : celle de mettre un terme à une relation de copinage. Je pensais sincèrement qu'il était presque impossible de rencontrer un homme qui aime véritablement le Seigneur. J'avais l'impression que c'était une affaire de femmes et je pensais pouvoir épouser quelqu'un qui n'avait pas encore vécu une réelle transformation en Jésus-Christ.",
   "Mais Dieu, dans Sa bonté, avait de meilleurs plans. Au fil des mois, plus ma relation avec le Seigneur grandissait, plus mes désirs étaient transformés. Mon cœur s'attachait davantage aux intérêts du Royaume de Dieu et cette relation qui occupait autrefois une place importante dans ma vie perdait progressivement son attrait.",
-  "C'est dans cette période, pendant le confinement, que le Seigneur a préparé une rencontre qui allait marquer mon histoire.",
-  "Le week-end du 24 avril 2021, j'accompagnais celle qui est ma mère dans le Seigneur à une session de prière de 24h. Avec le recul, je comprends que Dieu avait fixé un rendez-vous avec moi. L'un des pasteurs avait donné quelques sujets de prière et certaines personnes s'étaient avancées pour prier à haute voix. Absorbée par une conversation avec une sœur, je n'y prêtais pas vraiment attention... jusqu'à ce qu'une voix attire soudain toute mon attention. C'était la prière d'un jeune frère. Il priait avec une telle sincérité : « Seigneur, je veux T'aimer. Je veux T'être utile... » Ce n'étaient que quelques mots. Pourtant, ils ont suffi pour arrêter net ma conversation. Je me suis mise à l'écouter attentivement. Une seule pensée traversait mon esprit : « C'est possible ? Un homme qui prie simplement pour aimer Dieu ? » Cela me paraissait presque irréel. À cet instant, quelque chose a profondément touché mon cœur. J'ai prié en mon cœur en disant au Seigneur que si c'est possible de Le servir en étant mariée à un homme qui L'aime réellement, alors c'est ce genre de mari que je souhaiterais avoir. En quittant ce siège de prière, une conviction nouvelle était née en moi : le monde n'avait rien à m'offrir. Je ne voulais plus construire ma vie selon mes propres critères, mais faire confiance au Seigneur, convaincue que c'est en Christ que je trouverais le conjoint qu'Il avait préparé pour moi.",
-  "Les mois ont passé. Lorsque les nuits de prière à l'église de Paris ont repris en présentiel, j'ai de nouveau entendu cette voix qui m'avait marquée. Sans même le connaître, une admiration est née dans mon cœur. J'ai fini par apprendre qu'il s'appelait Axel Mvogo.",
-  "Par la suite, nous avons eu l'occasion d'échanger lorsque nous servions ensemble à la commission petit déjeuner pendant la Convention européenne de 2021. J'ai alors découvert l'homme qui se cachait derrière cette voix qui m'avait touchée, et mon admiration a peu à peu laissé place à des sentiments. Mais cette histoire s'est aussitôt arrêtée. Un jour, suite à un mariage, nous abordions ce même sujet, Axel m'a confié qu'il ne comptait pas se marier. Tiens, tiens ! Un autre Paul... Il fallait absolument que mes sentiments fassent demi-tour.",
+  "C'est durant cette période de confinement que le Seigneur a préparé une rencontre qui allait marquer mon histoire.",
+  "Le week-end du 24 avril 2021, j'accompagnais celle qui est ma mère dans le Seigneur à une session de prière de 24 h. Avec le recul, je comprends que Dieu avait fixé un rendez-vous avec moi. L'un des pasteurs avait donné quelques sujets de prière et certaines personnes s'étaient avancées pour prier à haute voix. Absorbée par une conversation avec une sœur, je n'y prêtais pas vraiment attention... jusqu'à ce qu'une voix attire soudain toute mon attention. C'était la prière d'un jeune frère. Il priait avec une telle sincérité : « Seigneur, je veux T'aimer. Je veux T'être utile... » Ce n'étaient que quelques mots. Pourtant, ils ont suffi pour arrêter net ma conversation. Je me suis mise à l'écouter attentivement. Une seule pensée traversait mon esprit : « C'est possible ? Un homme qui prie simplement pour aimer Dieu ? » Cela me paraissait presque irréel. À cet instant, quelque chose a profondément touché mon cœur. J'ai prié en mon cœur en disant au Seigneur que, s'il était possible de Le servir en étant mariée à un homme qui L'aime réellement, alors c'était ce genre de mari que je souhaiterais avoir. En quittant ce siège de prière, une conviction nouvelle était née en moi : le monde n'avait rien à m'offrir. Je ne voulais plus construire ma vie selon mes propres critères, mais faire confiance au Seigneur, convaincue que c'est en Christ que je trouverais le conjoint qu'Il avait préparé pour moi.",
+  "Les mois ont passé. Lorsque les nuits de prière à l'Église de Paris ont repris en présentiel, j'ai de nouveau entendu cette voix qui m'avait marquée. Sans même le connaître, une admiration est née dans mon cœur. J'ai fini par apprendre qu'il s'appelait Axel Mvogo.",
+  "Par la suite, nous avons eu l'occasion d'échanger lorsque nous servions ensemble au sein de la commission du petit-déjeuner pendant la Convention européenne de 2021. J'ai alors découvert l'homme qui se cachait derrière cette voix qui m'avait touchée, et mon admiration a peu à peu laissé place à des sentiments. Mais cette histoire s'est aussitôt arrêtée. Un jour, à la suite d'un mariage, alors que nous abordions ce même sujet, Axel m'a confié qu'il ne comptait pas se marier. Tiens, tiens ! Un autre Paul... Il fallait absolument que mes sentiments fassent demi-tour.",
   "Une fois de plus, le Seigneur a eu pitié de moi et m'a exaucée. En peu de temps, tout ce qui n'était pas de Sa volonté a disparu, jusqu'à ce que j'en vienne même à oublier son existence.",
   "Nos chemins se sont simplement recroisés à quelques occasions, notamment lors des cours de guitare que nous avons suivis ensemble en 2023. Puis le temps a continué son œuvre.",
   "À la fin de mes études, la question du mariage était devenue pour moi une source d'angoisse. Cependant, comme je ne suis pas douée pour gérer plusieurs choses à la fois, je me suis d'abord concentrée sur ma soutenance. Une fois cette étape achevée, en août 2025, j'ai pris ce sujet plus au sérieux et je me suis consacrée à la prière et au jeûne, avec pour seul fardeau de demander au Seigneur d'attirer vers moi la personne qu'Il avait prévue pour moi et de m'en donner la conviction.",
   "À la fin du mois de novembre, Axel et moi avons repris contact. Nos échanges tournaient principalement autour de la guitare. Puis, un jour de décembre, il est passé près de chez moi pour déposer un colis destiné au Cameroun. En le voyant, une pensée a traversé mon esprit en une fraction de seconde : « Et si c'était lui ? » Je n'ai cependant pas cherché à aller plus loin.",
-  "Après mon retour du Cameroun, nos conversations sont devenues plus fréquentes. Puis est arrivé le 1 janvier 2026. Après nous être présenté nos vœux, Axel m'a demandé s'il était possible que nous bâtissions « une relation spéciale » cette année-là. J'ai spontanément accepté. J'étais persuadée qu'il voulait simplement être mon ami, car dans un coin de ma tête, je me disais que c'était... un eunuque !",
+  "Après mon retour du Cameroun, nos conversations sont devenues plus fréquentes. Puis est arrivé le 1er janvier 2026. Après avoir échangé nos vœux, Axel m'a demandé s'il était possible que nous bâtissions « une relation spéciale » cette année-là. J'ai spontanément accepté. J'étais persuadée qu'il voulait simplement être mon ami, car dans un coin de ma tête, je me disais que c'était... un eunuque !",
   "Notre relation grandissait et, de mon côté, je continuais à prier concernant mon mariage. Un matin, alors que je méditais la Parole de Dieu, un fardeau très particulier s'est déposé sur mon cœur : prier afin que les choses soient clarifiées concernant Axel. J'ai moi-même été surprise par ce qui émanait de mon cœur. J'ai voulu résister parce qu'à mes yeux, il n'y avait rien, mais ce fardeau devenait de plus en plus intense. J'ai finalement obéi.",
-  "Il était environ 7h lorsque j'ai terminé de prier avant de partir au travail. À 9h, un courriel d'Axel intitulé « Ce que je voulais te partager » est arrivé dans ma boîte mail. J'étais sans voix, très agréablement surprise... Une crainte de Dieu s'est emparée de mon cœur...",
+  "Il était environ 7 h lorsque j'ai terminé de prier avant de partir au travail. À 9 h, un courriel d'Axel intitulé « Ce que je voulais te partager » est arrivé dans ma boîte mail. J'étais sans voix, très agréablement surprise... Une crainte de Dieu s'est emparée de mon cœur...",
   "Dans cette lettre, Axel s'exprimait avec tellement de délicatesse, de pudeur et de sincérité... J'ai été conquise. Il me demandait si j'accepterais que nous apprenions à mieux nous connaître dans la perspective d'un projet de mariage. Je lui ai répondu oui, et c'est ainsi que notre histoire a véritablement commencé.",
   "J'ai d'abord été séduite par sa passion pour le Seigneur. Puis, en apprenant à le connaître, j'ai découvert un homme immense et dense. Axel est un homme de Dieu, profond, concentré, mature, responsable, respectueux, romantique, attentionné, etc. C'est un poète. Il sait mettre des mots sur ce qu'il pense et ressent. Il a également une âme de musicien.",
   "Ô combien j'aime ses lettres...\nÔ combien j'aime les chants qu'il compose...",
   "Aujourd'hui, après ce petit bout de chemin parcouru ensemble, mon cœur déborde de reconnaissance envers Dieu.",
-  "Axel mon amour,\nMerci de m'avoir choisie pour marcher à tes côtés. Comptant sur le Seigneur, je veux être une épouse qui t'encourage, te soutient et contribue à l'accomplissement de l'appel de Dieu sur ta vie.\nJe t'aime profondément et j'ai hâte de devenir tienne.",
+  "Axel, mon amour,\nMerci de m'avoir choisie pour marcher à tes côtés. Comptant sur le Seigneur, je veux être une épouse qui t'encourage, te soutient et contribue à l'accomplissement de l'appel de Dieu sur ta vie.\nJe t'aime profondément et j'ai hâte de devenir tienne.",
 ];
 
 const axelStoryParagraphs = [
   'Un homme ne peut recevoir que ce qui lui a été donné du ciel.',
   "Aivi, tu es pour moi un don de l'Éternel.",
-  "Tout comme je n'ai point mérité l'amour de Dieu,\nMa chérie je ne mérite non plus ton amour.\nBelle, charmante, élégante et pleine d'humour,\nC'est avec toi que j'ai choisi de passer le restant de mes jours.",
-  "Je n'aurais pas imaginé un jour que tu serais mienne. Toi pour qui un jour mon cœur a flanché en 2021.\nAssurément, Dieu écrit droit avec des lignes courbes.",
-  "Je me suis souvent intéressé au mariage. Hum, que je ne fasse pas genre ! Je m'en suis beaucoup intéressé. Je pense plus pour le consommer que pour le supporter. Et j'en devenais à la limite obsédé. C'est devenu une idole que je devais déraciner.",
-  "Au carrefour d'être disciple du Seigneur Jésus-Christ, le Seigneur m'a montré l'exemple d'Abraham et son fils. Et j'ai compris que je devais à mon tour faire un sacrifice. J'ai alors décidé d'abandonner l'idée de me marier, et d'en remettre les droits au Seigneur.",
-  "Des temps se sont écoulés et le Seigneur a confirmé que je devais me marier.\nMais avec qui ? Telle est la question !...\nAhh cette histoire de tomber amoureux ! Je ne sais même pas pourquoi je tombais, mais je me suis beaucoup cassé. J'ai accepté que mon cœur était léger et c'est ainsi que j'ai pu crier à Dieu pour être libéré.",
-  "Ce n'est pas un sujet (le mariage) que j'abordais vraiment avec mes dirigeants. Mais quand le moment est venu, ils m'en ont parlé. Le Seigneur m'a appris que moi-même je ne savais pas ce qui était bon pour moi. Et j'ai fait confiance à Dieu qui, par la main de mes dirigeants, m'a conduit vers celle qui est aujourd'hui ma fiancée et qui sera dans quelque temps ma femme.",
-  "Après une courte retraite que j'ai prise, le Seigneur m'a parlé et j'ai eu la confirmation qu'Aivi est l'épouse idéale pour moi. Il m’a dit qu'Aivi, c’est Sa princesse. Et chaque jour je comprends mieux, je le vois, je le contemple.",
-  "Aivi c’est une crème. C’est la crème de la crème,\nElle est belle ! Au teint clair,\nElle est naturelle, c’est une lumière\nElle est venue éclairer ma vie comme un soleil\nEt la couronner tel un diadème\nJe l’ai choisie et mon cœur l’aime\nUn grand merci à l’Éternel !",
-  "Quand je pense à elle,\nJe pense à quelque chose de cher\nÀ la chair de ma chair\nL’os de mes os\nMerci à papa et maman pour les travaux !",
-  "Que dire de plus, que dire de plus de ma bien-aimée\nJ’ai juste envie de laisser mon cœur encore un peu parler.",
-  "Elle est comme un parfum de nard de grand prix\nUn arbre qui donne d’excellents fruits\nElle se distingue entre dix-huit mille\nElle est unique, elle est à part comme une île\nSon amour est comme la rosée du matin\nComme une fontaine des jardins\nSon sourire distille le miel\nSa générosité raconte la bonté du ciel\nSa romance, son élégance et sa prestance me désarment\nToute sa personne est pleine de charme\nSes yeux noirs sont comme deux nuits où mon âme se perd,\nSes cheveux sont comme une cascade qui ondule avec grâce,\nSes dents, pleines d'éclat et alignées à leur place,\nDonnent à son sourire une valeur de beaucoup de carats.",
+  "Tout comme je n'ai point mérité l'amour de Dieu,\nMa chérie, je ne mérite pas non plus ton amour.\nBelle, charmante, élégante et pleine d'humour,\nC'est avec toi que j'ai choisi de passer le reste de mes jours.",
+  "Je n'aurais jamais imaginé que tu serais un jour mienne. Toi pour qui mon cœur a flanché en 2021.\nAssurément, Dieu écrit droit avec des lignes courbes.",
+  "Je me suis souvent intéressé au mariage. Hum, sans faire genre ! Je m'y suis beaucoup intéressé. Je pense que c'était plus pour le consommer que pour le supporter. J'en devenais à la limite obsédé. C'était devenu une idole que je devais déraciner.",
+  "Alors que je devenais disciple du Seigneur Jésus-Christ, le Seigneur m'a montré l'exemple d'Abraham et de son fils. J'ai compris que je devais à mon tour faire un sacrifice. J'ai alors décidé d'abandonner l'idée de me marier et d'en remettre les droits au Seigneur.",
+  "Du temps s'est écoulé et le Seigneur a confirmé que je devais me marier.\nMais avec qui ? Telle est la question !\nAh, cette histoire de tomber amoureux ! Je ne sais même pas pourquoi je tombais amoureux, mais je me suis beaucoup cassé. J'ai accepté que mon cœur était léger et c'est ainsi que j'ai pu crier à Dieu pour être libéré.",
+  "Le mariage n'est pas un sujet que j'abordais vraiment avec mes dirigeants. Mais quand le moment est venu, ils m'en ont parlé. Le Seigneur m'a appris que moi-même, je ne savais pas ce qui était bon pour moi. J'ai fait confiance à Dieu qui, par l'intermédiaire de mes dirigeants, m'a conduit vers celle qui est aujourd'hui ma fiancée et qui sera dans quelque temps ma femme.",
+  "Après une courte retraite, le Seigneur m'a parlé et j'ai eu la confirmation qu'Aivi était l'épouse idéale pour moi. Il m'a dit qu'Aivi était Sa princesse. Chaque jour, je comprends mieux, je le vois et je le contemple.",
+  "Aivi, c’est une crème. C’est la crème de la crème.\nElle est belle, au teint clair.\nElle est naturelle, c’est une lumière.\nElle est venue éclairer ma vie comme un soleil\nEt la couronner telle un diadème.\nJe l’ai choisie et mon cœur l’aime.\nUn grand merci à l’Éternel !",
+  "Quand je pense à elle,\nJe pense à quelque chose de cher,\nÀ la chair de ma chair,\nÀ l’os de mes os.\nMerci à papa et maman pour les travaux !",
+  "Que dire de plus, que dire de plus de ma bien-aimée ?\nJ’ai juste envie de laisser mon cœur encore un peu parler.",
+  "Elle est comme un parfum de nard de grand prix\nUn arbre qui donne d’excellents fruits\nElle se distingue entre dix-huit mille\nElle est unique, elle est à part comme une île\nSon amour est comme la rosée du matin\nComme une fontaine des jardins\nSon sourire distille le miel\nSa générosité raconte la bonté du ciel\nSon romantisme, son élégance et sa prestance me désarment\nToute sa personne est pleine de charme\nSes yeux noirs sont comme deux nuits où mon âme se perd,\nSes cheveux sont comme une cascade qui ondule avec grâce,\nSes dents, pleines d'éclat et alignées à leur place,\nDonnent à son sourire une valeur de beaucoup de carats.",
   "Ma douce, mon amour, ma préférée,\nTe regarder me donne davantage de plaisir.\nTe voir chaque jour me réjouit de t’avoir choisie.",
-  "La vie nous réserve bien des choses\nEt bien que le chemin ne sera pas toujours rose,\nJe sais que Celui qui nous a appelés, qui nous a prédestinés et qui a tout orchestré,\nA mis en moi pour toi, un :\nA mour\nI nconditionnel\nV éritable et\nI nfini",
-  "J’ai hâte que nous soyons enfin officiellement mari et femme\nChaque seconde qui passe est une épreuve pour mon âme\nJe t’aime ma princesse !!!",
+  "La vie nous réserve bien des choses\nEt bien que le chemin ne soit pas toujours rose,\nJe sais que Celui qui nous a appelés, qui nous a prédestinés et qui a tout orchestré\na mis en moi pour toi un :\nA mour\nI nconditionnel\nV éritable et\nI nfini",
+  "J’ai hâte que nous soyons enfin officiellement mari et femme.\nChaque seconde qui passe est une épreuve pour mon âme.\nJe t’aime, ma princesse !",
 ];
 
 const storyTestimonies = [
@@ -212,8 +212,8 @@ const verses = [
     text: "Celui qui a trouvé une femme a trouvé le bonheur ; c'est une grâce qu'il obtient de l'Éternel.",
   },
   {
-    ref: 'Ecclésiaste 4.11.12',
-    text: "Et si quelqu'un est plus fort qu'un seul, les deux peuvent lui résister; et la corde à trois fils ne se rompt pas facilement.",
+    ref: 'Ecclésiaste 4:12',
+    text: "Et si quelqu'un est plus fort qu'un seul, les deux peuvent lui résister ; et la corde à trois fils ne se rompt pas facilement.",
   },
 ];
 
@@ -222,7 +222,7 @@ const supportCards = [
   {
     icon: Gift,
     title: 'Cagnotte',
-    text: 'Participez à notre cagnotte pour nous accompagner dans le début de notre vie à deux.',
+    text: 'Participez à notre cagnotte pour nous accompagner au début de notre vie à deux.',
     button: 'Participer à la cagnotte',
     href: wedding.support.cagnotte,
   },
@@ -1017,7 +1017,7 @@ function HomePage() {
       <section className="band-canard">
         <div className="section">
           <Reveal>
-            <SectionHeader eyebrow="Foi & promesse" title="Versets bibliques" />
+            <SectionHeader eyebrow="Foi et promesse" title="Versets bibliques" />
           </Reveal>
           <div className="mt-12 grid gap-5 md:grid-cols-3">
             {verses.map((verse) => (
@@ -1080,9 +1080,9 @@ function StoryPage() {
                 L'Éternel Dieu forma une femme de la côte qu'il avait prise de l'homme, et il l'amena vers l'homme.
               </p>
               <p>
-                Et l'homme dit: Voici cette fois celle qui est os de mes os et chair de ma chair! On l'appellera femme{' '}
+                Et l'homme dit : « Voici cette fois celle qui est os de mes os et chair de ma chair ! On l'appellera femme{' '}
                 <span className="story-scripture-name">(Aivi)</span>, parce qu'elle a été prise de l'homme{' '}
-                <span className="story-scripture-name">(Axel)</span>.
+                <span className="story-scripture-name">(Axel)</span>. »
               </p>
               <p>
                 C'est pourquoi l'homme <span className="story-scripture-name">(Axel)</span> quittera son père et sa mère,
