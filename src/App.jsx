@@ -41,7 +41,7 @@ const wedding = {
   // Musique — déposez le fichier ici : public/audio/notre-chanson.mp3
   music: {
     src: '/audio/notre-chanson.mp3',
-    title: 'Notre chanson — Axel & Aivi',
+    title: "Je t'aim Aivi",
   },
 
   intro: 'ont la joie de vous convier\nà leur mariage',
@@ -95,7 +95,7 @@ const programme = [
     venue: 'Parc François Mitterrand',
     address: '3 Av. du Parc, 95000 Cergy',
     mapsUrl: 'https://www.google.com/maps/search/?api=1&query=3%20avenue%20du%20Parc%2C%2095000%20Cergy',
-    image: '/images/programme/reception.jpg',
+    image: '/images/programme/cocktail.png',
     alt: 'Cocktail au parc François Mitterrand',
   },
   {
@@ -121,7 +121,7 @@ const programme = [
 const aiviStoryParagraphs = [
   "Je ne pourrais pas relater mon histoire avec mon prince charmant aux yeux revolver sans commencer par Celui qui en est véritablement le point de départ : le Seigneur Jésus-Christ.",
   "Le 15 novembre 2020, le Seigneur Jésus s'est révélé à moi. Cette rencontre a changé le cours de ma vie. J'ai aussitôt commencé à marcher avec Lui, à apprendre à Le connaître, à L'aimer et à désirer Lui plaire.",
-  "À cette époque, je traversais pourtant une lutte intérieure : celle de mettre un terme à ma relation de copinage. Je pensais sincèrement qu'il était presque impossible de rencontrer un homme qui aime véritablement le Seigneur. J'avais alors l'impression que c'était une affaire de femmes et je pensais pouvoir épouser quelqu'un qui n'avait pas encore vécu une réelle transformation en Jésus-Christ.",
+  "À cette époque, je traversais pourtant une lutte intérieure : celle de mettre un terme à une relation de copinage. Je pensais sincèrement qu'il était presque impossible de rencontrer un homme qui aime véritablement le Seigneur. J'avais l'impression que c'était une affaire de femmes et je pensais pouvoir épouser quelqu'un qui n'avait pas encore vécu une réelle transformation en Jésus-Christ.",
   "Mais Dieu, dans Sa bonté, avait de meilleurs plans. Au fil des mois, plus ma relation avec le Seigneur grandissait, plus mes désirs étaient transformés. Mon cœur s'attachait davantage aux intérêts du Royaume de Dieu et cette relation qui occupait autrefois une place importante dans ma vie perdait progressivement son attrait.",
   "C'est dans cette période, pendant le confinement, que le Seigneur a préparé une rencontre qui allait marquer mon histoire.",
   "Le week-end du 24 avril 2021, j'accompagnais celle qui est ma mère dans le Seigneur à une session de prière de 24h. Avec le recul, je comprends que Dieu avait fixé un rendez-vous avec moi. L'un des pasteurs avait donné quelques sujets de prière et certaines personnes s'étaient avancées pour prier à haute voix. Absorbée par une conversation avec une sœur, je n'y prêtais pas vraiment attention... jusqu'à ce qu'une voix attire soudain toute mon attention. C'était la prière d'un jeune frère. Il priait avec une telle sincérité : « Seigneur, je veux T'aimer. Je veux T'être utile... » Ce n'étaient que quelques mots. Pourtant, ils ont suffi pour arrêter net ma conversation. Je me suis mise à l'écouter attentivement. Une seule pensée traversait mon esprit : « C'est possible ? Un homme qui prie simplement pour aimer Dieu ? » Cela me paraissait presque irréel. À cet instant, quelque chose a profondément touché mon cœur. J'ai prié en mon cœur en disant au Seigneur que si c'est possible de Le servir en étant mariée à un homme qui L'aime réellement, alors c'est ce genre de mari que je souhaiterais avoir. En quittant ce siège de prière, une conviction nouvelle était née en moi : le monde n'avait rien à m'offrir. Je ne voulais plus construire ma vie selon mes propres critères, mais faire confiance au Seigneur, convaincue que c'est en Christ que je trouverais le conjoint qu'Il avait préparé pour moi.",
@@ -404,7 +404,7 @@ function MusicPlayer() {
       >
         {playing ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" style={{ marginLeft: 1 }} />}
       </button>
-      <span className="player-mobile-title">Play our song</span>
+      <span className="player-mobile-title">{wedding.music.title}</span>
       <div className="player-meta">
         <p className="player-title">{wedding.music.title}</p>
         <div className="player-bar"><i style={{ width: `${progress}%` }} /></div>
@@ -1106,7 +1106,9 @@ function StoryPage() {
             {storyTestimonies.map((testimony, index) => (
               <article className={`story-testimony ${index % 2 === 1 ? 'reverse' : ''}`} key={testimony.label}>
                 <Reveal className="story-testimony-portrait">
-                  <img src={testimony.image} alt={testimony.alt} loading="lazy" />
+                  <span className="story-portrait-medallion">
+                    <img src={testimony.image} alt={testimony.alt} loading="lazy" />
+                  </span>
                 </Reveal>
                 <div className="story-testimony-content">
                   <p className="eyebrow">{testimony.label}</p>
