@@ -29,7 +29,7 @@ const wedding = {
   dateShort: '15 août 2026',
   dateLong: 'Samedi 15 août 2026',
   dateWeekend: 'Vendredi 14 août & Samedi 15 août 2026',
-  dateISO: '2026-08-15T15:00:00',
+  dateISO: '2026-08-15T09:00:00',
   city: 'Cergy & Herblay-sur-Seine',
 
   rsvpFormLink: 'https://forms.gle/X6uTjDfS6XoWH4VQ9',
