@@ -1151,7 +1151,12 @@ function StoryPage() {
                   <p className="story-testimony-title">{testimony.title}</p>
                   <div className="story-testimony-prose">
                     {testimony.paragraphs.map((paragraph, paragraphIndex) => (
-                      <p key={`${testimony.label}-${paragraphIndex}`}>{paragraph}</p>
+                      <p
+                        className={paragraph.includes('\n') ? 'story-testimony-verse' : undefined}
+                        key={`${testimony.label}-${paragraphIndex}`}
+                      >
+                        {paragraph}
+                      </p>
                     ))}
                   </div>
                 </div>

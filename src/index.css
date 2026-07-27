@@ -1216,10 +1216,17 @@ img {
   font-family: 'Manrope', sans-serif;
   font-size: 1rem;
   line-height: 1.9;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
 }
 .story-testimony-prose p {
   margin: 0 0 1.35rem;
   white-space: pre-line;
+}
+.story-testimony-prose .story-testimony-verse {
+  text-align: left;
+  hyphens: none;
 }
 .story-testimony-prose p:first-child {
   color: var(--canard-dark);
