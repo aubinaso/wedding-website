@@ -829,8 +829,6 @@ function SiteLike() {
 function HomePage() {
   return (
     <main className="overflow-hidden">
-      <TopBar />
-
       {/* HERO — couronne florale centrée (identique mobile & desktop) */}
       <section id="accueil" className="hero">
         <BotanicalCorner className="hero-botanical tl" />
@@ -1099,8 +1097,6 @@ function StoryPage() {
 
   return (
     <main className="story-page overflow-hidden">
-      <TopBar homeHref="/" items={storyNavItems} />
-
       <section id="histoire-page" className="story-page-hero">
         <BotanicalCorner className="story-page-botanical left" />
         <BotanicalCorner className="story-page-botanical right" />
@@ -1182,8 +1178,77 @@ function StoryPage() {
 }
 
 function App() {
-  const pathname = window.location.pathname.replace(/\/+$/, '') || '/';
-  return pathname === '/histoire' ? <StoryPage /> : <HomePage />;
+  const readLocation = () => `${window.location.pathname}${window.location.search}${window.location.hash}`;
+  const [route, setRoute] = useState(() => ({ href: readLocation(), key: 0 }));
+  const pathname = new URL(route.href, window.location.origin).pathname.replace(/\/+$/, '') || '/';
+  const isStoryPage = pathname === '/histoire';
+
+  useEffect(() => {
+    const updateRoute = () => {
+      setRoute((current) => ({ href: readLocation(), key: current.key + 1 }));
+    };
+
+    const handleInternalLink = (event) => {
+      if (
+        event.defaultPrevented
+        || event.button !== 0
+        || event.metaKey
+        || event.ctrlKey
+        || event.shiftKey
+        || event.altKey
+        || !(event.target instanceof Element)
+      ) {
+        return;
+      }
+
+      const link = event.target.closest('a[href]');
+      if (!link || link.target || link.hasAttribute('download')) return;
+
+      const destination = new URL(link.href, window.location.href);
+      const destinationPath = destination.pathname.replace(/\/+$/, '') || '/';
+      if (
+        destination.origin !== window.location.origin
+        || !['/', '/histoire'].includes(destinationPath)
+      ) {
+        return;
+      }
+
+      event.preventDefault();
+      window.history.pushState({}, '', destination);
+      updateRoute();
+    };
+
+    window.addEventListener('popstate', updateRoute);
+    document.addEventListener('click', handleInternalLink);
+
+    return () => {
+      window.removeEventListener('popstate', updateRoute);
+      document.removeEventListener('click', handleInternalLink);
+    };
+  }, []);
+
+  useEffect(() => {
+    const frame = window.requestAnimationFrame(() => {
+      const hash = window.location.hash.slice(1);
+      if (hash) {
+        document.getElementById(decodeURIComponent(hash))?.scrollIntoView({ block: 'start' });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      }
+    });
+
+    return () => window.cancelAnimationFrame(frame);
+  }, [route]);
+
+  return (
+    <>
+      <TopBar
+        homeHref={isStoryPage ? '/' : '#accueil'}
+        items={isStoryPage ? storyNavItems : navItems}
+      />
+      {isStoryPage ? <StoryPage /> : <HomePage />}
+    </>
+  );
 }
 
 export default App;
