@@ -52,7 +52,7 @@ const wedding = {
 
   images: {
     hero: '/images/couple/les_regards_un_sur_autre.jpeg',
-    mot: '/images/couple/demande_fiancailles.jpeg',
+    mot: '/images/couple/nouvelle_photo.png',
     ceremonie: '/images/couple/photo_a_2.jpeg',
     reception: '/images/couple/repas_chez_fiancaille_avec_guitare.jpeg',
     lieu: '/images/couple/sortie_a_2.jpeg',
@@ -200,12 +200,19 @@ const galleryImages = [
   { src: '/images/galeris/image3.jpg', alt: 'Axel et Aivi, souvenir 3' },
   { src: '/images/galeris/image3.jpeg', alt: 'Axel et Aivi, souvenir 4' },
   { src: '/images/galeris/image4.jpg', alt: 'Axel et Aivi, souvenir 5' },
-  { src: '/images/galeris/image6.jpeg', alt: 'Axel et Aivi, souvenir 6' },
-  { src: '/images/galeris/image7.jpg', alt: 'Axel et Aivi, souvenir 7' },
-  { src: '/images/galeris/image8.jpg', alt: 'Axel et Aivi, souvenir 8' },
-  { src: '/images/galeris/image9.jpg', alt: 'Axel et Aivi, souvenir 9' },
-  { src: '/images/galeris/image10.jpeg', alt: 'Axel et Aivi, souvenir 10' },
-  { src: '/images/galeris/image11.jpeg', alt: 'Axel et Aivi, souvenir 11' },
+  { src: '/images/galeris/image12.png', alt: 'Axel et Aivi, souvenir 6' },
+  { src: '/images/galeris/image13.png', alt: 'Axel et Aivi, souvenir 7' },
+  { src: '/images/galeris/image14.png', alt: 'Axel et Aivi, souvenir 8' },
+  { src: '/images/galeris/image15.png', alt: 'Axel et Aivi, souvenir 9' },
+  { src: '/images/galeris/image16.png', alt: 'Axel et Aivi, souvenir 10' },
+  { src: '/images/galeris/image17.png', alt: 'Axel et Aivi, souvenir 11' },
+  { src: '/images/galeris/image18.png', alt: 'Axel et Aivi, souvenir 12' },
+  { src: '/images/galeris/image6.jpeg', alt: 'Axel et Aivi, souvenir 13' },
+  { src: '/images/galeris/image7.jpg', alt: 'Axel et Aivi, souvenir 14' },
+  { src: '/images/galeris/image8.jpg', alt: 'Axel et Aivi, souvenir 15' },
+  { src: '/images/galeris/image9.jpg', alt: 'Axel et Aivi, souvenir 16' },
+  { src: '/images/galeris/image10.jpeg', alt: 'Axel et Aivi, souvenir 17' },
+  { src: '/images/galeris/image11.jpeg', alt: 'Axel et Aivi, souvenir 18' },
 ];
 
 // Notre thème
