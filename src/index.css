@@ -798,8 +798,9 @@ img {
 }
 .mot-media img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 3 / 4;
   object-fit: cover;
+  object-position: center top;
 }
 .mot-signature {
   font-family: 'Parisienne', cursive;
