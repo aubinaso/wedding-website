@@ -2161,6 +2161,9 @@ img {
   background: rgba(230, 204, 126, 0.12);
   transform: translateY(-1px);
 }
+.site-like:disabled {
+  cursor: wait;
+}
 .site-like svg {
   width: 1.1rem;
   height: 1.1rem;
